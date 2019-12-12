@@ -6,9 +6,16 @@ using System.Threading.Tasks;
 
 namespace Dubrovnik.Tools {
 	static class Extensions {
+			public static string GetBugFixedFullName(this Type type)
+			{
+				return type.FullName?
+					.Replace("`1[T]&", "`1&")
+					.Replace("`2[TKey,TValue]", "`2<TKey,TValue>")
+					;
+			}
 
 			public static string GetFriendlyName(this Type type) {
-				var s = type.IsNested && !string.IsNullOrEmpty(type.FullName) ? type.FullName.Substring(type.FullName.LastIndexOf('.') + 1).Replace('+', '.') : type.Name;
+				var s = type.IsNested && !string.IsNullOrEmpty(type.GetBugFixedFullName()) ? type.GetBugFixedFullName().Substring(type.GetBugFixedFullName().LastIndexOf('.') + 1).Replace('+', '.') : type.Name;
 
 				if (type.IsGenericType) {
 
@@ -38,7 +45,7 @@ namespace Dubrovnik.Tools {
 				 * pointer type, or byref type based on a type parameter, this property returns null.
 				 * 
 				 * */
-				string s = type.FullName;
+				string s = type.GetBugFixedFullName();
 				string sep = type.IsNested ? "+" : ".";
 				if (string.IsNullOrEmpty(s)) {
 					/*
