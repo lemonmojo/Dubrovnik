@@ -395,6 +395,7 @@
 		<string>System.Progress`1</string>
 		<string>System.Random</string>
 		<string>System.RankException</string>
+		<string>System.ReadOnlySpan`1+Enumerator</string>
 		<string>System.Reflection.AmbiguousMatchException</string>
 		<string>System.Reflection.Assembly</string>
 		<string>System.Reflection.AssemblyAlgorithmIdAttribute</string>
@@ -1375,6 +1376,7 @@
 		<string>System.Security.XmlSyntaxException</string>
 		<string>System.SerializableAttribute</string>
 		<string>System.Single</string>
+		<string>System.Span`1+Enumerator</string>
 		<string>System.StackOverflowException</string>
 		<string>System.STAThreadAttribute</string>
 		<string>System.String</string>
@@ -1654,7 +1656,6 @@
 		<string>System.UInt64</string>
 		<string>System.UIntPtr</string>
 		<string>System.UnhandledExceptionEventArgs</string>
-		<string>System.UnhandledExceptionEventArgs</string>
 		<string>System.UnhandledExceptionEventHandler</string>
 		<string>System.ValueType</string>
 		<string>System.Version</string>
@@ -1663,6 +1664,13 @@
 	<MemberNameSkipList>
 	<!-- Skip list for properties, fields and methods -->
 		<string>System.Array:Resize</string>
+		<string>System.ReadOnlySpan`1:GetEnumerator</string>
+		<string>System.ReadOnlySpan`1:GetPinnableReference</string>
+		<string>System.ReadOnlySpan`1:get_Item</string>
+		<string>System.Runtime.InteropServices.MemoryMarshal:GetReference</string>
+		<string>System.Span`1:get_Item</string>
+		<string>System.Span`1:GetEnumerator</string>
+		<string>System.Span`1:GetPinnableReference</string>
 	</MemberNameSkipList>
 	<OutputFileDeleteList>
 		<!-- Output files to be deleted on completion. -->

@@ -37,7 +37,6 @@
 @class System_Threading_Tasks_TaskA1;
 @class System_TimeSpan;
 @class System_Void;
-@class TaskA1;
 @class TResult;
 @protocol System_Collections_Generic_IEnumerableA1;
 @protocol System_Collections_Generic_IEnumerableA1_;
@@ -217,6 +216,18 @@
  @/textblock
 */
 @property (nonatomic, readonly) BOOL isCompleted;
+
+/**
+ Managed property.
+ @textblock
+ Name
+   IsCompletedSuccessfully
+
+ Type
+   System.Boolean
+ @/textblock
+*/
+@property (nonatomic, readonly) BOOL isCompletedSuccessfully;
 
 /**
  Managed property.
@@ -405,6 +416,25 @@
  Managed method.
  @textblock
  Name
+   CreateUnwrapPromise
+
+ Params
+   System.Threading.Tasks.Task
+   System.Boolean
+
+ Generics
+   <System.Threading.Tasks.Task+TResult>
+
+ Return
+   System.Threading.Tasks.Task`1<System.Threading.Tasks.Task+TResult>
+ @/textblock
+*/
++ (System_Threading_Tasks_TaskA1 *)createUnwrapPromise_withOuterTask:(System_Threading_Tasks_Task *)p1 lookForOce:(BOOL)p2 typeParameter:(id)typeParameter;
+
+/**
+ Managed method.
+ @textblock
+ Name
    Delay
 
  Params
@@ -498,6 +528,8 @@
 
 /* Skipped method : System.Runtime.CompilerServices.TaskAwaiter GetAwaiter() */
 
+/* Skipped method : System.Void MarkAborted(System.Threading.ThreadAbortException e) */
+
 /**
  Managed method.
  @textblock
@@ -536,37 +568,6 @@
    Run
 
  Params
-   System.Func`1<System.Threading.Tasks.Task>
-
- Return
-   System.Threading.Tasks.Task
- @/textblock
-*/
-+ (System_Threading_Tasks_Task *)run_withFunctionSFTTTask:(System_FuncA1 *)p1;
-
-/**
- Managed method.
- @textblock
- Name
-   Run
-
- Params
-   System.Func`1<System.Threading.Tasks.Task>
-   System.Threading.CancellationToken
-
- Return
-   System.Threading.Tasks.Task
- @/textblock
-*/
-+ (System_Threading_Tasks_Task *)run_withFunctionSFTTTask:(System_FuncA1 *)p1 cancellationTokenSTCancellationToken:(System_Threading_CancellationToken *)p2;
-
-/**
- Managed method.
- @textblock
- Name
-   Run
-
- Params
    System.Func`1<System.Threading.Tasks.Task+TResult>
 
  Generics
@@ -596,6 +597,37 @@
  @/textblock
 */
 + (System_Threading_Tasks_TaskA1 *)run_withFunctionSFTTTask__TResult:(System_FuncA1 *)p1 cancellationTokenSTCancellationToken:(System_Threading_CancellationToken *)p2 typeParameter:(id)typeParameter;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   Run
+
+ Params
+   System.Func`1<System.Threading.Tasks.Task>
+
+ Return
+   System.Threading.Tasks.Task
+ @/textblock
+*/
++ (System_Threading_Tasks_Task *)run_withFunctionSFTTTask:(System_FuncA1 *)p1;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   Run
+
+ Params
+   System.Func`1<System.Threading.Tasks.Task>
+   System.Threading.CancellationToken
+
+ Return
+   System.Threading.Tasks.Task
+ @/textblock
+*/
++ (System_Threading_Tasks_Task *)run_withFunctionSFTTTask:(System_FuncA1 *)p1 cancellationTokenSTCancellationToken:(System_Threading_CancellationToken *)p2;
 
 /**
  Managed method.
@@ -959,7 +991,7 @@
    WhenAll
 
  Params
-   Task`1[]
+   System.Threading.Tasks.Task`1
 
  Generics
    <System.Threading.Tasks.Task+TResult>
@@ -968,7 +1000,7 @@
    System.Threading.Tasks.Task`1<TResult[]>
  @/textblock
 */
-+ (System_Threading_Tasks_TaskA1 *)whenAll_withTasksTaskA1Array:(System_Array *)p1 typeParameter:(id)typeParameter;
++ (System_Threading_Tasks_TaskA1 *)whenAll_withTasksSTTTaskA1Array:(System_Array *)p1 typeParameter:(id)typeParameter;
 
 /**
  Managed method.
@@ -1007,7 +1039,7 @@
    WhenAny
 
  Params
-   Task`1[]
+   System.Threading.Tasks.Task`1
 
  Generics
    <System.Threading.Tasks.Task+TResult>
@@ -1016,7 +1048,7 @@
    System.Threading.Tasks.Task`1<System.Threading.Tasks.Task`1<System.Threading.Tasks.Task+TResult>>
  @/textblock
 */
-+ (System_Threading_Tasks_TaskA1 *)whenAny_withTasksTaskA1Array:(System_Array *)p1 typeParameter:(id)typeParameter;
++ (System_Threading_Tasks_TaskA1 *)whenAny_withTasksSTTTaskA1Array:(System_Array *)p1 typeParameter:(id)typeParameter;
 
 /**
  Managed method.

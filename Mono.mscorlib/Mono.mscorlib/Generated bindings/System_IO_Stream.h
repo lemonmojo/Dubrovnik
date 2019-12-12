@@ -21,15 +21,22 @@
 @class System_AsyncCallback;
 @class System_Boolean;
 @class System_Byte;
+@class System_IAsyncDisposable;
 @class System_IAsyncResult;
 @class System_IDisposable;
 @class System_Int32;
 @class System_Int64;
 @class System_IO_Stream;
+@class System_MemoryA1;
 @class System_Object;
+@class System_ReadOnlyMemoryA1;
+@class System_ReadOnlySpanA1;
+@class System_SpanA1;
 @class System_Threading_CancellationToken;
 @class System_Threading_Tasks_Task;
 @class System_Threading_Tasks_TaskA1;
+@class System_Threading_Tasks_ValueTask;
+@class System_Threading_Tasks_ValueTaskA1;
 @class System_Void;
 @protocol System_IAsyncResult;
 @protocol System_IAsyncResult_;
@@ -42,10 +49,11 @@
 //
 // Import superclass and adopted protocols
 //
+#import "System_IAsyncDisposable_Protocol.h"
 #import "System_IDisposable_Protocol.h"
 #import "System_MarshalByRefObject.h"
 
-@interface System_IO_Stream : System_MarshalByRefObject <System_IDisposable_>
+@interface System_IO_Stream : System_MarshalByRefObject <System_IAsyncDisposable_, System_IDisposable_>
 
 #pragma mark -
 #pragma mark Setup
@@ -262,23 +270,6 @@
 
  Params
    System.IO.Stream
-   System.Int32
-   System.Threading.CancellationToken
-
- Return
-   System.Threading.Tasks.Task
- @/textblock
-*/
-- (System_Threading_Tasks_Task *)copyToAsync_withDestination:(System_IO_Stream *)p1 bufferSize:(int32_t)p2 cancellationToken:(System_Threading_CancellationToken *)p3;
-
-/**
- Managed method.
- @textblock
- Name
-   CopyToAsync
-
- Params
-   System.IO.Stream
 
  Return
    System.Threading.Tasks.Task
@@ -306,6 +297,39 @@
  Managed method.
  @textblock
  Name
+   CopyToAsync
+
+ Params
+   System.IO.Stream
+   System.Threading.CancellationToken
+
+ Return
+   System.Threading.Tasks.Task
+ @/textblock
+*/
+- (System_Threading_Tasks_Task *)copyToAsync_withDestination:(System_IO_Stream *)p1 cancellationToken:(System_Threading_CancellationToken *)p2;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   CopyToAsync
+
+ Params
+   System.IO.Stream
+   System.Int32
+   System.Threading.CancellationToken
+
+ Return
+   System.Threading.Tasks.Task
+ @/textblock
+*/
+- (System_Threading_Tasks_Task *)copyToAsync_withDestination:(System_IO_Stream *)p1 bufferSize:(int32_t)p2 cancellationToken:(System_Threading_CancellationToken *)p3;
+
+/**
+ Managed method.
+ @textblock
+ Name
    Dispose
 
  Params
@@ -316,6 +340,21 @@
  @/textblock
 */
 - (void)dispose;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   DisposeAsync
+
+ Params
+   (none)
+
+ Return
+   System.Threading.Tasks.ValueTask
+ @/textblock
+*/
+- (System_Threading_Tasks_ValueTask *)disposeAsync;
 
 /**
  Managed method.
@@ -413,6 +452,38 @@
  Managed method.
  @textblock
  Name
+   Read
+
+ Params
+   System.Span`1<System.Byte>
+
+ Return
+   System.Int32
+ @/textblock
+*/
+- (int32_t)read_withBuffer:(System_SpanA1 *)p1;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   ReadAsync
+
+ Params
+   System.Byte[]
+   System.Int32
+   System.Int32
+
+ Return
+   System.Threading.Tasks.Task`1<System.Int32>
+ @/textblock
+*/
+- (System_Threading_Tasks_TaskA1 *)readAsync_withBuffer:(NSData *)p1 offset:(int32_t)p2 count:(int32_t)p3;
+
+/**
+ Managed method.
+ @textblock
+ Name
    ReadAsync
 
  Params
@@ -434,15 +505,14 @@
    ReadAsync
 
  Params
-   System.Byte[]
-   System.Int32
-   System.Int32
+   System.Memory`1<System.Byte>
+   System.Threading.CancellationToken
 
  Return
-   System.Threading.Tasks.Task`1<System.Int32>
+   System.Threading.Tasks.ValueTask`1<System.Int32>
  @/textblock
 */
-- (System_Threading_Tasks_TaskA1 *)readAsync_withBuffer:(NSData *)p1 offset:(int32_t)p2 count:(int32_t)p3;
+- (System_Threading_Tasks_ValueTaskA1 *)readAsync_withBuffer:(System_MemoryA1 *)p1 cancellationToken:(System_Threading_CancellationToken *)p2;
 
 /**
  Managed method.
@@ -512,6 +582,38 @@
  Managed method.
  @textblock
  Name
+   Write
+
+ Params
+   System.ReadOnlySpan`1<System.Byte>
+
+ Return
+   System.Void
+ @/textblock
+*/
+- (void)write_withBuffer:(System_ReadOnlySpanA1 *)p1;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   WriteAsync
+
+ Params
+   System.Byte[]
+   System.Int32
+   System.Int32
+
+ Return
+   System.Threading.Tasks.Task
+ @/textblock
+*/
+- (System_Threading_Tasks_Task *)writeAsync_withBuffer:(NSData *)p1 offset:(int32_t)p2 count:(int32_t)p3;
+
+/**
+ Managed method.
+ @textblock
+ Name
    WriteAsync
 
  Params
@@ -533,15 +635,14 @@
    WriteAsync
 
  Params
-   System.Byte[]
-   System.Int32
-   System.Int32
+   System.ReadOnlyMemory`1<System.Byte>
+   System.Threading.CancellationToken
 
  Return
-   System.Threading.Tasks.Task
+   System.Threading.Tasks.ValueTask
  @/textblock
 */
-- (System_Threading_Tasks_Task *)writeAsync_withBuffer:(NSData *)p1 offset:(int32_t)p2 count:(int32_t)p3;
+- (System_Threading_Tasks_ValueTask *)writeAsync_withBuffer:(System_ReadOnlyMemoryA1 *)p1 cancellationToken:(System_Threading_CancellationToken *)p2;
 
 /**
  Managed method.

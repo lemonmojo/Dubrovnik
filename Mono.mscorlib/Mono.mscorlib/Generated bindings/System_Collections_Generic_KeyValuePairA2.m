@@ -85,6 +85,15 @@
 #pragma mark -
 #pragma mark Methods
 
+- (void)deconstruct_withKeyRef:(System_Object **)p1 valueRef:(System_Object **)p2
+{
+	void *refPtr1 = [*p1 monoRTInvokeArg];
+	void *refPtr2 = [*p2 monoRTInvokeArg];
+	[self invokeMonoMethod:"Deconstruct(System.Collections.Generic.KeyValuePair`2/TKey&,System.Collections.Generic.KeyValuePair`2/TValue&)" withNumArgs:2, &refPtr1, &refPtr2];
+	*p1 = [System_Object bestObjectWithMonoObject:refPtr1];
+	*p2 = [System_Object bestObjectWithMonoObject:refPtr2];
+}
+
 - (NSString *)toString
 {
 	MonoObject *monoObject = [self invokeMonoMethod:"ToString()" withNumArgs:0];

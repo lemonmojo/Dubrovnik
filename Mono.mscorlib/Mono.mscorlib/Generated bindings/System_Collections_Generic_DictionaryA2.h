@@ -37,6 +37,8 @@
 @class System_Void;
 @protocol System_Collections_Generic_IDictionaryA2;
 @protocol System_Collections_Generic_IDictionaryA2_;
+@protocol System_Collections_Generic_IEnumerableA1;
+@protocol System_Collections_Generic_IEnumerableA1_;
 
 //
 // Local assembly imports
@@ -58,7 +60,7 @@
 #import "System_Runtime_Serialization_IDeserializationCallback_Protocol.h"
 #import "System_Runtime_Serialization_ISerializable_Protocol.h"
 
-@interface System_Collections_Generic_DictionaryA2 : System_Object <System_Collections_Generic_IDictionaryA2_, System_Collections_Generic_ICollectionA1_, System_Collections_Generic_IEnumerableA1_, System_Collections_IEnumerable_, System_Collections_IDictionary_, System_Collections_ICollection_, System_Collections_Generic_IReadOnlyDictionaryA2_, System_Collections_Generic_IReadOnlyCollectionA1_, System_Runtime_Serialization_ISerializable_, System_Runtime_Serialization_IDeserializationCallback_>
+@interface System_Collections_Generic_DictionaryA2 : System_Object <System_Collections_IEnumerable_, System_Runtime_Serialization_ISerializable_, System_Collections_Generic_IReadOnlyCollectionA1_, System_Collections_Generic_ICollectionA1_, System_Collections_Generic_IReadOnlyDictionaryA2_, System_Collections_Generic_IDictionaryA2_, System_Collections_ICollection_, System_Collections_IDictionary_, System_Runtime_Serialization_IDeserializationCallback_, System_Collections_Generic_IEnumerableA1_>
 
 #pragma mark -
 #pragma mark Setup
@@ -104,6 +106,23 @@
 + (System_Collections_Generic_DictionaryA2 *)new_withDictionary:(System_Object <System_Collections_Generic_IDictionaryA2_> *)p1;
 
 /* Skipped constructor : System.Collections.Generic.Dictionary`2<System.Collections.Generic.Dictionary`2+TKey, System.Collections.Generic.Dictionary`2+TValue> (System.Collections.Generic.IDictionary`2<System.Collections.Generic.Dictionary`2+TKey, System.Collections.Generic.Dictionary`2+TValue> dictionary, System.Collections.Generic.IEqualityComparer`1<System.Collections.Generic.Dictionary`2+TKey> comparer) */
+
+/**
+ Managed method.
+ @textblock
+ Name
+   .ctor
+
+ Params
+   System.Collections.Generic.IEnumerable`1<System.Collections.Generic.KeyValuePair`2<System.Collections.Generic.Dictionary`2+TKey, System.Collections.Generic.Dictionary`2+TValue>>
+
+ Return
+   System.Collections.Generic.Dictionary`2<System.Collections.Generic.Dictionary`2+TKey, System.Collections.Generic.Dictionary`2+TValue>
+ @/textblock
+*/
++ (System_Collections_Generic_DictionaryA2 *)new_withCollection:(System_Object <System_Collections_Generic_IEnumerableA1_> *)p1;
+
+/* Skipped constructor : System.Collections.Generic.Dictionary`2<System.Collections.Generic.Dictionary`2+TKey, System.Collections.Generic.Dictionary`2+TValue> (System.Collections.Generic.IEnumerable`1<System.Collections.Generic.KeyValuePair`2<System.Collections.Generic.Dictionary`2+TKey, System.Collections.Generic.Dictionary`2+TValue>> collection, System.Collections.Generic.IEqualityComparer`1<System.Collections.Generic.Dictionary`2+TKey> comparer) */
 
 #pragma mark -
 #pragma mark Properties
@@ -245,6 +264,21 @@
  Managed method.
  @textblock
  Name
+   EnsureCapacity
+
+ Params
+   System.Int32
+
+ Return
+   System.Int32
+ @/textblock
+*/
+- (int32_t)ensureCapacity_withCapacity:(int32_t)p1;
+
+/**
+ Managed method.
+ @textblock
+ Name
    GetEnumerator
 
  Params
@@ -287,6 +321,68 @@
  @/textblock
 */
 - (BOOL)remove_withKey:(id <DBMonoObject>)p1;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   Remove
+
+ Params
+   <System.Collections.Generic.Dictionary`2+TKey>
+   ref TValue&
+
+ Return
+   System.Boolean
+ @/textblock
+*/
+- (BOOL)remove_withKey:(id <DBMonoObject>)p1 valueRef:(System_Object **)p2;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   TrimExcess
+
+ Params
+   (none)
+
+ Return
+   System.Void
+ @/textblock
+*/
+- (void)trimExcess;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   TrimExcess
+
+ Params
+   System.Int32
+
+ Return
+   System.Void
+ @/textblock
+*/
+- (void)trimExcess_withCapacity:(int32_t)p1;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   TryAdd
+
+ Params
+   <System.Collections.Generic.Dictionary`2+TKey>
+   <System.Collections.Generic.Dictionary`2+TValue>
+
+ Return
+   System.Boolean
+ @/textblock
+*/
+- (BOOL)tryAdd_withKey:(id <DBMonoObject>)p1 value:(id <DBMonoObject>)p2;
 
 /**
  Managed method.

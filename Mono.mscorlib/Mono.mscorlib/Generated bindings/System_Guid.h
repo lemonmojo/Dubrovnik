@@ -27,6 +27,8 @@
 @class System_Int16;
 @class System_Int32;
 @class System_Object;
+@class System_ReadOnlySpanA1;
+@class System_SpanA1;
 @class System_String;
 @class System_UInt16;
 @class System_UInt32;
@@ -68,7 +70,22 @@
    System.Guid
  @/textblock
 */
-+ (System_Guid *)new_withB:(NSData *)p1;
++ (System_Guid *)new_withBByteArray:(NSData *)p1;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   .ctor
+
+ Params
+   System.ReadOnlySpan`1<System.Byte>
+
+ Return
+   System.Guid
+ @/textblock
+*/
++ (System_Guid *)new_withBSReadOnlySpanA1byte:(System_ReadOnlySpanA1 *)p1;
 
 /**
  Managed method.
@@ -306,7 +323,22 @@
    System.Guid
  @/textblock
 */
-+ (System_Guid *)parse_withInput:(NSString *)p1;
++ (System_Guid *)parse_withInputString:(NSString *)p1;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   Parse
+
+ Params
+   System.ReadOnlySpan`1<System.Char>
+
+ Return
+   System.Guid
+ @/textblock
+*/
++ (System_Guid *)parse_withInputSReadOnlySpanA1char:(System_ReadOnlySpanA1 *)p1;
 
 /**
  Managed method.
@@ -322,7 +354,23 @@
    System.Guid
  @/textblock
 */
-+ (System_Guid *)parseExact_withInput:(NSString *)p1 format:(NSString *)p2;
++ (System_Guid *)parseExact_withInputString:(NSString *)p1 formatString:(NSString *)p2;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   ParseExact
+
+ Params
+   System.ReadOnlySpan`1<System.Char>
+   System.ReadOnlySpan`1<System.Char>
+
+ Return
+   System.Guid
+ @/textblock
+*/
++ (System_Guid *)parseExact_withInputSReadOnlySpanA1char:(System_ReadOnlySpanA1 *)p1 formatSReadOnlySpanA1char:(System_ReadOnlySpanA1 *)p2;
 
 /**
  Managed method.
@@ -346,21 +394,6 @@
    ToString
 
  Params
-   System.String
-
- Return
-   System.String
- @/textblock
-*/
-- (NSString *)toString_withFormat:(NSString *)p1;
-
-/**
- Managed method.
- @textblock
- Name
-   ToString
-
- Params
    (none)
 
  Return
@@ -369,7 +402,39 @@
 */
 - (NSString *)toString;
 
+/**
+ Managed method.
+ @textblock
+ Name
+   ToString
+
+ Params
+   System.String
+
+ Return
+   System.String
+ @/textblock
+*/
+- (NSString *)toString_withFormat:(NSString *)p1;
+
 /* Skipped method : System.String ToString(System.String format, System.IFormatProvider provider) */
+
+/**
+ Managed method.
+ @textblock
+ Name
+   TryFormat
+
+ Params
+   System.Span`1<System.Char>
+   ref System.Int32&
+   System.ReadOnlySpan`1<System.Char>
+
+ Return
+   System.Boolean
+ @/textblock
+*/
+- (BOOL)tryFormat_withDestination:(System_SpanA1 *)p1 charsWrittenRef:(int32_t*)p2 format:(System_ReadOnlySpanA1 *)p3;
 
 /**
  Managed method.
@@ -385,7 +450,23 @@
    System.Boolean
  @/textblock
 */
-+ (BOOL)tryParse_withInput:(NSString *)p1 resultRef:(System_Guid **)p2;
++ (BOOL)tryParse_withInputString:(NSString *)p1 resultSGuidRef:(System_Guid **)p2;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   TryParse
+
+ Params
+   System.ReadOnlySpan`1<System.Char>
+   ref System.Guid&
+
+ Return
+   System.Boolean
+ @/textblock
+*/
++ (BOOL)tryParse_withInputSReadOnlySpanA1char:(System_ReadOnlySpanA1 *)p1 resultSGuidRef:(System_Guid **)p2;
 
 /**
  Managed method.
@@ -402,6 +483,38 @@
    System.Boolean
  @/textblock
 */
-+ (BOOL)tryParseExact_withInput:(NSString *)p1 format:(NSString *)p2 resultRef:(System_Guid **)p3;
++ (BOOL)tryParseExact_withInputString:(NSString *)p1 formatString:(NSString *)p2 resultSGuidRef:(System_Guid **)p3;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   TryParseExact
+
+ Params
+   System.ReadOnlySpan`1<System.Char>
+   System.ReadOnlySpan`1<System.Char>
+   ref System.Guid&
+
+ Return
+   System.Boolean
+ @/textblock
+*/
++ (BOOL)tryParseExact_withInputSReadOnlySpanA1char:(System_ReadOnlySpanA1 *)p1 formatSReadOnlySpanA1char:(System_ReadOnlySpanA1 *)p2 resultSGuidRef:(System_Guid **)p3;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   TryWriteBytes
+
+ Params
+   System.Span`1<System.Byte>
+
+ Return
+   System.Boolean
+ @/textblock
+*/
+- (BOOL)tryWriteBytes_withDestination:(System_SpanA1 *)p1;
 @end
 //--Dubrovnik.CodeGenerator

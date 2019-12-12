@@ -380,6 +380,18 @@
  Managed property.
  @textblock
  Name
+   IsByRefLike
+
+ Type
+   System.Boolean
+ @/textblock
+*/
+@property (nonatomic, readonly) BOOL isByRefLike;
+
+/**
+ Managed property.
+ @textblock
+ Name
    IsClass
 
  Type
@@ -387,6 +399,18 @@
  @/textblock
 */
 @property (nonatomic, readonly) BOOL isClass;
+
+/**
+ Managed property.
+ @textblock
+ Name
+   IsCollectible
+
+ Type
+   System.Boolean
+ @/textblock
+*/
+@property (nonatomic, readonly) BOOL isCollectible;
 
 /**
  Managed property.
@@ -452,6 +476,18 @@
  Managed property.
  @textblock
  Name
+   IsGenericMethodParameter
+
+ Type
+   System.Boolean
+ @/textblock
+*/
+@property (nonatomic, readonly) BOOL isGenericMethodParameter;
+
+/**
+ Managed property.
+ @textblock
+ Name
    IsGenericParameter
 
  Type
@@ -483,6 +519,18 @@
  @/textblock
 */
 @property (nonatomic, readonly) BOOL isGenericTypeDefinition;
+
+/**
+ Managed property.
+ @textblock
+ Name
+   IsGenericTypeParameter
+
+ Type
+   System.Boolean
+ @/textblock
+*/
+@property (nonatomic, readonly) BOOL isGenericTypeParameter;
 
 /**
  Managed property.
@@ -728,6 +776,18 @@
  Managed property.
  @textblock
  Name
+   IsSignatureType
+
+ Type
+   System.Boolean
+ @/textblock
+*/
+@property (nonatomic, readonly) BOOL isSignatureType;
+
+/**
+ Managed property.
+ @textblock
+ Name
    IsSpecialName
 
  Type
@@ -735,6 +795,30 @@
  @/textblock
 */
 @property (nonatomic, readonly) BOOL isSpecialName;
+
+/**
+ Managed property.
+ @textblock
+ Name
+   IsSZArray
+
+ Type
+   System.Boolean
+ @/textblock
+*/
+@property (nonatomic, readonly) BOOL isSZArray;
+
+/**
+ Managed property.
+ @textblock
+ Name
+   IsTypeDefinition
+
+ Type
+   System.Boolean
+ @/textblock
+*/
+@property (nonatomic, readonly) BOOL isTypeDefinition;
 
 /**
  Managed property.
@@ -759,6 +843,18 @@
  @/textblock
 */
 @property (nonatomic, readonly) BOOL isValueType;
+
+/**
+ Managed property.
+ @textblock
+ Name
+   IsVariableBoundArray
+
+ Type
+   System.Boolean
+ @/textblock
+*/
+@property (nonatomic, readonly) BOOL isVariableBoundArray;
 
 /**
  Managed property.
@@ -880,10 +976,6 @@
 */
 - (int32_t)getArrayRank;
 
-/* Skipped method : System.Reflection.ConstructorInfo GetConstructor(System.Reflection.BindingFlags bindingAttr, System.Reflection.Binder binder, System.Reflection.CallingConventions callConvention, System.Type[] types, System.Reflection.ParameterModifier[] modifiers) */
-
-/* Skipped method : System.Reflection.ConstructorInfo GetConstructor(System.Reflection.BindingFlags bindingAttr, System.Reflection.Binder binder, System.Type[] types, System.Reflection.ParameterModifier[] modifiers) */
-
 /**
  Managed method.
  @textblock
@@ -898,6 +990,10 @@
  @/textblock
 */
 - (System_Reflection_ConstructorInfo *)getConstructor_withTypes:(System_Array *)p1;
+
+/* Skipped method : System.Reflection.ConstructorInfo GetConstructor(System.Reflection.BindingFlags bindingAttr, System.Reflection.Binder binder, System.Type[] types, System.Reflection.ParameterModifier[] modifiers) */
+
+/* Skipped method : System.Reflection.ConstructorInfo GetConstructor(System.Reflection.BindingFlags bindingAttr, System.Reflection.Binder binder, System.Reflection.CallingConventions callConvention, System.Type[] types, System.Reflection.ParameterModifier[] modifiers) */
 
 /**
  Managed method.
@@ -1166,11 +1262,22 @@
 
 /* Skipped method : System.Reflection.MemberInfo[] GetMembers(System.Reflection.BindingFlags bindingAttr) */
 
-/* Skipped method : System.Reflection.MethodInfo GetMethod(System.String name, System.Reflection.BindingFlags bindingAttr, System.Reflection.Binder binder, System.Reflection.CallingConventions callConvention, System.Type[] types, System.Reflection.ParameterModifier[] modifiers) */
+/**
+ Managed method.
+ @textblock
+ Name
+   GetMethod
 
-/* Skipped method : System.Reflection.MethodInfo GetMethod(System.String name, System.Reflection.BindingFlags bindingAttr, System.Reflection.Binder binder, System.Type[] types, System.Reflection.ParameterModifier[] modifiers) */
+ Params
+   System.String
 
-/* Skipped method : System.Reflection.MethodInfo GetMethod(System.String name, System.Type[] types, System.Reflection.ParameterModifier[] modifiers) */
+ Return
+   System.Reflection.MethodInfo
+ @/textblock
+*/
+- (System_Reflection_MethodInfo *)getMethod_withName:(NSString *)p1;
+
+/* Skipped method : System.Reflection.MethodInfo GetMethod(System.String name, System.Reflection.BindingFlags bindingAttr) */
 
 /**
  Managed method.
@@ -1188,7 +1295,11 @@
 */
 - (System_Reflection_MethodInfo *)getMethod_withName:(NSString *)p1 types:(System_Array *)p2;
 
-/* Skipped method : System.Reflection.MethodInfo GetMethod(System.String name, System.Reflection.BindingFlags bindingAttr) */
+/* Skipped method : System.Reflection.MethodInfo GetMethod(System.String name, System.Type[] types, System.Reflection.ParameterModifier[] modifiers) */
+
+/* Skipped method : System.Reflection.MethodInfo GetMethod(System.String name, System.Reflection.BindingFlags bindingAttr, System.Reflection.Binder binder, System.Type[] types, System.Reflection.ParameterModifier[] modifiers) */
+
+/* Skipped method : System.Reflection.MethodInfo GetMethod(System.String name, System.Reflection.BindingFlags bindingAttr, System.Reflection.Binder binder, System.Reflection.CallingConventions callConvention, System.Type[] types, System.Reflection.ParameterModifier[] modifiers) */
 
 /**
  Managed method.
@@ -1198,12 +1309,20 @@
 
  Params
    System.String
+   System.Int32
+   System.Type[]
 
  Return
    System.Reflection.MethodInfo
  @/textblock
 */
-- (System_Reflection_MethodInfo *)getMethod_withName:(NSString *)p1;
+- (System_Reflection_MethodInfo *)getMethod_withName:(NSString *)p1 genericParameterCount:(int32_t)p2 types:(System_Array *)p3;
+
+/* Skipped method : System.Reflection.MethodInfo GetMethod(System.String name, System.Int32 genericParameterCount, System.Type[] types, System.Reflection.ParameterModifier[] modifiers) */
+
+/* Skipped method : System.Reflection.MethodInfo GetMethod(System.String name, System.Int32 genericParameterCount, System.Reflection.BindingFlags bindingAttr, System.Reflection.Binder binder, System.Type[] types, System.Reflection.ParameterModifier[] modifiers) */
+
+/* Skipped method : System.Reflection.MethodInfo GetMethod(System.String name, System.Int32 genericParameterCount, System.Reflection.BindingFlags bindingAttr, System.Reflection.Binder binder, System.Reflection.CallingConventions callConvention, System.Type[] types, System.Reflection.ParameterModifier[] modifiers) */
 
 /**
  Managed method.
@@ -1273,9 +1392,20 @@
 
 /* Skipped method : System.Reflection.PropertyInfo[] GetProperties(System.Reflection.BindingFlags bindingAttr) */
 
-/* Skipped method : System.Reflection.PropertyInfo GetProperty(System.String name, System.Reflection.BindingFlags bindingAttr, System.Reflection.Binder binder, System.Type returnType, System.Type[] types, System.Reflection.ParameterModifier[] modifiers) */
+/**
+ Managed method.
+ @textblock
+ Name
+   GetProperty
 
-/* Skipped method : System.Reflection.PropertyInfo GetProperty(System.String name, System.Type returnType, System.Type[] types, System.Reflection.ParameterModifier[] modifiers) */
+ Params
+   System.String
+
+ Return
+   System.Reflection.PropertyInfo
+ @/textblock
+*/
+- (System_Reflection_PropertyInfo *)getProperty_withName:(NSString *)p1;
 
 /* Skipped method : System.Reflection.PropertyInfo GetProperty(System.String name, System.Reflection.BindingFlags bindingAttr) */
 
@@ -1288,13 +1418,12 @@
  Params
    System.String
    System.Type
-   System.Type[]
 
  Return
    System.Reflection.PropertyInfo
  @/textblock
 */
-- (System_Reflection_PropertyInfo *)getProperty_withName:(NSString *)p1 returnType:(System_Type *)p2 types:(System_Array *)p3;
+- (System_Reflection_PropertyInfo *)getProperty_withName:(NSString *)p1 returnType:(System_Type *)p2;
 
 /**
  Managed method.
@@ -1321,27 +1450,32 @@
  Params
    System.String
    System.Type
+   System.Type[]
 
  Return
    System.Reflection.PropertyInfo
  @/textblock
 */
-- (System_Reflection_PropertyInfo *)getProperty_withName:(NSString *)p1 returnType:(System_Type *)p2;
+- (System_Reflection_PropertyInfo *)getProperty_withName:(NSString *)p1 returnType:(System_Type *)p2 types:(System_Array *)p3;
+
+/* Skipped method : System.Reflection.PropertyInfo GetProperty(System.String name, System.Type returnType, System.Type[] types, System.Reflection.ParameterModifier[] modifiers) */
+
+/* Skipped method : System.Reflection.PropertyInfo GetProperty(System.String name, System.Reflection.BindingFlags bindingAttr, System.Reflection.Binder binder, System.Type returnType, System.Type[] types, System.Reflection.ParameterModifier[] modifiers) */
 
 /**
  Managed method.
  @textblock
  Name
-   GetProperty
+   GetType
 
  Params
-   System.String
+   (none)
 
  Return
-   System.Reflection.PropertyInfo
+   System.Type
  @/textblock
 */
-- (System_Reflection_PropertyInfo *)getProperty_withName:(NSString *)p1;
+- (System_Type *)getType;
 
 /**
  Managed method.
@@ -1444,21 +1578,6 @@
  @/textblock
 */
 + (System_Type *)getType_withTypeName:(NSString *)p1 assemblyResolver:(System_FuncA2 *)p2 typeResolver:(System_FuncA4 *)p3 throwOnError:(BOOL)p4 ignoreCase:(BOOL)p5;
-
-/**
- Managed method.
- @textblock
- Name
-   GetType
-
- Params
-   (none)
-
- Return
-   System.Type
- @/textblock
-*/
-- (System_Type *)getType;
 
 /**
  Managed method.
@@ -1609,9 +1728,9 @@
 
 /* Skipped method : System.RuntimeTypeHandle GetTypeHandle(System.Object o) */
 
-/* Skipped method : System.Object InvokeMember(System.String name, System.Reflection.BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object target, System.Object[] args, System.Globalization.CultureInfo culture) */
-
 /* Skipped method : System.Object InvokeMember(System.String name, System.Reflection.BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object target, System.Object[] args) */
+
+/* Skipped method : System.Object InvokeMember(System.String name, System.Reflection.BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object target, System.Object[] args, System.Globalization.CultureInfo culture) */
 
 /* Skipped method : System.Object InvokeMember(System.String name, System.Reflection.BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object target, System.Object[] args, System.Reflection.ParameterModifier[] modifiers, System.Globalization.CultureInfo culture, System.String[] namedParameters) */
 
@@ -1734,6 +1853,37 @@
  @/textblock
 */
 - (System_Type *)makeByRefType;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   MakeGenericMethodParameter
+
+ Params
+   System.Int32
+
+ Return
+   System.Type
+ @/textblock
+*/
++ (System_Type *)makeGenericMethodParameter_withPosition:(int32_t)p1;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   MakeGenericSignatureType
+
+ Params
+   System.Type
+   System.Type[]
+
+ Return
+   System.Type
+ @/textblock
+*/
++ (System_Type *)makeGenericSignatureType_withGenericTypeDefinition:(System_Type *)p1 typeArguments:(System_Array *)p2;
 
 /**
  Managed method.

@@ -484,6 +484,25 @@ static System_Reflection_Binder * m_defaultBinder;
 	return _isByRef;
 }
 
+@synthesize isByRefLike = _isByRefLike;
+- (BOOL)isByRefLike
+{
+	typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
+	static Thunk thunk;
+	static MonoClass* thunkClass;
+	MonoObject* monoException = NULL;
+	if (!thunk || thunkClass != self.monoClass) {
+		thunkClass = self.monoClass;
+		MonoMethod* monoMethod = GetPropertyGetMethod(thunkClass, "IsByRefLike");
+		thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+	}
+	BOOL monoObject = thunk(self.monoObject, &monoException);
+	if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+	_isByRefLike = monoObject;
+
+	return _isByRefLike;
+}
+
 @synthesize isClass = _isClass;
 - (BOOL)isClass
 {
@@ -501,6 +520,25 @@ static System_Reflection_Binder * m_defaultBinder;
 	_isClass = monoObject;
 
 	return _isClass;
+}
+
+@synthesize isCollectible = _isCollectible;
+- (BOOL)isCollectible
+{
+	typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
+	static Thunk thunk;
+	static MonoClass* thunkClass;
+	MonoObject* monoException = NULL;
+	if (!thunk || thunkClass != self.monoClass) {
+		thunkClass = self.monoClass;
+		MonoMethod* monoMethod = GetPropertyGetMethod(thunkClass, "IsCollectible");
+		thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+	}
+	BOOL monoObject = thunk(self.monoObject, &monoException);
+	if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+	_isCollectible = monoObject;
+
+	return _isCollectible;
 }
 
 @synthesize isCOMObject = _isCOMObject;
@@ -598,6 +636,25 @@ static System_Reflection_Binder * m_defaultBinder;
 	return _isExplicitLayout;
 }
 
+@synthesize isGenericMethodParameter = _isGenericMethodParameter;
+- (BOOL)isGenericMethodParameter
+{
+	typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
+	static Thunk thunk;
+	static MonoClass* thunkClass;
+	MonoObject* monoException = NULL;
+	if (!thunk || thunkClass != self.monoClass) {
+		thunkClass = self.monoClass;
+		MonoMethod* monoMethod = GetPropertyGetMethod(thunkClass, "IsGenericMethodParameter");
+		thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+	}
+	BOOL monoObject = thunk(self.monoObject, &monoException);
+	if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+	_isGenericMethodParameter = monoObject;
+
+	return _isGenericMethodParameter;
+}
+
 @synthesize isGenericParameter = _isGenericParameter;
 - (BOOL)isGenericParameter
 {
@@ -653,6 +710,25 @@ static System_Reflection_Binder * m_defaultBinder;
 	_isGenericTypeDefinition = monoObject;
 
 	return _isGenericTypeDefinition;
+}
+
+@synthesize isGenericTypeParameter = _isGenericTypeParameter;
+- (BOOL)isGenericTypeParameter
+{
+	typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
+	static Thunk thunk;
+	static MonoClass* thunkClass;
+	MonoObject* monoException = NULL;
+	if (!thunk || thunkClass != self.monoClass) {
+		thunkClass = self.monoClass;
+		MonoMethod* monoMethod = GetPropertyGetMethod(thunkClass, "IsGenericTypeParameter");
+		thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+	}
+	BOOL monoObject = thunk(self.monoObject, &monoException);
+	if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+	_isGenericTypeParameter = monoObject;
+
+	return _isGenericTypeParameter;
 }
 
 @synthesize isImport = _isImport;
@@ -1035,6 +1111,25 @@ static System_Reflection_Binder * m_defaultBinder;
 	return _isSerializable;
 }
 
+@synthesize isSignatureType = _isSignatureType;
+- (BOOL)isSignatureType
+{
+	typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
+	static Thunk thunk;
+	static MonoClass* thunkClass;
+	MonoObject* monoException = NULL;
+	if (!thunk || thunkClass != self.monoClass) {
+		thunkClass = self.monoClass;
+		MonoMethod* monoMethod = GetPropertyGetMethod(thunkClass, "IsSignatureType");
+		thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+	}
+	BOOL monoObject = thunk(self.monoObject, &monoException);
+	if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+	_isSignatureType = monoObject;
+
+	return _isSignatureType;
+}
+
 @synthesize isSpecialName = _isSpecialName;
 - (BOOL)isSpecialName
 {
@@ -1052,6 +1147,44 @@ static System_Reflection_Binder * m_defaultBinder;
 	_isSpecialName = monoObject;
 
 	return _isSpecialName;
+}
+
+@synthesize isSZArray = _isSZArray;
+- (BOOL)isSZArray
+{
+	typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
+	static Thunk thunk;
+	static MonoClass* thunkClass;
+	MonoObject* monoException = NULL;
+	if (!thunk || thunkClass != self.monoClass) {
+		thunkClass = self.monoClass;
+		MonoMethod* monoMethod = GetPropertyGetMethod(thunkClass, "IsSZArray");
+		thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+	}
+	BOOL monoObject = thunk(self.monoObject, &monoException);
+	if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+	_isSZArray = monoObject;
+
+	return _isSZArray;
+}
+
+@synthesize isTypeDefinition = _isTypeDefinition;
+- (BOOL)isTypeDefinition
+{
+	typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
+	static Thunk thunk;
+	static MonoClass* thunkClass;
+	MonoObject* monoException = NULL;
+	if (!thunk || thunkClass != self.monoClass) {
+		thunkClass = self.monoClass;
+		MonoMethod* monoMethod = GetPropertyGetMethod(thunkClass, "IsTypeDefinition");
+		thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+	}
+	BOOL monoObject = thunk(self.monoObject, &monoException);
+	if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+	_isTypeDefinition = monoObject;
+
+	return _isTypeDefinition;
 }
 
 @synthesize isUnicodeClass = _isUnicodeClass;
@@ -1090,6 +1223,25 @@ static System_Reflection_Binder * m_defaultBinder;
 	_isValueType = monoObject;
 
 	return _isValueType;
+}
+
+@synthesize isVariableBoundArray = _isVariableBoundArray;
+- (BOOL)isVariableBoundArray
+{
+	typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
+	static Thunk thunk;
+	static MonoClass* thunkClass;
+	MonoObject* monoException = NULL;
+	if (!thunk || thunkClass != self.monoClass) {
+		thunkClass = self.monoClass;
+		MonoMethod* monoMethod = GetPropertyGetMethod(thunkClass, "IsVariableBoundArray");
+		thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+	}
+	BOOL monoObject = thunk(self.monoObject, &monoException);
+	if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+	_isVariableBoundArray = monoObject;
+
+	return _isVariableBoundArray;
 }
 
 @synthesize isVisible = _isVisible;
@@ -1224,15 +1376,15 @@ static System_Reflection_Binder * m_defaultBinder;
 	return DB_UNBOX_INT32(monoObject);
 }
 
-/* Skipped method : System.Reflection.ConstructorInfo GetConstructor(System.Reflection.BindingFlags bindingAttr, System.Reflection.Binder binder, System.Reflection.CallingConventions callConvention, System.Type[] types, System.Reflection.ParameterModifier[] modifiers) */
-
-/* Skipped method : System.Reflection.ConstructorInfo GetConstructor(System.Reflection.BindingFlags bindingAttr, System.Reflection.Binder binder, System.Type[] types, System.Reflection.ParameterModifier[] modifiers) */
-
 - (System_Reflection_ConstructorInfo *)getConstructor_withTypes:(System_Array *)p1
 {
 	MonoObject *monoObject = [self invokeMonoMethod:"GetConstructor(System.Type[])" withNumArgs:1, [p1 monoRTInvokeObject]];
 	return [System_Reflection_ConstructorInfo bestObjectWithMonoObject:monoObject];
 }
+
+/* Skipped method : System.Reflection.ConstructorInfo GetConstructor(System.Reflection.BindingFlags bindingAttr, System.Reflection.Binder binder, System.Type[] types, System.Reflection.ParameterModifier[] modifiers) */
+
+/* Skipped method : System.Reflection.ConstructorInfo GetConstructor(System.Reflection.BindingFlags bindingAttr, System.Reflection.Binder binder, System.Reflection.CallingConventions callConvention, System.Type[] types, System.Reflection.ParameterModifier[] modifiers) */
 
 - (System_Array *)getConstructors
 {
@@ -1356,11 +1508,13 @@ static System_Reflection_Binder * m_defaultBinder;
 
 /* Skipped method : System.Reflection.MemberInfo[] GetMembers(System.Reflection.BindingFlags bindingAttr) */
 
-/* Skipped method : System.Reflection.MethodInfo GetMethod(System.String name, System.Reflection.BindingFlags bindingAttr, System.Reflection.Binder binder, System.Reflection.CallingConventions callConvention, System.Type[] types, System.Reflection.ParameterModifier[] modifiers) */
+- (System_Reflection_MethodInfo *)getMethod_withName:(NSString *)p1
+{
+	MonoObject *monoObject = [self invokeMonoMethod:"GetMethod(string)" withNumArgs:1, [p1 monoRTInvokeObject]];
+	return [System_Reflection_MethodInfo bestObjectWithMonoObject:monoObject];
+}
 
-/* Skipped method : System.Reflection.MethodInfo GetMethod(System.String name, System.Reflection.BindingFlags bindingAttr, System.Reflection.Binder binder, System.Type[] types, System.Reflection.ParameterModifier[] modifiers) */
-
-/* Skipped method : System.Reflection.MethodInfo GetMethod(System.String name, System.Type[] types, System.Reflection.ParameterModifier[] modifiers) */
+/* Skipped method : System.Reflection.MethodInfo GetMethod(System.String name, System.Reflection.BindingFlags bindingAttr) */
 
 - (System_Reflection_MethodInfo *)getMethod_withName:(NSString *)p1 types:(System_Array *)p2
 {
@@ -1368,13 +1522,23 @@ static System_Reflection_Binder * m_defaultBinder;
 	return [System_Reflection_MethodInfo bestObjectWithMonoObject:monoObject];
 }
 
-/* Skipped method : System.Reflection.MethodInfo GetMethod(System.String name, System.Reflection.BindingFlags bindingAttr) */
+/* Skipped method : System.Reflection.MethodInfo GetMethod(System.String name, System.Type[] types, System.Reflection.ParameterModifier[] modifiers) */
 
-- (System_Reflection_MethodInfo *)getMethod_withName:(NSString *)p1
+/* Skipped method : System.Reflection.MethodInfo GetMethod(System.String name, System.Reflection.BindingFlags bindingAttr, System.Reflection.Binder binder, System.Type[] types, System.Reflection.ParameterModifier[] modifiers) */
+
+/* Skipped method : System.Reflection.MethodInfo GetMethod(System.String name, System.Reflection.BindingFlags bindingAttr, System.Reflection.Binder binder, System.Reflection.CallingConventions callConvention, System.Type[] types, System.Reflection.ParameterModifier[] modifiers) */
+
+- (System_Reflection_MethodInfo *)getMethod_withName:(NSString *)p1 genericParameterCount:(int32_t)p2 types:(System_Array *)p3
 {
-	MonoObject *monoObject = [self invokeMonoMethod:"GetMethod(string)" withNumArgs:1, [p1 monoRTInvokeObject]];
+	MonoObject *monoObject = [self invokeMonoMethod:"GetMethod(string,int,System.Type[])" withNumArgs:3, [p1 monoRTInvokeObject], &p2, [p3 monoRTInvokeObject]];
 	return [System_Reflection_MethodInfo bestObjectWithMonoObject:monoObject];
 }
+
+/* Skipped method : System.Reflection.MethodInfo GetMethod(System.String name, System.Int32 genericParameterCount, System.Type[] types, System.Reflection.ParameterModifier[] modifiers) */
+
+/* Skipped method : System.Reflection.MethodInfo GetMethod(System.String name, System.Int32 genericParameterCount, System.Reflection.BindingFlags bindingAttr, System.Reflection.Binder binder, System.Type[] types, System.Reflection.ParameterModifier[] modifiers) */
+
+/* Skipped method : System.Reflection.MethodInfo GetMethod(System.String name, System.Int32 genericParameterCount, System.Reflection.BindingFlags bindingAttr, System.Reflection.Binder binder, System.Reflection.CallingConventions callConvention, System.Type[] types, System.Reflection.ParameterModifier[] modifiers) */
 
 - (System_Array *)getMethods
 {
@@ -1408,15 +1572,17 @@ static System_Reflection_Binder * m_defaultBinder;
 
 /* Skipped method : System.Reflection.PropertyInfo[] GetProperties(System.Reflection.BindingFlags bindingAttr) */
 
-/* Skipped method : System.Reflection.PropertyInfo GetProperty(System.String name, System.Reflection.BindingFlags bindingAttr, System.Reflection.Binder binder, System.Type returnType, System.Type[] types, System.Reflection.ParameterModifier[] modifiers) */
-
-/* Skipped method : System.Reflection.PropertyInfo GetProperty(System.String name, System.Type returnType, System.Type[] types, System.Reflection.ParameterModifier[] modifiers) */
+- (System_Reflection_PropertyInfo *)getProperty_withName:(NSString *)p1
+{
+	MonoObject *monoObject = [self invokeMonoMethod:"GetProperty(string)" withNumArgs:1, [p1 monoRTInvokeObject]];
+	return [System_Reflection_PropertyInfo bestObjectWithMonoObject:monoObject];
+}
 
 /* Skipped method : System.Reflection.PropertyInfo GetProperty(System.String name, System.Reflection.BindingFlags bindingAttr) */
 
-- (System_Reflection_PropertyInfo *)getProperty_withName:(NSString *)p1 returnType:(System_Type *)p2 types:(System_Array *)p3
+- (System_Reflection_PropertyInfo *)getProperty_withName:(NSString *)p1 returnType:(System_Type *)p2
 {
-	MonoObject *monoObject = [self invokeMonoMethod:"GetProperty(string,System.Type,System.Type[])" withNumArgs:3, [p1 monoRTInvokeObject], [p2 monoRTInvokeObject], [p3 monoRTInvokeObject]];
+	MonoObject *monoObject = [self invokeMonoMethod:"GetProperty(string,System.Type)" withNumArgs:2, [p1 monoRTInvokeObject], [p2 monoRTInvokeObject]];
 	return [System_Reflection_PropertyInfo bestObjectWithMonoObject:monoObject];
 }
 
@@ -1426,16 +1592,20 @@ static System_Reflection_Binder * m_defaultBinder;
 	return [System_Reflection_PropertyInfo bestObjectWithMonoObject:monoObject];
 }
 
-- (System_Reflection_PropertyInfo *)getProperty_withName:(NSString *)p1 returnType:(System_Type *)p2
+- (System_Reflection_PropertyInfo *)getProperty_withName:(NSString *)p1 returnType:(System_Type *)p2 types:(System_Array *)p3
 {
-	MonoObject *monoObject = [self invokeMonoMethod:"GetProperty(string,System.Type)" withNumArgs:2, [p1 monoRTInvokeObject], [p2 monoRTInvokeObject]];
+	MonoObject *monoObject = [self invokeMonoMethod:"GetProperty(string,System.Type,System.Type[])" withNumArgs:3, [p1 monoRTInvokeObject], [p2 monoRTInvokeObject], [p3 monoRTInvokeObject]];
 	return [System_Reflection_PropertyInfo bestObjectWithMonoObject:monoObject];
 }
 
-- (System_Reflection_PropertyInfo *)getProperty_withName:(NSString *)p1
+/* Skipped method : System.Reflection.PropertyInfo GetProperty(System.String name, System.Type returnType, System.Type[] types, System.Reflection.ParameterModifier[] modifiers) */
+
+/* Skipped method : System.Reflection.PropertyInfo GetProperty(System.String name, System.Reflection.BindingFlags bindingAttr, System.Reflection.Binder binder, System.Type returnType, System.Type[] types, System.Reflection.ParameterModifier[] modifiers) */
+
+- (System_Type *)getType
 {
-	MonoObject *monoObject = [self invokeMonoMethod:"GetProperty(string)" withNumArgs:1, [p1 monoRTInvokeObject]];
-	return [System_Reflection_PropertyInfo bestObjectWithMonoObject:monoObject];
+	MonoObject *monoObject = [self invokeMonoMethod:"GetType()" withNumArgs:0];
+	return [System_Type bestObjectWithMonoObject:monoObject];
 }
 
 + (System_Type *)getType_withTypeName:(NSString *)p1 throwOnError:(BOOL)p2 ignoreCase:(BOOL)p3
@@ -1471,12 +1641,6 @@ static System_Reflection_Binder * m_defaultBinder;
 + (System_Type *)getType_withTypeName:(NSString *)p1 assemblyResolver:(System_FuncA2 *)p2 typeResolver:(System_FuncA4 *)p3 throwOnError:(BOOL)p4 ignoreCase:(BOOL)p5
 {
 	MonoObject *monoObject = [self invokeMonoClassMethod:"GetType(string,System.Func`2<System.Reflection.AssemblyName, System.Reflection.Assembly>,System.Func`4<System.Reflection.Assembly, string, bool, System.Type>,bool,bool)" withNumArgs:5, [p1 monoRTInvokeObject], [p2 monoRTInvokeObject], [p3 monoRTInvokeObject], &p4, &p5];
-	return [System_Type bestObjectWithMonoObject:monoObject];
-}
-
-- (System_Type *)getType
-{
-	MonoObject *monoObject = [self invokeMonoMethod:"GetType()" withNumArgs:0];
 	return [System_Type bestObjectWithMonoObject:monoObject];
 }
 
@@ -1540,9 +1704,9 @@ static System_Reflection_Binder * m_defaultBinder;
 
 /* Skipped method : System.RuntimeTypeHandle GetTypeHandle(System.Object o) */
 
-/* Skipped method : System.Object InvokeMember(System.String name, System.Reflection.BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object target, System.Object[] args, System.Globalization.CultureInfo culture) */
-
 /* Skipped method : System.Object InvokeMember(System.String name, System.Reflection.BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object target, System.Object[] args) */
+
+/* Skipped method : System.Object InvokeMember(System.String name, System.Reflection.BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object target, System.Object[] args, System.Globalization.CultureInfo culture) */
 
 /* Skipped method : System.Object InvokeMember(System.String name, System.Reflection.BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object target, System.Object[] args, System.Reflection.ParameterModifier[] modifiers, System.Globalization.CultureInfo culture, System.String[] namedParameters) */
 
@@ -1591,6 +1755,18 @@ static System_Reflection_Binder * m_defaultBinder;
 - (System_Type *)makeByRefType
 {
 	MonoObject *monoObject = [self invokeMonoMethod:"MakeByRefType()" withNumArgs:0];
+	return [System_Type bestObjectWithMonoObject:monoObject];
+}
+
++ (System_Type *)makeGenericMethodParameter_withPosition:(int32_t)p1
+{
+	MonoObject *monoObject = [self invokeMonoClassMethod:"MakeGenericMethodParameter(int)" withNumArgs:1, &p1];
+	return [System_Type bestObjectWithMonoObject:monoObject];
+}
+
++ (System_Type *)makeGenericSignatureType_withGenericTypeDefinition:(System_Type *)p1 typeArguments:(System_Array *)p2
+{
+	MonoObject *monoObject = [self invokeMonoClassMethod:"MakeGenericSignatureType(System.Type,System.Type[])" withNumArgs:2, [p1 monoRTInvokeObject], [p2 monoRTInvokeObject]];
 	return [System_Type bestObjectWithMonoObject:monoObject];
 }
 

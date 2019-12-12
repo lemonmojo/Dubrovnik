@@ -25,6 +25,8 @@
 @class System_Int16;
 @class System_Int32;
 @class System_Object;
+@class System_ReadOnlySpanA1;
+@class System_SpanA1;
 @class System_String;
 @class System_Version;
 
@@ -396,7 +398,22 @@
    System.Version
  @/textblock
 */
-+ (System_Version *)parse_withInput:(NSString *)p1;
++ (System_Version *)parse_withInputString:(NSString *)p1;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   Parse
+
+ Params
+   System.ReadOnlySpan`1<System.Char>
+
+ Return
+   System.Version
+ @/textblock
+*/
++ (System_Version *)parse_withInputSReadOnlySpanA1char:(System_ReadOnlySpanA1 *)p1;
 
 /**
  Managed method.
@@ -432,6 +449,39 @@
  Managed method.
  @textblock
  Name
+   TryFormat
+
+ Params
+   System.Span`1<System.Char>
+   ref System.Int32&
+
+ Return
+   System.Boolean
+ @/textblock
+*/
+- (BOOL)tryFormat_withDestination:(System_SpanA1 *)p1 charsWrittenRef:(int32_t*)p2;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   TryFormat
+
+ Params
+   System.Span`1<System.Char>
+   System.Int32
+   ref System.Int32&
+
+ Return
+   System.Boolean
+ @/textblock
+*/
+- (BOOL)tryFormat_withDestination:(System_SpanA1 *)p1 fieldCount:(int32_t)p2 charsWrittenRef:(int32_t*)p3;
+
+/**
+ Managed method.
+ @textblock
+ Name
    TryParse
 
  Params
@@ -442,6 +492,22 @@
    System.Boolean
  @/textblock
 */
-+ (BOOL)tryParse_withInput:(NSString *)p1 resultRef:(System_Version **)p2;
++ (BOOL)tryParse_withInputString:(NSString *)p1 resultSVersionRef:(System_Version **)p2;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   TryParse
+
+ Params
+   System.ReadOnlySpan`1<System.Char>
+   ref System.Version&
+
+ Return
+   System.Boolean
+ @/textblock
+*/
++ (BOOL)tryParse_withInputSReadOnlySpanA1char:(System_ReadOnlySpanA1 *)p1 resultSVersionRef:(System_Version **)p2;
 @end
 //--Dubrovnik.CodeGenerator

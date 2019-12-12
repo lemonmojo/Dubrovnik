@@ -88,6 +88,16 @@ static System_DateTimeOffset * m_minValue;
 	return m_minValue;
 }
 
+static System_DateTimeOffset * m_unixEpoch;
++ (System_DateTimeOffset *)unixEpoch
+{
+	MonoObject *monoObject = [[self class] getMonoClassField:"UnixEpoch"];
+	if ([self object:m_unixEpoch isEqualToMonoObject:monoObject]) return m_unixEpoch;
+	m_unixEpoch = [System_DateTimeOffset bestObjectWithMonoObject:monoObject];
+
+	return m_unixEpoch;
+}
+
 #pragma mark -
 #pragma mark Properties
 
@@ -647,11 +657,17 @@ static System_DateTimeOffset * m_utcNow;
 
 /* Skipped method : System.DateTimeOffset Parse(System.String input, System.IFormatProvider formatProvider, System.Globalization.DateTimeStyles styles) */
 
+/* Skipped method : System.DateTimeOffset Parse(System.ReadOnlySpan`1<System.Char> input, System.IFormatProvider formatProvider, System.Globalization.DateTimeStyles styles) */
+
 /* Skipped method : System.DateTimeOffset ParseExact(System.String input, System.String format, System.IFormatProvider formatProvider) */
 
 /* Skipped method : System.DateTimeOffset ParseExact(System.String input, System.String format, System.IFormatProvider formatProvider, System.Globalization.DateTimeStyles styles) */
 
+/* Skipped method : System.DateTimeOffset ParseExact(System.ReadOnlySpan`1<System.Char> input, System.ReadOnlySpan`1<System.Char> format, System.IFormatProvider formatProvider, System.Globalization.DateTimeStyles styles) */
+
 /* Skipped method : System.DateTimeOffset ParseExact(System.String input, System.String[] formats, System.IFormatProvider formatProvider, System.Globalization.DateTimeStyles styles) */
+
+/* Skipped method : System.DateTimeOffset ParseExact(System.ReadOnlySpan`1<System.Char> input, System.String[] formats, System.IFormatProvider formatProvider, System.Globalization.DateTimeStyles styles) */
 
 - (System_TimeSpan *)subtract_withValueSDateTimeOffset:(System_DateTimeOffset *)p1
 {
@@ -717,7 +733,9 @@ static System_DateTimeOffset * m_utcNow;
 	return DB_UNBOX_INT64(monoObject);
 }
 
-+ (BOOL)tryParse_withInput:(NSString *)p1 resultRef:(System_DateTimeOffset **)p2
+/* Skipped method : System.Boolean TryFormat(System.Span`1<System.Char> destination, System.Int32& charsWritten, System.ReadOnlySpan`1<System.Char> format, System.IFormatProvider formatProvider) */
+
++ (BOOL)tryParse_withInputString:(NSString *)p1 resultSDateTimeOffsetRef:(System_DateTimeOffset **)p2
 {
 	void *refPtr2 = [*p2 monoRTInvokeArg];
 	MonoObject *monoObject = [self invokeMonoClassMethod:"TryParse(string,System.DateTimeOffset&)" withNumArgs:2, [p1 monoRTInvokeObject], &refPtr2];
@@ -725,11 +743,25 @@ static System_DateTimeOffset * m_utcNow;
 	return DB_UNBOX_BOOLEAN(monoObject);
 }
 
++ (BOOL)tryParse_withInputSReadOnlySpanA1char:(System_ReadOnlySpanA1 *)p1 resultSDateTimeOffsetRef:(System_DateTimeOffset **)p2
+{
+	void *refPtr2 = [*p2 monoRTInvokeArg];
+	MonoObject *monoObject = [self invokeMonoClassMethod:"TryParse(System.ReadOnlySpan`1<char>,System.DateTimeOffset&)" withNumArgs:2, [p1 monoRTInvokeArg], &refPtr2];
+	*p2 = [System_Object bestObjectWithMonoObject:refPtr2];
+	return DB_UNBOX_BOOLEAN(monoObject);
+}
+
 /* Skipped method : System.Boolean TryParse(System.String input, System.IFormatProvider formatProvider, System.Globalization.DateTimeStyles styles, System.DateTimeOffset& result) */
+
+/* Skipped method : System.Boolean TryParse(System.ReadOnlySpan`1<System.Char> input, System.IFormatProvider formatProvider, System.Globalization.DateTimeStyles styles, System.DateTimeOffset& result) */
+
+/* Skipped method : System.Boolean TryParseExact(System.String input, System.String format, System.IFormatProvider formatProvider, System.Globalization.DateTimeStyles styles, System.DateTimeOffset& result) */
+
+/* Skipped method : System.Boolean TryParseExact(System.ReadOnlySpan`1<System.Char> input, System.ReadOnlySpan`1<System.Char> format, System.IFormatProvider formatProvider, System.Globalization.DateTimeStyles styles, System.DateTimeOffset& result) */
 
 /* Skipped method : System.Boolean TryParseExact(System.String input, System.String[] formats, System.IFormatProvider formatProvider, System.Globalization.DateTimeStyles styles, System.DateTimeOffset& result) */
 
-/* Skipped method : System.Boolean TryParseExact(System.String input, System.String format, System.IFormatProvider formatProvider, System.Globalization.DateTimeStyles styles, System.DateTimeOffset& result) */
+/* Skipped method : System.Boolean TryParseExact(System.ReadOnlySpan`1<System.Char> input, System.String[] formats, System.IFormatProvider formatProvider, System.Globalization.DateTimeStyles styles, System.DateTimeOffset& result) */
 
 #pragma mark -
 #pragma mark Teardown

@@ -56,37 +56,6 @@
    .ctor
 
  Params
-   System.String
-
- Return
-   System.Globalization.CultureInfo
- @/textblock
-*/
-+ (System_Globalization_CultureInfo *)new_withName:(NSString *)p1;
-
-/**
- Managed method.
- @textblock
- Name
-   .ctor
-
- Params
-   System.String
-   System.Boolean
-
- Return
-   System.Globalization.CultureInfo
- @/textblock
-*/
-+ (System_Globalization_CultureInfo *)new_withName:(NSString *)p1 useUserOverride:(BOOL)p2;
-
-/**
- Managed method.
- @textblock
- Name
-   .ctor
-
- Params
    System.Int32
 
  Return
@@ -110,6 +79,37 @@
  @/textblock
 */
 + (System_Globalization_CultureInfo *)new_withCulture:(int32_t)p1 useUserOverride:(BOOL)p2;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   .ctor
+
+ Params
+   System.String
+
+ Return
+   System.Globalization.CultureInfo
+ @/textblock
+*/
++ (System_Globalization_CultureInfo *)new_withName:(NSString *)p1;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   .ctor
+
+ Params
+   System.String
+   System.Boolean
+
+ Return
+   System.Globalization.CultureInfo
+ @/textblock
+*/
++ (System_Globalization_CultureInfo *)new_withName:(NSString *)p1 useUserOverride:(BOOL)p2;
 
 #pragma mark -
 #pragma mark Properties

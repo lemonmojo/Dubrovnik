@@ -24,6 +24,8 @@
 @class System_IEquatableA1;
 @class System_Int32;
 @class System_Object;
+@class System_ReadOnlySpanA1;
+@class System_SpanA1;
 @class System_String;
 
 //
@@ -206,6 +208,21 @@
  Managed method.
  @textblock
  Name
+   IsFinite
+
+ Params
+   System.Double
+
+ Return
+   System.Boolean
+ @/textblock
+*/
++ (BOOL)isFinite_withD:(double)p1;
+
+/**
+ Managed method.
+ @textblock
+ Name
    IsInfinity
 
  Params
@@ -236,6 +253,21 @@
  Managed method.
  @textblock
  Name
+   IsNegative
+
+ Params
+   System.Double
+
+ Return
+   System.Boolean
+ @/textblock
+*/
++ (BOOL)isNegative_withD:(double)p1;
+
+/**
+ Managed method.
+ @textblock
+ Name
    IsNegativeInfinity
 
  Params
@@ -251,6 +283,21 @@
  Managed method.
  @textblock
  Name
+   IsNormal
+
+ Params
+   System.Double
+
+ Return
+   System.Boolean
+ @/textblock
+*/
++ (BOOL)isNormal_withD:(double)p1;
+
+/**
+ Managed method.
+ @textblock
+ Name
    IsPositiveInfinity
 
  Params
@@ -261,6 +308,21 @@
  @/textblock
 */
 + (BOOL)isPositiveInfinity_withD:(double)p1;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   IsSubnormal
+
+ Params
+   System.Double
+
+ Return
+   System.Boolean
+ @/textblock
+*/
++ (BOOL)isSubnormal_withD:(double)p1;
 
 /**
  Managed method.
@@ -379,6 +441,8 @@
 
 /* Skipped method : System.Double Parse(System.String s, System.Globalization.NumberStyles style, System.IFormatProvider provider) */
 
+/* Skipped method : System.Double Parse(System.ReadOnlySpan`1<System.Char> s, System.Globalization.NumberStyles style, System.IFormatProvider provider) */
+
 /**
  Managed method.
  @textblock
@@ -413,6 +477,8 @@
 
 /* Skipped method : System.String ToString(System.String format, System.IFormatProvider provider) */
 
+/* Skipped method : System.Boolean TryFormat(System.Span`1<System.Char> destination, System.Int32& charsWritten, System.ReadOnlySpan`1<System.Char> format, System.IFormatProvider provider) */
+
 /**
  Managed method.
  @textblock
@@ -427,8 +493,26 @@
    System.Boolean
  @/textblock
 */
-+ (BOOL)tryParse_withS:(NSString *)p1 resultRef:(double*)p2;
++ (BOOL)tryParse_withSString:(NSString *)p1 resultDoubleRef:(double*)p2;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   TryParse
+
+ Params
+   System.ReadOnlySpan`1<System.Char>
+   ref System.Double&
+
+ Return
+   System.Boolean
+ @/textblock
+*/
++ (BOOL)tryParse_withSSReadOnlySpanA1char:(System_ReadOnlySpanA1 *)p1 resultDoubleRef:(double*)p2;
 
 /* Skipped method : System.Boolean TryParse(System.String s, System.Globalization.NumberStyles style, System.IFormatProvider provider, System.Double& result) */
+
+/* Skipped method : System.Boolean TryParse(System.ReadOnlySpan`1<System.Char> s, System.Globalization.NumberStyles style, System.IFormatProvider provider, System.Double& result) */
 @end
 //--Dubrovnik.CodeGenerator

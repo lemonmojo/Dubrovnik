@@ -185,9 +185,33 @@
 	return [System_Text_StringBuilder bestObjectWithMonoObject:monoObject];
 }
 
-- (System_Text_StringBuilder *)append_withValue:(NSString *)p1 startIndex:(int32_t)p2 count:(int32_t)p3
+- (System_Text_StringBuilder *)append_withValueString:(NSString *)p1 startIndexInt:(int32_t)p2 countInt:(int32_t)p3
 {
 	MonoObject *monoObject = [self invokeMonoMethod:"Append(string,int,int)" withNumArgs:3, [p1 monoRTInvokeObject], &p2, &p3];
+	return [System_Text_StringBuilder bestObjectWithMonoObject:monoObject];
+}
+
+- (System_Text_StringBuilder *)append_withValueSTStringBuilder:(System_Text_StringBuilder *)p1
+{
+	MonoObject *monoObject = [self invokeMonoMethod:"Append(System.Text.StringBuilder)" withNumArgs:1, [p1 monoRTInvokeObject]];
+	return [System_Text_StringBuilder bestObjectWithMonoObject:monoObject];
+}
+
+- (System_Text_StringBuilder *)append_withValueSTStringBuilder:(System_Text_StringBuilder *)p1 startIndexInt:(int32_t)p2 countInt:(int32_t)p3
+{
+	MonoObject *monoObject = [self invokeMonoMethod:"Append(System.Text.StringBuilder,int,int)" withNumArgs:3, [p1 monoRTInvokeObject], &p2, &p3];
+	return [System_Text_StringBuilder bestObjectWithMonoObject:monoObject];
+}
+
+- (System_Text_StringBuilder *)append_withValueBool:(BOOL)p1
+{
+	MonoObject *monoObject = [self invokeMonoMethod:"Append(bool)" withNumArgs:1, &p1];
+	return [System_Text_StringBuilder bestObjectWithMonoObject:monoObject];
+}
+
+- (System_Text_StringBuilder *)append_withValueChar:(uint16_t)p1
+{
+	MonoObject *monoObject = [self invokeMonoMethod:"Append(char)" withNumArgs:1, &p1];
 	return [System_Text_StringBuilder bestObjectWithMonoObject:monoObject];
 }
 
@@ -200,12 +224,6 @@
 - (System_Text_StringBuilder *)append_withValueByte:(uint8_t)p1
 {
 	MonoObject *monoObject = [self invokeMonoMethod:"Append(byte)" withNumArgs:1, &p1];
-	return [System_Text_StringBuilder bestObjectWithMonoObject:monoObject];
-}
-
-- (System_Text_StringBuilder *)append_withValueChar:(uint16_t)p1
-{
-	MonoObject *monoObject = [self invokeMonoMethod:"Append(char)" withNumArgs:1, &p1];
 	return [System_Text_StringBuilder bestObjectWithMonoObject:monoObject];
 }
 
@@ -275,13 +293,13 @@
 	return [System_Text_StringBuilder bestObjectWithMonoObject:monoObject];
 }
 
-/* Skipped method : System.Text.StringBuilder Append(System.Char* value, System.Int32 valueCount) */
-
-- (System_Text_StringBuilder *)append_withValueBool:(BOOL)p1
+- (System_Text_StringBuilder *)append_withValueSReadOnlySpanA1char:(System_ReadOnlySpanA1 *)p1
 {
-	MonoObject *monoObject = [self invokeMonoMethod:"Append(bool)" withNumArgs:1, &p1];
+	MonoObject *monoObject = [self invokeMonoMethod:"Append(System.ReadOnlySpan`1<char>)" withNumArgs:1, [p1 monoRTInvokeArg]];
 	return [System_Text_StringBuilder bestObjectWithMonoObject:monoObject];
 }
+
+/* Skipped method : System.Text.StringBuilder Append(System.Char* value, System.Int32 valueCount) */
 
 - (System_Text_StringBuilder *)appendFormat_withFormat:(NSString *)p1 arg0:(id <DBMonoObject>)p2
 {
@@ -301,19 +319,57 @@
 	return [System_Text_StringBuilder bestObjectWithMonoObject:monoObject];
 }
 
-/* Skipped method : System.Text.StringBuilder AppendFormat(System.IFormatProvider provider, System.String format, System.Object arg0) */
-
-/* Skipped method : System.Text.StringBuilder AppendFormat(System.IFormatProvider provider, System.String format, System.Object arg0, System.Object arg1) */
-
-/* Skipped method : System.Text.StringBuilder AppendFormat(System.IFormatProvider provider, System.String format, System.Object arg0, System.Object arg1, System.Object arg2) */
-
 - (System_Text_StringBuilder *)appendFormat_withFormat:(NSString *)p1 args:(System_Array *)p2
 {
 	MonoObject *monoObject = [self invokeMonoMethod:"AppendFormat(string,object[])" withNumArgs:2, [p1 monoRTInvokeObject], [p2 monoRTInvokeObject]];
 	return [System_Text_StringBuilder bestObjectWithMonoObject:monoObject];
 }
 
+/* Skipped method : System.Text.StringBuilder AppendFormat(System.IFormatProvider provider, System.String format, System.Object arg0) */
+
+/* Skipped method : System.Text.StringBuilder AppendFormat(System.IFormatProvider provider, System.String format, System.Object arg0, System.Object arg1) */
+
+/* Skipped method : System.Text.StringBuilder AppendFormat(System.IFormatProvider provider, System.String format, System.Object arg0, System.Object arg1, System.Object arg2) */
+
 /* Skipped method : System.Text.StringBuilder AppendFormat(System.IFormatProvider provider, System.String format, System.Object[] args) */
+
+- (System_Text_StringBuilder *)appendJoin_withSeparatorString:(NSString *)p1 valuesObjectArray:(System_Array *)p2
+{
+	MonoObject *monoObject = [self invokeMonoMethod:"AppendJoin(string,object[])" withNumArgs:2, [p1 monoRTInvokeObject], [p2 monoRTInvokeObject]];
+	return [System_Text_StringBuilder bestObjectWithMonoObject:monoObject];
+}
+
+- (System_Text_StringBuilder *)appendJoin_withSeparatorString:(NSString *)p1 valuesSCGITStringBuilder__T:(System_Object <System_Collections_Generic_IEnumerableA1_> *)p2 typeParameter:(id)typeParameter
+{
+	DBManagedMethod *method = [self methodWithMonoName:"AppendJoin(string,System.Collections.Generic.IEnumerable`1<System.Text.StringBuilder/T>)" typeParameters:typeParameter];
+	MonoObject *monoObject = [method invokeMethodWithNumArgs:2, [p1 monoRTInvokeObject], [p2 monoRTInvokeObject]];
+	return [System_Text_StringBuilder bestObjectWithMonoObject:monoObject];
+}
+
+- (System_Text_StringBuilder *)appendJoin_withSeparatorString:(NSString *)p1 valuesStringArray:(System_Array *)p2
+{
+	MonoObject *monoObject = [self invokeMonoMethod:"AppendJoin(string,string[])" withNumArgs:2, [p1 monoRTInvokeObject], [p2 monoRTInvokeObject]];
+	return [System_Text_StringBuilder bestObjectWithMonoObject:monoObject];
+}
+
+- (System_Text_StringBuilder *)appendJoin_withSeparatorChar:(uint16_t)p1 valuesObjectArray:(System_Array *)p2
+{
+	MonoObject *monoObject = [self invokeMonoMethod:"AppendJoin(char,object[])" withNumArgs:2, &p1, [p2 monoRTInvokeObject]];
+	return [System_Text_StringBuilder bestObjectWithMonoObject:monoObject];
+}
+
+- (System_Text_StringBuilder *)appendJoin_withSeparatorChar:(uint16_t)p1 valuesSCGITStringBuilder__T:(System_Object <System_Collections_Generic_IEnumerableA1_> *)p2 typeParameter:(id)typeParameter
+{
+	DBManagedMethod *method = [self methodWithMonoName:"AppendJoin(char,System.Collections.Generic.IEnumerable`1<System.Text.StringBuilder/T>)" typeParameters:typeParameter];
+	MonoObject *monoObject = [method invokeMethodWithNumArgs:2, &p1, [p2 monoRTInvokeObject]];
+	return [System_Text_StringBuilder bestObjectWithMonoObject:monoObject];
+}
+
+- (System_Text_StringBuilder *)appendJoin_withSeparatorChar:(uint16_t)p1 valuesStringArray:(System_Array *)p2
+{
+	MonoObject *monoObject = [self invokeMonoMethod:"AppendJoin(char,string[])" withNumArgs:2, &p1, [p2 monoRTInvokeObject]];
+	return [System_Text_StringBuilder bestObjectWithMonoObject:monoObject];
+}
 
 - (System_Text_StringBuilder *)appendLine
 {
@@ -338,6 +394,11 @@
 	[self invokeMonoMethod:"CopyTo(int,char[],int,int)" withNumArgs:4, &p1, [p2 monoRTInvokeObject], &p3, &p4];
 }
 
+- (void)copyTo_withSourceIndex:(int32_t)p1 destination:(System_SpanA1 *)p2 count:(int32_t)p3
+{
+	[self invokeMonoMethod:"CopyTo(int,System.Span`1<char>,int)" withNumArgs:3, &p1, [p2 monoRTInvokeArg], &p3];
+}
+
 - (int32_t)ensureCapacity_withCapacity:(int32_t)p1
 {
 	MonoObject *monoObject = [self invokeMonoMethod:"EnsureCapacity(int)" withNumArgs:1, &p1];
@@ -350,6 +411,12 @@
 	return DB_UNBOX_BOOLEAN(monoObject);
 }
 
+- (BOOL)equals_withSpan:(System_ReadOnlySpanA1 *)p1
+{
+	MonoObject *monoObject = [self invokeMonoMethod:"Equals(System.ReadOnlySpan`1<char>)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	return DB_UNBOX_BOOLEAN(monoObject);
+}
+
 - (System_Text_StringBuilder *)insert_withIndex:(int32_t)p1 value:(NSString *)p2 count:(int32_t)p3
 {
 	MonoObject *monoObject = [self invokeMonoMethod:"Insert(int,string,int)" withNumArgs:3, &p1, [p2 monoRTInvokeObject], &p3];
@@ -359,6 +426,12 @@
 - (System_Text_StringBuilder *)insert_withIndexInt:(int32_t)p1 valueString:(NSString *)p2
 {
 	MonoObject *monoObject = [self invokeMonoMethod:"Insert(int,string)" withNumArgs:2, &p1, [p2 monoRTInvokeObject]];
+	return [System_Text_StringBuilder bestObjectWithMonoObject:monoObject];
+}
+
+- (System_Text_StringBuilder *)insert_withIndexInt:(int32_t)p1 valueBool:(BOOL)p2
+{
+	MonoObject *monoObject = [self invokeMonoMethod:"Insert(int,bool)" withNumArgs:2, &p1, &p2];
 	return [System_Text_StringBuilder bestObjectWithMonoObject:monoObject];
 }
 
@@ -452,9 +525,9 @@
 	return [System_Text_StringBuilder bestObjectWithMonoObject:monoObject];
 }
 
-- (System_Text_StringBuilder *)insert_withIndexInt:(int32_t)p1 valueBool:(BOOL)p2
+- (System_Text_StringBuilder *)insert_withIndexInt:(int32_t)p1 valueSReadOnlySpanA1char:(System_ReadOnlySpanA1 *)p2
 {
-	MonoObject *monoObject = [self invokeMonoMethod:"Insert(int,bool)" withNumArgs:2, &p1, &p2];
+	MonoObject *monoObject = [self invokeMonoMethod:"Insert(int,System.ReadOnlySpan`1<char>)" withNumArgs:2, &p1, [p2 monoRTInvokeArg]];
 	return [System_Text_StringBuilder bestObjectWithMonoObject:monoObject];
 }
 

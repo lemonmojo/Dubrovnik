@@ -24,6 +24,8 @@
 @class System_ICloneable;
 @class System_Int32;
 @class System_Object;
+@class System_ReadOnlySpanA1;
+@class System_SpanA1;
 @class System_String;
 @class System_Text_Encoding;
 @class System_Void;
@@ -214,6 +216,18 @@
  Managed property.
  @textblock
  Name
+   Preamble
+
+ Type
+   System.ReadOnlySpan`1<System.Byte>
+ @/textblock
+*/
+@property (nonatomic, strong, readonly) System_ReadOnlySpanA1 * preamble;
+
+/**
+ Managed property.
+ @textblock
+ Name
    Unicode
 
  Type
@@ -364,7 +378,7 @@
    System.Int32
  @/textblock
 */
-- (int32_t)getByteCount_withChars:(System_Array *)p1;
+- (int32_t)getByteCount_withCharsCharArray:(System_Array *)p1;
 
 /**
  Managed method.
@@ -380,8 +394,6 @@
  @/textblock
 */
 - (int32_t)getByteCount_withS:(NSString *)p1;
-
-/* Skipped method : System.Int32 GetByteCount(System.Char* chars, System.Int32 count) */
 
 /**
  Managed method.
@@ -399,6 +411,40 @@
  @/textblock
 */
 - (int32_t)getByteCount_withChars:(System_Array *)p1 index:(int32_t)p2 count:(int32_t)p3;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   GetByteCount
+
+ Params
+   System.String
+   System.Int32
+   System.Int32
+
+ Return
+   System.Int32
+ @/textblock
+*/
+- (int32_t)getByteCount_withStr:(NSString *)p1 index:(int32_t)p2 count:(int32_t)p3;
+
+/* Skipped method : System.Int32 GetByteCount(System.Char* chars, System.Int32 count) */
+
+/**
+ Managed method.
+ @textblock
+ Name
+   GetByteCount
+
+ Params
+   System.ReadOnlySpan`1<System.Char>
+
+ Return
+   System.Int32
+ @/textblock
+*/
+- (int32_t)getByteCount_withCharsSReadOnlySpanA1char:(System_ReadOnlySpanA1 *)p1;
 
 /**
  Managed method.
@@ -439,6 +485,25 @@
    GetBytes
 
  Params
+   System.Char[]
+   System.Int32
+   System.Int32
+   System.Byte[]
+   System.Int32
+
+ Return
+   System.Int32
+ @/textblock
+*/
+- (int32_t)getBytes_withChars:(System_Array *)p1 charIndex:(int32_t)p2 charCount:(int32_t)p3 bytes:(NSData *)p4 byteIndex:(int32_t)p5;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   GetBytes
+
+ Params
    System.String
 
  Return
@@ -466,6 +531,8 @@
 */
 - (int32_t)getBytes_withS:(NSString *)p1 charIndex:(int32_t)p2 charCount:(int32_t)p3 bytes:(NSData *)p4 byteIndex:(int32_t)p5;
 
+/* Skipped method : System.Int32 GetBytes(System.Char* chars, System.Int32 charCount, System.Byte* bytes, System.Int32 byteCount) */
+
 /**
  Managed method.
  @textblock
@@ -473,19 +540,31 @@
    GetBytes
 
  Params
-   System.Char[]
-   System.Int32
-   System.Int32
-   System.Byte[]
-   System.Int32
+   System.ReadOnlySpan`1<System.Char>
+   System.Span`1<System.Byte>
 
  Return
    System.Int32
  @/textblock
 */
-- (int32_t)getBytes_withChars:(System_Array *)p1 charIndex:(int32_t)p2 charCount:(int32_t)p3 bytes:(NSData *)p4 byteIndex:(int32_t)p5;
+- (int32_t)getBytes_withChars:(System_ReadOnlySpanA1 *)p1 bytes:(System_SpanA1 *)p2;
 
-/* Skipped method : System.Int32 GetBytes(System.Char* chars, System.Int32 charCount, System.Byte* bytes, System.Int32 byteCount) */
+/**
+ Managed method.
+ @textblock
+ Name
+   GetBytes
+
+ Params
+   System.String
+   System.Int32
+   System.Int32
+
+ Return
+   System.Byte[]
+ @/textblock
+*/
+- (NSData *)getBytes_withS:(NSString *)p1 index:(int32_t)p2 count:(int32_t)p3;
 
 /**
  Managed method.
@@ -500,9 +579,7 @@
    System.Int32
  @/textblock
 */
-- (int32_t)getCharCount_withBytes:(NSData *)p1;
-
-/* Skipped method : System.Int32 GetCharCount(System.Byte* bytes, System.Int32 count) */
+- (int32_t)getCharCount_withBytesByteArray:(NSData *)p1;
 
 /**
  Managed method.
@@ -520,6 +597,23 @@
  @/textblock
 */
 - (int32_t)getCharCount_withBytes:(NSData *)p1 index:(int32_t)p2 count:(int32_t)p3;
+
+/* Skipped method : System.Int32 GetCharCount(System.Byte* bytes, System.Int32 count) */
+
+/**
+ Managed method.
+ @textblock
+ Name
+   GetCharCount
+
+ Params
+   System.ReadOnlySpan`1<System.Byte>
+
+ Return
+   System.Int32
+ @/textblock
+*/
+- (int32_t)getCharCount_withBytesSReadOnlySpanA1byte:(System_ReadOnlySpanA1 *)p1;
 
 /**
  Managed method.
@@ -573,6 +667,22 @@
 - (int32_t)getChars_withBytes:(NSData *)p1 byteIndex:(int32_t)p2 byteCount:(int32_t)p3 chars:(System_Array *)p4 charIndex:(int32_t)p5;
 
 /* Skipped method : System.Int32 GetChars(System.Byte* bytes, System.Int32 byteCount, System.Char* chars, System.Int32 charCount) */
+
+/**
+ Managed method.
+ @textblock
+ Name
+   GetChars
+
+ Params
+   System.ReadOnlySpan`1<System.Byte>
+   System.Span`1<System.Char>
+
+ Return
+   System.Int32
+ @/textblock
+*/
+- (int32_t)getChars_withBytes:(System_ReadOnlySpanA1 *)p1 chars:(System_SpanA1 *)p2;
 
 /* Skipped method : System.Text.Decoder GetDecoder() */
 
@@ -683,13 +793,28 @@
    GetString
 
  Params
+   System.ReadOnlySpan`1<System.Byte>
+
+ Return
+   System.String
+ @/textblock
+*/
+- (NSString *)getString_withBytesSReadOnlySpanA1byte:(System_ReadOnlySpanA1 *)p1;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   GetString
+
+ Params
    System.Byte[]
 
  Return
    System.String
  @/textblock
 */
-- (NSString *)getString_withBytes:(NSData *)p1;
+- (NSString *)getString_withBytesByteArray:(NSData *)p1;
 
 /**
  Managed method.

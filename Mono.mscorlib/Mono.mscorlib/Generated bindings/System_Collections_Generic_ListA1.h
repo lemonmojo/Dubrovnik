@@ -59,7 +59,7 @@
 #import "System_Collections_IList_Protocol.h"
 #import "System_Object.h"
 
-@interface System_Collections_Generic_ListA1 : System_Object <System_Collections_Generic_IListA1_, System_Collections_Generic_ICollectionA1_, System_Collections_Generic_IEnumerableA1_, System_Collections_IEnumerable_, System_Collections_IList_, System_Collections_ICollection_, System_Collections_Generic_IReadOnlyListA1_, System_Collections_Generic_IReadOnlyCollectionA1_>
+@interface System_Collections_Generic_ListA1 : System_Object <System_Collections_IEnumerable_, System_Collections_Generic_IListA1_, System_Collections_Generic_IReadOnlyCollectionA1_, System_Collections_IList_, System_Collections_Generic_ICollectionA1_, System_Collections_Generic_IReadOnlyListA1_, System_Collections_ICollection_, System_Collections_Generic_IEnumerableA1_>
 
 #pragma mark -
 #pragma mark Setup
@@ -281,6 +281,21 @@
    CopyTo
 
  Params
+   T[]
+
+ Return
+   System.Void
+ @/textblock
+*/
+- (void)copyTo_withArray:(System_Array *)p1;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   CopyTo
+
+ Params
    System.Int32
    T[]
    System.Int32
@@ -307,21 +322,6 @@
  @/textblock
 */
 - (void)copyTo_withArray:(System_Array *)p1 arrayIndex:(int32_t)p2;
-
-/**
- Managed method.
- @textblock
- Name
-   CopyTo
-
- Params
-   T[]
-
- Return
-   System.Void
- @/textblock
-*/
-- (void)copyTo_withArray:(System_Array *)p1;
 
 /**
  Managed method.
@@ -391,14 +391,13 @@
 
  Params
    System.Int32
-   System.Int32
    System.Predicate`1<System.Collections.Generic.List`1+T>
 
  Return
    System.Int32
  @/textblock
 */
-- (int32_t)findIndex_withStartIndex:(int32_t)p1 count:(int32_t)p2 match:(System_PredicateA1 *)p3;
+- (int32_t)findIndex_withStartIndex:(int32_t)p1 match:(System_PredicateA1 *)p2;
 
 /**
  Managed method.
@@ -408,13 +407,14 @@
 
  Params
    System.Int32
+   System.Int32
    System.Predicate`1<System.Collections.Generic.List`1+T>
 
  Return
    System.Int32
  @/textblock
 */
-- (int32_t)findIndex_withStartIndex:(int32_t)p1 match:(System_PredicateA1 *)p2;
+- (int32_t)findIndex_withStartIndex:(int32_t)p1 count:(int32_t)p2 match:(System_PredicateA1 *)p3;
 
 /**
  Managed method.
@@ -613,23 +613,6 @@
 
  Params
    <System.Collections.Generic.List`1+T>
-   System.Int32
-   System.Int32
-
- Return
-   System.Int32
- @/textblock
-*/
-- (int32_t)lastIndexOf_withItem:(id <DBMonoObject>)p1 index:(int32_t)p2 count:(int32_t)p3;
-
-/**
- Managed method.
- @textblock
- Name
-   LastIndexOf
-
- Params
-   <System.Collections.Generic.List`1+T>
 
  Return
    System.Int32
@@ -652,6 +635,23 @@
  @/textblock
 */
 - (int32_t)lastIndexOf_withItem:(id <DBMonoObject>)p1 index:(int32_t)p2;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   LastIndexOf
+
+ Params
+   <System.Collections.Generic.List`1+T>
+   System.Int32
+   System.Int32
+
+ Return
+   System.Int32
+ @/textblock
+*/
+- (int32_t)lastIndexOf_withItem:(id <DBMonoObject>)p1 index:(int32_t)p2 count:(int32_t)p3;
 
 /**
  Managed method.

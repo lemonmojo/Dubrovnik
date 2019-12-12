@@ -83,6 +83,11 @@
 #pragma mark -
 #pragma mark Methods
 
+- (void)clear
+{
+	[self invokeMonoMethod:"Clear()" withNumArgs:0];
+}
+
 - (void)copyTo_withArray:(System_Array *)p1 index:(int32_t)p2
 {
 	[self invokeMonoMethod:"CopyTo(T[],int)" withNumArgs:2, [p1 monoRTInvokeObject], &p2];

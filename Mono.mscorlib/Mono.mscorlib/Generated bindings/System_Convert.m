@@ -102,6 +102,8 @@ static id <DBMonoObject> m_dBNull;
 
 /* Skipped method : System.String ToBase64String(System.Byte[] inArray, System.Int32 offset, System.Int32 length, System.Base64FormattingOptions options) */
 
+/* Skipped method : System.String ToBase64String(System.ReadOnlySpan`1<System.Byte> bytes, System.Base64FormattingOptions options) */
+
 + (BOOL)toBoolean_withValueObject:(id <DBMonoObject>)p1
 {
 	MonoObject *monoObject = [self invokeMonoClassMethod:"ToBoolean(object)" withNumArgs:1, [p1 monoRTInvokeObject]];
@@ -1240,6 +1242,14 @@ static id <DBMonoObject> m_dBNull;
 
 /* Skipped method : System.String ToString(System.Object value, System.IFormatProvider provider) */
 
++ (NSString *)toString_withValueBool:(BOOL)p1
+{
+	MonoObject *monoObject = [self invokeMonoClassMethod:"ToString(bool)" withNumArgs:1, &p1];
+	return [NSString stringWithMonoString:DB_STRING(monoObject)];
+}
+
+/* Skipped method : System.String ToString(System.Boolean value, System.IFormatProvider provider) */
+
 + (NSString *)toString_withValueChar:(uint16_t)p1
 {
 	MonoObject *monoObject = [self invokeMonoClassMethod:"ToString(char)" withNumArgs:1, &p1];
@@ -1375,14 +1385,6 @@ static id <DBMonoObject> m_dBNull;
 	MonoObject *monoObject = [self invokeMonoClassMethod:"ToString(long,int)" withNumArgs:2, &p1, &p2];
 	return [NSString stringWithMonoString:DB_STRING(monoObject)];
 }
-
-+ (NSString *)toString_withValueBool:(BOOL)p1
-{
-	MonoObject *monoObject = [self invokeMonoClassMethod:"ToString(bool)" withNumArgs:1, &p1];
-	return [NSString stringWithMonoString:DB_STRING(monoObject)];
-}
-
-/* Skipped method : System.String ToString(System.Boolean value, System.IFormatProvider provider) */
 
 + (uint16_t)toUInt16_withValueObject:(id <DBMonoObject>)p1
 {
@@ -1701,6 +1703,20 @@ static id <DBMonoObject> m_dBNull;
 	MonoObject *monoObject = [self invokeMonoClassMethod:"ToUInt64(string,int)" withNumArgs:2, [p1 monoRTInvokeObject], &p2];
 	return DB_UNBOX_UINT64(monoObject);
 }
+
++ (BOOL)tryFromBase64Chars_withChars:(System_ReadOnlySpanA1 *)p1 bytes:(System_SpanA1 *)p2 bytesWrittenRef:(int32_t*)p3
+{
+	MonoObject *monoObject = [self invokeMonoClassMethod:"TryFromBase64Chars(System.ReadOnlySpan`1<char>,System.Span`1<byte>,int&)" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], p3];
+	return DB_UNBOX_BOOLEAN(monoObject);
+}
+
++ (BOOL)tryFromBase64String_withS:(NSString *)p1 bytes:(System_SpanA1 *)p2 bytesWrittenRef:(int32_t*)p3
+{
+	MonoObject *monoObject = [self invokeMonoClassMethod:"TryFromBase64String(string,System.Span`1<byte>,int&)" withNumArgs:3, [p1 monoRTInvokeObject], [p2 monoRTInvokeArg], p3];
+	return DB_UNBOX_BOOLEAN(monoObject);
+}
+
+/* Skipped method : System.Boolean TryToBase64Chars(System.ReadOnlySpan`1<System.Byte> bytes, System.Span`1<System.Char> chars, System.Int32& charsWritten, System.Base64FormattingOptions options) */
 
 #pragma mark -
 #pragma mark Teardown

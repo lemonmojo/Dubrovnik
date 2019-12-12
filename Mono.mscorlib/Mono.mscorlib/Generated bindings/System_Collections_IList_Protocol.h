@@ -78,7 +78,7 @@
 //
 // Adoption protocol
 //
-@protocol System_Collections_IList_ <System_Object_, System_Collections_ICollection_, System_Collections_IEnumerable_>
+@protocol System_Collections_IList_ <System_Object_, System_Collections_IEnumerable_, System_Collections_ICollection_>
 
 @optional
 
@@ -259,7 +259,7 @@
 //
 // Implementation protocol
 //
-@protocol System_Collections_IList <System_Collections_IList_, System_Object, System_Collections_ICollection, System_Collections_IEnumerable>
+@protocol System_Collections_IList <System_Collections_IList_, System_Object, System_Collections_IEnumerable, System_Collections_ICollection>
 
 @optional
 

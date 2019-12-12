@@ -62,72 +62,6 @@
    Create
 
  Params
-   System.Int64
-   System.Int64
-
- Return
-   System.Collections.Concurrent.OrderablePartitioner`1<System.Tuple`2<System.Int64, System.Int64>>
- @/textblock
-*/
-+ (System_Collections_Concurrent_OrderablePartitionerA1 *)create_withFromInclusiveLong:(int64_t)p1 toExclusiveLong:(int64_t)p2;
-
-/**
- Managed method.
- @textblock
- Name
-   Create
-
- Params
-   System.Int64
-   System.Int64
-   System.Int64
-
- Return
-   System.Collections.Concurrent.OrderablePartitioner`1<System.Tuple`2<System.Int64, System.Int64>>
- @/textblock
-*/
-+ (System_Collections_Concurrent_OrderablePartitionerA1 *)create_withFromInclusiveLong:(int64_t)p1 toExclusiveLong:(int64_t)p2 rangeSizeLong:(int64_t)p3;
-
-/**
- Managed method.
- @textblock
- Name
-   Create
-
- Params
-   System.Int32
-   System.Int32
-
- Return
-   System.Collections.Concurrent.OrderablePartitioner`1<System.Tuple`2<System.Int32, System.Int32>>
- @/textblock
-*/
-+ (System_Collections_Concurrent_OrderablePartitionerA1 *)create_withFromInclusiveInt:(int32_t)p1 toExclusiveInt:(int32_t)p2;
-
-/**
- Managed method.
- @textblock
- Name
-   Create
-
- Params
-   System.Int32
-   System.Int32
-   System.Int32
-
- Return
-   System.Collections.Concurrent.OrderablePartitioner`1<System.Tuple`2<System.Int32, System.Int32>>
- @/textblock
-*/
-+ (System_Collections_Concurrent_OrderablePartitionerA1 *)create_withFromInclusiveInt:(int32_t)p1 toExclusiveInt:(int32_t)p2 rangeSizeInt:(int32_t)p3;
-
-/**
- Managed method.
- @textblock
- Name
-   Create
-
- Params
    System.Collections.Generic.IList`1<System.Collections.Concurrent.Partitioner+TSource>
    System.Boolean
 
@@ -195,5 +129,71 @@
  @/textblock
 */
 + (System_Collections_Concurrent_OrderablePartitionerA1 *)create_withSource:(System_Object <System_Collections_Generic_IEnumerableA1_> *)p1 partitionerOptions:(enumSystem_Collections_Concurrent_EnumerablePartitionerOptions)p2 typeParameter:(id)typeParameter;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   Create
+
+ Params
+   System.Int64
+   System.Int64
+
+ Return
+   System.Collections.Concurrent.OrderablePartitioner`1<System.Tuple`2<System.Int64, System.Int64>>
+ @/textblock
+*/
++ (System_Collections_Concurrent_OrderablePartitionerA1 *)create_withFromInclusiveLong:(int64_t)p1 toExclusiveLong:(int64_t)p2;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   Create
+
+ Params
+   System.Int64
+   System.Int64
+   System.Int64
+
+ Return
+   System.Collections.Concurrent.OrderablePartitioner`1<System.Tuple`2<System.Int64, System.Int64>>
+ @/textblock
+*/
++ (System_Collections_Concurrent_OrderablePartitionerA1 *)create_withFromInclusiveLong:(int64_t)p1 toExclusiveLong:(int64_t)p2 rangeSizeLong:(int64_t)p3;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   Create
+
+ Params
+   System.Int32
+   System.Int32
+
+ Return
+   System.Collections.Concurrent.OrderablePartitioner`1<System.Tuple`2<System.Int32, System.Int32>>
+ @/textblock
+*/
++ (System_Collections_Concurrent_OrderablePartitionerA1 *)create_withFromInclusiveInt:(int32_t)p1 toExclusiveInt:(int32_t)p2;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   Create
+
+ Params
+   System.Int32
+   System.Int32
+   System.Int32
+
+ Return
+   System.Collections.Concurrent.OrderablePartitioner`1<System.Tuple`2<System.Int32, System.Int32>>
+ @/textblock
+*/
++ (System_Collections_Concurrent_OrderablePartitionerA1 *)create_withFromInclusiveInt:(int32_t)p1 toExclusiveInt:(int32_t)p2 rangeSizeInt:(int32_t)p3;
 @end
 //--Dubrovnik.CodeGenerator

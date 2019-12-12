@@ -18,6 +18,7 @@
 // Forward class and protocol declarations
 //
 @class System_Array;
+@class System_Boolean;
 @class System_Globalization_CultureInfo;
 @class System_Object;
 @class System_Reflection_Binder;
@@ -51,6 +52,23 @@
 /* Skipped method : System.Reflection.FieldInfo BindToField(System.Reflection.BindingFlags bindingAttr, System.Reflection.FieldInfo[] match, System.Object value, System.Globalization.CultureInfo culture) */
 
 /* Skipped method : System.Reflection.MethodBase BindToMethod(System.Reflection.BindingFlags bindingAttr, System.Reflection.MethodBase[] match, System.Object[]& args, System.Reflection.ParameterModifier[] modifiers, System.Globalization.CultureInfo culture, System.String[] names, System.Object& state) */
+
+/**
+ Managed method.
+ @textblock
+ Name
+   CanChangeType
+
+ Params
+   System.Object
+   System.Type
+   System.Globalization.CultureInfo
+
+ Return
+   System.Boolean
+ @/textblock
+*/
+- (BOOL)canChangeType_withValue:(id <DBMonoObject>)p1 type:(System_Type *)p2 culture:(System_Globalization_CultureInfo *)p3;
 
 /**
  Managed method.

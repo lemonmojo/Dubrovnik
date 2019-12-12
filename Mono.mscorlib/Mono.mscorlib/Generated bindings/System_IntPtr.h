@@ -18,6 +18,7 @@
 // Forward class and protocol declarations
 //
 @class System_Boolean;
+@class System_IEquatableA1;
 @class System_Int32;
 @class System_Int64;
 @class System_IntPtr;
@@ -33,10 +34,11 @@
 //
 // Import superclass and adopted protocols
 //
+#import "System_IEquatableA1_Protocol.h"
 #import "System_Runtime_Serialization_ISerializable_Protocol.h"
 #import "System_ValueType.h"
 
-@interface System_IntPtr : System_ValueType <System_Runtime_Serialization_ISerializable_>
+@interface System_IntPtr : System_ValueType <System_Runtime_Serialization_ISerializable_, System_IEquatableA1_>
 
 #pragma mark -
 #pragma mark Setup

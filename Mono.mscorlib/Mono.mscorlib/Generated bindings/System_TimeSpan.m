@@ -374,6 +374,18 @@ static System_TimeSpan * m_zero;
 	return DB_UNBOX_INT32(monoObject);
 }
 
+- (System_TimeSpan *)divide_withDivisor:(double)p1
+{
+	MonoObject *monoObject = [self invokeMonoMethod:"Divide(double)" withNumArgs:1, &p1];
+	return [System_TimeSpan bestObjectWithMonoObject:monoObject];
+}
+
+- (double)divide_withTs:(System_TimeSpan *)p1
+{
+	MonoObject *monoObject = [self invokeMonoMethod:"Divide(System.TimeSpan)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	return DB_UNBOX_DOUBLE(monoObject);
+}
+
 - (System_TimeSpan *)duration
 {
 	MonoObject *monoObject = [self invokeMonoMethod:"Duration()" withNumArgs:0];
@@ -440,6 +452,12 @@ static System_TimeSpan * m_zero;
 	return DB_UNBOX_INT32(monoObject);
 }
 
+- (System_TimeSpan *)multiply_withFactor:(double)p1
+{
+	MonoObject *monoObject = [self invokeMonoMethod:"Multiply(double)" withNumArgs:1, &p1];
+	return [System_TimeSpan bestObjectWithMonoObject:monoObject];
+}
+
 - (System_TimeSpan *)negate
 {
 	MonoObject *monoObject = [self invokeMonoMethod:"Negate()" withNumArgs:0];
@@ -450,6 +468,18 @@ static System_TimeSpan * m_zero;
 {
 	MonoObject *monoObject = [self invokeMonoClassMethod:"op_Addition(System.TimeSpan,System.TimeSpan)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
 	return [System_TimeSpan bestObjectWithMonoObject:monoObject];
+}
+
++ (System_TimeSpan *)op_Division_withTimeSpan:(System_TimeSpan *)p1 divisor:(double)p2
+{
+	MonoObject *monoObject = [self invokeMonoClassMethod:"op_Division(System.TimeSpan,double)" withNumArgs:2, [p1 monoRTInvokeArg], &p2];
+	return [System_TimeSpan bestObjectWithMonoObject:monoObject];
+}
+
++ (double)op_Division_withT1:(System_TimeSpan *)p1 t2:(System_TimeSpan *)p2
+{
+	MonoObject *monoObject = [self invokeMonoClassMethod:"op_Division(System.TimeSpan,System.TimeSpan)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+	return DB_UNBOX_DOUBLE(monoObject);
 }
 
 + (BOOL)op_Equality_withT1:(System_TimeSpan *)p1 t2:(System_TimeSpan *)p2
@@ -488,6 +518,18 @@ static System_TimeSpan * m_zero;
 	return DB_UNBOX_BOOLEAN(monoObject);
 }
 
++ (System_TimeSpan *)op_Multiply_withTimeSpan:(System_TimeSpan *)p1 factor:(double)p2
+{
+	MonoObject *monoObject = [self invokeMonoClassMethod:"op_Multiply(System.TimeSpan,double)" withNumArgs:2, [p1 monoRTInvokeArg], &p2];
+	return [System_TimeSpan bestObjectWithMonoObject:monoObject];
+}
+
++ (System_TimeSpan *)op_Multiply_withFactor:(double)p1 timeSpan:(System_TimeSpan *)p2
+{
+	MonoObject *monoObject = [self invokeMonoClassMethod:"op_Multiply(double,System.TimeSpan)" withNumArgs:2, &p1, [p2 monoRTInvokeArg]];
+	return [System_TimeSpan bestObjectWithMonoObject:monoObject];
+}
+
 + (System_TimeSpan *)op_Subtraction_withT1:(System_TimeSpan *)p1 t2:(System_TimeSpan *)p2
 {
 	MonoObject *monoObject = [self invokeMonoClassMethod:"op_Subtraction(System.TimeSpan,System.TimeSpan)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
@@ -514,13 +556,19 @@ static System_TimeSpan * m_zero;
 
 /* Skipped method : System.TimeSpan Parse(System.String input, System.IFormatProvider formatProvider) */
 
+/* Skipped method : System.TimeSpan Parse(System.ReadOnlySpan`1<System.Char> input, System.IFormatProvider formatProvider) */
+
 /* Skipped method : System.TimeSpan ParseExact(System.String input, System.String format, System.IFormatProvider formatProvider) */
 
 /* Skipped method : System.TimeSpan ParseExact(System.String input, System.String[] formats, System.IFormatProvider formatProvider) */
 
 /* Skipped method : System.TimeSpan ParseExact(System.String input, System.String format, System.IFormatProvider formatProvider, System.Globalization.TimeSpanStyles styles) */
 
+/* Skipped method : System.TimeSpan ParseExact(System.ReadOnlySpan`1<System.Char> input, System.ReadOnlySpan`1<System.Char> format, System.IFormatProvider formatProvider, System.Globalization.TimeSpanStyles styles) */
+
 /* Skipped method : System.TimeSpan ParseExact(System.String input, System.String[] formats, System.IFormatProvider formatProvider, System.Globalization.TimeSpanStyles styles) */
+
+/* Skipped method : System.TimeSpan ParseExact(System.ReadOnlySpan`1<System.Char> input, System.String[] formats, System.IFormatProvider formatProvider, System.Globalization.TimeSpanStyles styles) */
 
 - (System_TimeSpan *)subtract_withTs:(System_TimeSpan *)p1
 {
@@ -542,7 +590,9 @@ static System_TimeSpan * m_zero;
 
 /* Skipped method : System.String ToString(System.String format, System.IFormatProvider formatProvider) */
 
-+ (BOOL)tryParse_withS:(NSString *)p1 resultRef:(System_TimeSpan **)p2
+/* Skipped method : System.Boolean TryFormat(System.Span`1<System.Char> destination, System.Int32& charsWritten, System.ReadOnlySpan`1<System.Char> format, System.IFormatProvider formatProvider) */
+
++ (BOOL)tryParse_withSString:(NSString *)p1 resultSTimeSpanRef:(System_TimeSpan **)p2
 {
 	void *refPtr2 = [*p2 monoRTInvokeArg];
 	MonoObject *monoObject = [self invokeMonoClassMethod:"TryParse(string,System.TimeSpan&)" withNumArgs:2, [p1 monoRTInvokeObject], &refPtr2];
@@ -550,15 +600,33 @@ static System_TimeSpan * m_zero;
 	return DB_UNBOX_BOOLEAN(monoObject);
 }
 
++ (BOOL)tryParse_withSSReadOnlySpanA1char:(System_ReadOnlySpanA1 *)p1 resultSTimeSpanRef:(System_TimeSpan **)p2
+{
+	void *refPtr2 = [*p2 monoRTInvokeArg];
+	MonoObject *monoObject = [self invokeMonoClassMethod:"TryParse(System.ReadOnlySpan`1<char>,System.TimeSpan&)" withNumArgs:2, [p1 monoRTInvokeArg], &refPtr2];
+	*p2 = [System_Object bestObjectWithMonoObject:refPtr2];
+	return DB_UNBOX_BOOLEAN(monoObject);
+}
+
 /* Skipped method : System.Boolean TryParse(System.String input, System.IFormatProvider formatProvider, System.TimeSpan& result) */
+
+/* Skipped method : System.Boolean TryParse(System.ReadOnlySpan`1<System.Char> input, System.IFormatProvider formatProvider, System.TimeSpan& result) */
 
 /* Skipped method : System.Boolean TryParseExact(System.String input, System.String format, System.IFormatProvider formatProvider, System.TimeSpan& result) */
 
+/* Skipped method : System.Boolean TryParseExact(System.ReadOnlySpan`1<System.Char> input, System.ReadOnlySpan`1<System.Char> format, System.IFormatProvider formatProvider, System.TimeSpan& result) */
+
 /* Skipped method : System.Boolean TryParseExact(System.String input, System.String[] formats, System.IFormatProvider formatProvider, System.TimeSpan& result) */
+
+/* Skipped method : System.Boolean TryParseExact(System.ReadOnlySpan`1<System.Char> input, System.String[] formats, System.IFormatProvider formatProvider, System.TimeSpan& result) */
 
 /* Skipped method : System.Boolean TryParseExact(System.String input, System.String format, System.IFormatProvider formatProvider, System.Globalization.TimeSpanStyles styles, System.TimeSpan& result) */
 
+/* Skipped method : System.Boolean TryParseExact(System.ReadOnlySpan`1<System.Char> input, System.ReadOnlySpan`1<System.Char> format, System.IFormatProvider formatProvider, System.Globalization.TimeSpanStyles styles, System.TimeSpan& result) */
+
 /* Skipped method : System.Boolean TryParseExact(System.String input, System.String[] formats, System.IFormatProvider formatProvider, System.Globalization.TimeSpanStyles styles, System.TimeSpan& result) */
+
+/* Skipped method : System.Boolean TryParseExact(System.ReadOnlySpan`1<System.Char> input, System.String[] formats, System.IFormatProvider formatProvider, System.Globalization.TimeSpanStyles styles, System.TimeSpan& result) */
 
 #pragma mark -
 #pragma mark Teardown

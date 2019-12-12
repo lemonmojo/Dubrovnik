@@ -37,6 +37,12 @@
 
 /* Skipped method : System.Reflection.MethodBase BindToMethod(System.Reflection.BindingFlags bindingAttr, System.Reflection.MethodBase[] match, System.Object[]& args, System.Reflection.ParameterModifier[] modifiers, System.Globalization.CultureInfo culture, System.String[] names, System.Object& state) */
 
+- (BOOL)canChangeType_withValue:(id <DBMonoObject>)p1 type:(System_Type *)p2 culture:(System_Globalization_CultureInfo *)p3
+{
+	MonoObject *monoObject = [self invokeMonoMethod:"CanChangeType(object,System.Type,System.Globalization.CultureInfo)" withNumArgs:3, [p1 monoRTInvokeObject], [p2 monoRTInvokeObject], [p3 monoRTInvokeObject]];
+	return DB_UNBOX_BOOLEAN(monoObject);
+}
+
 - (id <DBMonoObject>)changeType_withValue:(id <DBMonoObject>)p1 type:(System_Type *)p2 culture:(System_Globalization_CultureInfo *)p3
 {
 	MonoObject *monoObject = [self invokeMonoMethod:"ChangeType(object,System.Type,System.Globalization.CultureInfo)" withNumArgs:3, [p1 monoRTInvokeObject], [p2 monoRTInvokeObject], [p3 monoRTInvokeObject]];

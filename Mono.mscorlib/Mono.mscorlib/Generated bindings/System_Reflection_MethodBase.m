@@ -94,6 +94,25 @@
 	return _isAssembly;
 }
 
+@synthesize isConstructedGenericMethod = _isConstructedGenericMethod;
+- (BOOL)isConstructedGenericMethod
+{
+	typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
+	static Thunk thunk;
+	static MonoClass* thunkClass;
+	MonoObject* monoException = NULL;
+	if (!thunk || thunkClass != self.monoClass) {
+		thunkClass = self.monoClass;
+		MonoMethod* monoMethod = GetPropertyGetMethod(thunkClass, "IsConstructedGenericMethod");
+		thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+	}
+	BOOL monoObject = thunk(self.monoObject, &monoException);
+	if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+	_isConstructedGenericMethod = monoObject;
+
+	return _isConstructedGenericMethod;
+}
+
 @synthesize isConstructor = _isConstructor;
 - (BOOL)isConstructor
 {

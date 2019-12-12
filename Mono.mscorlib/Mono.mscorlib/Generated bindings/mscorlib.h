@@ -9,15 +9,15 @@
 // http://github.com/ThesaurusSoftware/Dubrovnik
 // This code has dependencies on the above project.
 //
-// Date:     09/12/2019 23:14:23
+// Date:     12/12/2019 4:51:17 PM
 //
 // Assembly: mscorlib
 // Fullname: mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
-// Path:     C:\Windows\Microsoft.NET\Framework\v4.0.30319\mscorlib.dll
+// Path:     /Library/Frameworks/Mono.framework/Versions/6.4.0/lib/mono/4.5/mscorlib.dll
 //
-// Platform: Microsoft Windows NT 6.2.9200.0
+// Platform: Unix 19.2.0.0
 // OS Arch:  64 bit
-// Process:  32 bit
+// Process:  64 bit
 // Target:   mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
 // Runtime:  4.0.30319.42000
 //
@@ -122,6 +122,8 @@
 /* Skipped type : System.ArithmeticException ArithmeticException */
 #define SArray_ System_Array
 
+/* Skipped type : System.ArraySegment`1<System.ArraySegment`1+Enumerator+T>+Enumerator ArraySegment`1<T>.Enumerator */
+
 /* Skipped type : System.ArraySegment`1<System.ArraySegment`1+T> ArraySegment`1<T> */
 
 /* Skipped type : System.ArrayTypeMismatchException ArrayTypeMismatchException */
@@ -144,6 +146,50 @@
 #define SBoolean_ System_Boolean
 
 /* Skipped type : System.Buffer Buffer */
+
+/* Skipped type : System.Buffers.ArrayBufferWriter`1<System.Buffers.ArrayBufferWriter`1+T> ArrayBufferWriter`1<T> */
+
+/* Skipped type : System.Buffers.ArrayPool`1<System.Buffers.ArrayPool`1+T> ArrayPool`1<T> */
+
+/* Skipped type : System.Buffers.Binary.BinaryPrimitives BinaryPrimitives */
+
+/* Skipped type : System.Buffers.BuffersExtensions BuffersExtensions */
+
+/* Skipped type : System.Buffers.IBufferWriter`1<System.Buffers.IBufferWriter`1+T> IBufferWriter`1<T> */
+
+/* Skipped type : System.Buffers.IMemoryOwner`1<System.Buffers.IMemoryOwner`1+T> IMemoryOwner`1<T> */
+
+/* Skipped type : System.Buffers.IPinnable IPinnable */
+
+/* Skipped type : System.Buffers.MemoryHandle MemoryHandle */
+
+/* Skipped type : System.Buffers.MemoryManager`1<System.Buffers.MemoryManager`1+T> MemoryManager`1<T> */
+
+/* Skipped type : System.Buffers.MemoryPool`1<System.Buffers.MemoryPool`1+T> MemoryPool`1<T> */
+
+/* Skipped type : System.Buffers.OperationStatus OperationStatus */
+
+/* Skipped type : System.Buffers.ReadOnlySequence`1<System.Buffers.ReadOnlySequence`1+Enumerator+T>+Enumerator ReadOnlySequence`1<T>.Enumerator */
+
+/* Skipped type : System.Buffers.ReadOnlySequence`1<System.Buffers.ReadOnlySequence`1+T> ReadOnlySequence`1<T> */
+
+/* Skipped type : System.Buffers.ReadOnlySequenceSegment`1<System.Buffers.ReadOnlySequenceSegment`1+T> ReadOnlySequenceSegment`1<T> */
+
+/* Skipped type : System.Buffers.ReadOnlySpanAction`2<System.Buffers.ReadOnlySpanAction`2+T, System.Buffers.ReadOnlySpanAction`2+TArg> ReadOnlySpanAction`2<T, TArg> */
+
+/* Skipped type : System.Buffers.SequenceReader`1<System.Buffers.SequenceReader`1+T> SequenceReader`1<T> */
+
+/* Skipped type : System.Buffers.SequenceReaderExtensions SequenceReaderExtensions */
+
+/* Skipped type : System.Buffers.SpanAction`2<System.Buffers.SpanAction`2+T, System.Buffers.SpanAction`2+TArg> SpanAction`2<T, TArg> */
+
+/* Skipped type : System.Buffers.StandardFormat StandardFormat */
+
+/* Skipped type : System.Buffers.Text.Base64 Base64 */
+
+/* Skipped type : System.Buffers.Text.Utf8Formatter Utf8Formatter */
+
+/* Skipped type : System.Buffers.Text.Utf8Parser Utf8Parser */
 #define SByte_ System_Byte
 
 /* Skipped type : System.CannotUnloadAppDomainException CannotUnloadAppDomainException */
@@ -175,6 +221,7 @@
 /* Skipped type : System.Collections.DictionaryBase DictionaryBase */
 
 /* Skipped type : System.Collections.DictionaryEntry DictionaryEntry */
+#define SCGCollectionExtensions_ System_Collections_Generic_CollectionExtensions
 
 /* Skipped type : System.Collections.Generic.Comparer`1<System.Collections.Generic.Comparer`1+T> Comparer`1<T> */
 #define SCGDictionaryA2_Enumerator_ System_Collections_Generic_DictionaryA2__Enumerator
@@ -185,6 +232,8 @@
 #define SCGDictionaryA2_ValueCollection_ System_Collections_Generic_DictionaryA2__ValueCollection
 
 /* Skipped type : System.Collections.Generic.EqualityComparer`1<System.Collections.Generic.EqualityComparer`1+T> EqualityComparer`1<T> */
+#define SCGIAsyncEnumerableA1_ System_Collections_Generic_IAsyncEnumerableA1
+#define SCGIAsyncEnumeratorA1_ System_Collections_Generic_IAsyncEnumeratorA1
 #define SCGICollectionA1_ System_Collections_Generic_ICollectionA1
 #define SCGIComparerA1_ System_Collections_Generic_IComparerA1
 #define SCGIDictionaryA2_ System_Collections_Generic_IDictionaryA2
@@ -198,9 +247,14 @@
 #define SCGIReadOnlyListA1_ System_Collections_Generic_IReadOnlyListA1
 
 /* Skipped type : System.Collections.Generic.KeyNotFoundException KeyNotFoundException */
+#define SCGKeyValuePair_ System_Collections_Generic_KeyValuePair
 #define SCGKeyValuePairA2_ System_Collections_Generic_KeyValuePairA2
 #define SCGListA1_Enumerator_ System_Collections_Generic_ListA1__Enumerator
 #define SCGListA1_ System_Collections_Generic_ListA1
+#define SCGQueueA1_Enumerator_ System_Collections_Generic_QueueA1__Enumerator
+#define SCGQueueA1_ System_Collections_Generic_QueueA1
+#define SCGStackA1_Enumerator_ System_Collections_Generic_StackA1__Enumerator
+#define SCGStackA1_ System_Collections_Generic_StackA1
 
 /* Skipped type : System.Collections.Hashtable Hashtable */
 #define SCICollection_ System_Collections_ICollection
@@ -275,6 +329,7 @@
 
 /* Skipped type : System.Converter`2<System.Converter`2+TInput, System.Converter`2+TOutput> Converter`2<TInput, TOutput> */
 #define SCrossAppDomainDelegate_ System_CrossAppDomainDelegate
+#define SCultureAwareComparer_ System_CultureAwareComparer
 
 /* Skipped type : System.DataMisalignedException DataMisalignedException */
 #define SDateTime_ System_DateTime
@@ -288,6 +343,15 @@
 /* Skipped type : System.Deployment.Internal.InternalActivationContextHelper InternalActivationContextHelper */
 
 /* Skipped type : System.Deployment.Internal.InternalApplicationIdentityHelper InternalApplicationIdentityHelper */
+#define SDCAllowNullAttribute_ System_Diagnostics_CodeAnalysis_AllowNullAttribute
+#define SDCDisallowNullAttribute_ System_Diagnostics_CodeAnalysis_DisallowNullAttribute
+#define SDCDoesNotReturnAttribute_ System_Diagnostics_CodeAnalysis_DoesNotReturnAttribute
+#define SDCDoesNotReturnIfAttribute_ System_Diagnostics_CodeAnalysis_DoesNotReturnIfAttribute
+#define SDCMaybeNullAttribute_ System_Diagnostics_CodeAnalysis_MaybeNullAttribute
+#define SDCMaybeNullWhenAttribute_ System_Diagnostics_CodeAnalysis_MaybeNullWhenAttribute
+#define SDCNotNullAttribute_ System_Diagnostics_CodeAnalysis_NotNullAttribute
+#define SDCNotNullIfNotNullAttribute_ System_Diagnostics_CodeAnalysis_NotNullIfNotNullAttribute
+#define SDCNotNullWhenAttribute_ System_Diagnostics_CodeAnalysis_NotNullWhenAttribute
 
 /* Skipped type : System.Diagnostics.CodeAnalysis.SuppressMessageAttribute SuppressMessageAttribute */
 
@@ -380,6 +444,7 @@
 /* Skipped type : System.Diagnostics.SymbolStore.SymLanguageType SymLanguageType */
 
 /* Skipped type : System.Diagnostics.SymbolStore.SymLanguageVendor SymLanguageVendor */
+#define SDTDiagnosticCounter_ System_Diagnostics_Tracing_DiagnosticCounter
 
 /* Skipped type : System.Diagnostics.Tracing.EventActivityOptions EventActivityOptions */
 
@@ -390,6 +455,7 @@
 /* Skipped type : System.Diagnostics.Tracing.EventCommand EventCommand */
 
 /* Skipped type : System.Diagnostics.Tracing.EventCommandEventArgs EventCommandEventArgs */
+#define SDTEventCounter_ System_Diagnostics_Tracing_EventCounter
 
 /* Skipped type : System.Diagnostics.Tracing.EventDataAttribute EventDataAttribute */
 
@@ -428,8 +494,11 @@
 /* Skipped type : System.Diagnostics.Tracing.EventTask EventTask */
 
 /* Skipped type : System.Diagnostics.Tracing.EventWrittenEventArgs EventWrittenEventArgs */
+#define SDTIncrementingEventCounter_ System_Diagnostics_Tracing_IncrementingEventCounter
+#define SDTIncrementingPollingCounter_ System_Diagnostics_Tracing_IncrementingPollingCounter
 
 /* Skipped type : System.Diagnostics.Tracing.NonEventAttribute NonEventAttribute */
+#define SDTPollingCounter_ System_Diagnostics_Tracing_PollingCounter
 
 /* Skipped type : System.DivideByZeroException DivideByZeroException */
 
@@ -518,6 +587,7 @@
 /* Skipped type : System.Globalization.HijriCalendar HijriCalendar */
 
 /* Skipped type : System.Globalization.IdnMapping IdnMapping */
+#define SGISOWeek_ System_Globalization_ISOWeek
 
 /* Skipped type : System.Globalization.JapaneseCalendar JapaneseCalendar */
 
@@ -559,8 +629,10 @@
 
 /* Skipped type : System.Globalization.UnicodeCategory UnicodeCategory */
 #define SGuid_ System_Guid
+#define SHashCode_ System_HashCode
 
 /* Skipped type : System.IAppDomainSetup IAppDomainSetup */
+#define SIAsyncDisposable_ System_IAsyncDisposable
 #define SIAsyncResult_ System_IAsyncResult
 #define SICloneable_ System_ICloneable
 #define SIComparable_ System_IComparable
@@ -575,6 +647,7 @@
 /* Skipped type : System.IFormatProvider IFormatProvider */
 
 /* Skipped type : System.IFormattable IFormattable */
+#define SIndex_ System_Index
 
 /* Skipped type : System.IndexOutOfRangeException IndexOutOfRangeException */
 
@@ -613,6 +686,13 @@
 /* Skipped type : System.IO.DriveType DriveType */
 
 /* Skipped type : System.IO.EndOfStreamException EndOfStreamException */
+#define SIEFileSystemEntry_ System_IO_Enumeration_FileSystemEntry
+#define SIEFileSystemEnumerableA1_FindPredicate_ System_IO_Enumeration_FileSystemEnumerableA1__FindPredicate
+#define SIEFileSystemEnumerableA1_FindTransform_ System_IO_Enumeration_FileSystemEnumerableA1__FindTransform
+#define SIEFileSystemEnumerableA1_ System_IO_Enumeration_FileSystemEnumerableA1
+#define SIEFileSystemEnumeratorA1_ System_IO_Enumeration_FileSystemEnumeratorA1
+#define SIEFileSystemName_ System_IO_Enumeration_FileSystemName
+#define SIEnumerationOptions_ System_IO_EnumerationOptions
 
 /* Skipped type : System.IO.File File */
 
@@ -651,6 +731,8 @@
 /* Skipped type : System.IO.IsolatedStorage.IsolatedStorageSecurityOptions IsolatedStorageSecurityOptions */
 
 /* Skipped type : System.IO.IsolatedStorage.IsolatedStorageSecurityState IsolatedStorageSecurityState */
+#define SIMatchCasing_ System_IO_MatchCasing
+#define SIMatchType_ System_IO_MatchType
 
 /* Skipped type : System.IO.MemoryStream MemoryStream */
 
@@ -695,7 +777,11 @@
 
 /* Skipped type : System.Math Math */
 
+/* Skipped type : System.MathF MathF */
+
 /* Skipped type : System.MemberAccessException MemberAccessException */
+#define SMemoryA1_ System_MemoryA1
+#define SMemoryExtensions_ System_MemoryExtensions
 
 /* Skipped type : System.MethodAccessException MethodAccessException */
 
@@ -726,6 +812,8 @@
 #define SNullableA1_ System_NullableA1
 
 /* Skipped type : System.NullReferenceException NullReferenceException */
+#define SNVector_ System_Numerics_Vector
+#define SNVectorA1_ System_Numerics_VectorA1
 #define SObject_ System_Object
 
 /* Skipped type : System.ObjectDisposedException ObjectDisposedException */
@@ -735,6 +823,7 @@
 /* Skipped type : System.OperatingSystem OperatingSystem */
 
 /* Skipped type : System.OperationCanceledException OperationCanceledException */
+#define SOrdinalComparer_ System_OrdinalComparer
 
 /* Skipped type : System.OutOfMemoryException OutOfMemoryException */
 
@@ -750,8 +839,13 @@
 /* Skipped type : System.Progress`1<System.Progress`1+T> Progress`1<T> */
 
 /* Skipped type : System.Random Random */
+#define SRange_ System_Range
 
 /* Skipped type : System.RankException RankException */
+#define SReadOnlyMemoryA1_ System_ReadOnlyMemoryA1
+
+/* Skipped type : System.ReadOnlySpan`1<System.ReadOnlySpan`1+Enumerator+T>+Enumerator ReadOnlySpan`1<T>.Enumerator */
+#define SReadOnlySpanA1_ System_ReadOnlySpanA1
 
 /* Skipped type : System.Reflection.AmbiguousMatchException AmbiguousMatchException */
 #define SRAssembly_ System_Reflection_Assembly
@@ -773,6 +867,8 @@
 /* Skipped type : System.Reflection.AssemblyDelaySignAttribute AssemblyDelaySignAttribute */
 
 /* Skipped type : System.Reflection.AssemblyDescriptionAttribute AssemblyDescriptionAttribute */
+
+/* Skipped type : System.Reflection.AssemblyExtensions AssemblyExtensions */
 
 /* Skipped type : System.Reflection.AssemblyFileVersionAttribute AssemblyFileVersionAttribute */
 
@@ -899,6 +995,8 @@
 
 /* Skipped type : System.Reflection.EventInfo EventInfo */
 
+/* Skipped type : System.Reflection.EventInfoExtensions EventInfoExtensions */
+
 /* Skipped type : System.Reflection.ExceptionHandlingClause ExceptionHandlingClause */
 
 /* Skipped type : System.Reflection.ExceptionHandlingClauseOptions ExceptionHandlingClauseOptions */
@@ -928,7 +1026,10 @@
 #define SRMemberFilter_ System_Reflection_MemberFilter
 #define SRMemberInfo_ System_Reflection_MemberInfo
 
+/* Skipped type : System.Reflection.MemberInfoExtensions MemberInfoExtensions */
+
 /* Skipped type : System.Reflection.MemberTypes MemberTypes */
+#define SRMAssemblyExtensions_ System_Reflection_Metadata_AssemblyExtensions
 
 /* Skipped type : System.Reflection.MethodAttributes MethodAttributes */
 #define SRMethodBase_ System_Reflection_MethodBase
@@ -938,9 +1039,15 @@
 /* Skipped type : System.Reflection.MethodImplAttributes MethodImplAttributes */
 #define SRMethodInfo_ System_Reflection_MethodInfo
 
+/* Skipped type : System.Reflection.MethodInfoExtensions MethodInfoExtensions */
+
 /* Skipped type : System.Reflection.Missing Missing */
 
+/* Skipped type : System.Reflection.MissingMetadataException MissingMetadataException */
+
 /* Skipped type : System.Reflection.Module Module */
+
+/* Skipped type : System.Reflection.ModuleExtensions ModuleExtensions */
 
 /* Skipped type : System.Reflection.ModuleResolveEventHandler ModuleResolveEventHandler */
 
@@ -963,6 +1070,8 @@
 /* Skipped type : System.Reflection.PropertyAttributes PropertyAttributes */
 #define SRPropertyInfo_ System_Reflection_PropertyInfo
 
+/* Skipped type : System.Reflection.PropertyInfoExtensions PropertyInfoExtensions */
+
 /* Skipped type : System.Reflection.ReflectionContext ReflectionContext */
 
 /* Skipped type : System.Reflection.ReflectionTypeLoadException ReflectionTypeLoadException */
@@ -983,6 +1092,7 @@
 #define SRTypeAttributes_ System_Reflection_TypeAttributes
 
 /* Skipped type : System.Reflection.TypeDelegator TypeDelegator */
+#define SRTypeExtensions_ System_Reflection_TypeExtensions
 
 /* Skipped type : System.Reflection.TypeFilter TypeFilter */
 
@@ -1013,16 +1123,22 @@
 /* Skipped type : System.Resources.SatelliteContractVersionAttribute SatelliteContractVersionAttribute */
 
 /* Skipped type : System.Resources.UltimateResourceFallbackLocation UltimateResourceFallbackLocation */
+#define SRAmbiguousImplementationException_ System_Runtime_AmbiguousImplementationException
 
 /* Skipped type : System.Runtime.AssemblyTargetedPatchBandAttribute AssemblyTargetedPatchBandAttribute */
 
 /* Skipped type : System.Runtime.CompilerServices.AccessedThroughPropertyAttribute AccessedThroughPropertyAttribute */
+#define SRCAsyncIteratorMethodBuilder_ System_Runtime_CompilerServices_AsyncIteratorMethodBuilder
+#define SRCAsyncIteratorStateMachineAttribute_ System_Runtime_CompilerServices_AsyncIteratorStateMachineAttribute
+#define SRCAsyncMethodBuilderAttribute_ System_Runtime_CompilerServices_AsyncMethodBuilderAttribute
 
 /* Skipped type : System.Runtime.CompilerServices.AsyncStateMachineAttribute AsyncStateMachineAttribute */
 
 /* Skipped type : System.Runtime.CompilerServices.AsyncTaskMethodBuilder AsyncTaskMethodBuilder */
 
 /* Skipped type : System.Runtime.CompilerServices.AsyncTaskMethodBuilder`1<System.Runtime.CompilerServices.AsyncTaskMethodBuilder`1+TResult> AsyncTaskMethodBuilder`1<TResult> */
+#define SRCAsyncValueTaskMethodBuilder_ System_Runtime_CompilerServices_AsyncValueTaskMethodBuilder
+#define SRCAsyncValueTaskMethodBuilderA1_ System_Runtime_CompilerServices_AsyncValueTaskMethodBuilderA1
 
 /* Skipped type : System.Runtime.CompilerServices.AsyncVoidMethodBuilder AsyncVoidMethodBuilder */
 
@@ -1053,6 +1169,9 @@
 /* Skipped type : System.Runtime.CompilerServices.ConditionalWeakTable`2<System.Runtime.CompilerServices.ConditionalWeakTable`2+CreateValueCallback+TKey, System.Runtime.CompilerServices.ConditionalWeakTable`2+CreateValueCallback+TValue>+CreateValueCallback ConditionalWeakTable`2<TKey, TValue>.CreateValueCallback */
 
 /* Skipped type : System.Runtime.CompilerServices.ConditionalWeakTable`2<System.Runtime.CompilerServices.ConditionalWeakTable`2+TKey, System.Runtime.CompilerServices.ConditionalWeakTable`2+TValue> ConditionalWeakTable`2<TKey, TValue> */
+#define SRCConfiguredAsyncDisposable_ System_Runtime_CompilerServices_ConfiguredAsyncDisposable
+#define SRCConfiguredCancelableAsyncEnumerableA1_Enumerator_ System_Runtime_CompilerServices_ConfiguredCancelableAsyncEnumerableA1__Enumerator
+#define SRCConfiguredCancelableAsyncEnumerableA1_ System_Runtime_CompilerServices_ConfiguredCancelableAsyncEnumerableA1
 
 /* Skipped type : System.Runtime.CompilerServices.ConfiguredTaskAwaitable ConfiguredTaskAwaitable */
 
@@ -1061,6 +1180,10 @@
 /* Skipped type : System.Runtime.CompilerServices.ConfiguredTaskAwaitable`1<System.Runtime.CompilerServices.ConfiguredTaskAwaitable`1+TResult> ConfiguredTaskAwaitable`1<TResult> */
 
 /* Skipped type : System.Runtime.CompilerServices.ConfiguredTaskAwaitable+ConfiguredTaskAwaiter ConfiguredTaskAwaitable.ConfiguredTaskAwaiter */
+#define SRCConfiguredValueTaskAwaitable_ System_Runtime_CompilerServices_ConfiguredValueTaskAwaitable
+#define SRCConfiguredValueTaskAwaitableA1_ConfiguredValueTaskAwaiter_ System_Runtime_CompilerServices_ConfiguredValueTaskAwaitableA1__ConfiguredValueTaskAwaiter
+#define SRCConfiguredValueTaskAwaitableA1_ System_Runtime_CompilerServices_ConfiguredValueTaskAwaitableA1
+#define SRCConfiguredValueTaskAwaitable_ConfiguredValueTaskAwaiter_ System_Runtime_CompilerServices_ConfiguredValueTaskAwaitable__ConfiguredValueTaskAwaiter
 
 /* Skipped type : System.Runtime.CompilerServices.ContractHelper ContractHelper */
 
@@ -1077,6 +1200,7 @@
 /* Skipped type : System.Runtime.CompilerServices.DisablePrivateReflectionAttribute DisablePrivateReflectionAttribute */
 
 /* Skipped type : System.Runtime.CompilerServices.DiscardableAttribute DiscardableAttribute */
+#define SRCEnumeratorCancellationAttribute_ System_Runtime_CompilerServices_EnumeratorCancellationAttribute
 
 /* Skipped type : System.Runtime.CompilerServices.ExtensionAttribute ExtensionAttribute */
 
@@ -1169,6 +1293,7 @@
 /* Skipped type : System.Runtime.CompilerServices.StringFreezingAttribute StringFreezingAttribute */
 
 /* Skipped type : System.Runtime.CompilerServices.SuppressIldasmAttribute SuppressIldasmAttribute */
+#define SRCSwitchExpressionException_ System_Runtime_CompilerServices_SwitchExpressionException
 
 /* Skipped type : System.Runtime.CompilerServices.TaskAwaiter TaskAwaiter */
 
@@ -1181,6 +1306,8 @@
 /* Skipped type : System.Runtime.CompilerServices.TypeForwardedToAttribute TypeForwardedToAttribute */
 
 /* Skipped type : System.Runtime.CompilerServices.UnsafeValueTypeAttribute UnsafeValueTypeAttribute */
+#define SRCValueTaskAwaiter_ System_Runtime_CompilerServices_ValueTaskAwaiter
+#define SRCValueTaskAwaiterA1_ System_Runtime_CompilerServices_ValueTaskAwaiterA1
 
 /* Skipped type : System.Runtime.CompilerServices.YieldAwaitable YieldAwaitable */
 
@@ -1195,8 +1322,6 @@
 /* Skipped type : System.Runtime.ConstrainedExecution.PrePrepareMethodAttribute PrePrepareMethodAttribute */
 
 /* Skipped type : System.Runtime.ConstrainedExecution.ReliabilityContractAttribute ReliabilityContractAttribute */
-
-/* Skipped type : System.Runtime.DesignerServices.WindowsRuntimeDesignerContext WindowsRuntimeDesignerContext */
 
 /* Skipped type : System.Runtime.ExceptionServices.ExceptionDispatchInfo ExceptionDispatchInfo */
 
@@ -1543,6 +1668,7 @@
 /* Skipped type : System.Runtime.InteropServices.MarshalAsAttribute MarshalAsAttribute */
 
 /* Skipped type : System.Runtime.InteropServices.MarshalDirectiveException MarshalDirectiveException */
+#define SRIMemoryMarshal_ System_Runtime_InteropServices_MemoryMarshal
 
 /* Skipped type : System.Runtime.InteropServices.ObjectCreationDelegate ObjectCreationDelegate */
 
@@ -1581,6 +1707,7 @@
 /* Skipped type : System.Runtime.InteropServices.SafeHandle SafeHandle */
 
 /* Skipped type : System.Runtime.InteropServices.SEHException SEHException */
+#define SRISequenceMarshal_ System_Runtime_InteropServices_SequenceMarshal
 
 /* Skipped type : System.Runtime.InteropServices.SetWin32ContextInIDispatchAttribute SetWin32ContextInIDispatchAttribute */
 
@@ -2032,6 +2159,7 @@
 /* Skipped type : System.Runtime.Serialization.SerializationBinder SerializationBinder */
 
 /* Skipped type : System.Runtime.Serialization.SerializationEntry SerializationEntry */
+#define SRSSerializationEventHandler_ System_Runtime_Serialization_SerializationEventHandler
 
 /* Skipped type : System.Runtime.Serialization.SerializationException SerializationException */
 
@@ -2224,6 +2352,10 @@
 
 /* Skipped type : System.Security.Cryptography.Aes Aes */
 
+/* Skipped type : System.Security.Cryptography.AesCcm AesCcm */
+
+/* Skipped type : System.Security.Cryptography.AesGcm AesGcm */
+
 /* Skipped type : System.Security.Cryptography.AsymmetricAlgorithm AsymmetricAlgorithm */
 
 /* Skipped type : System.Security.Cryptography.AsymmetricKeyExchangeDeformatter AsymmetricKeyExchangeDeformatter */
@@ -2241,6 +2373,7 @@
 /* Skipped type : System.Security.Cryptography.CryptoConfig CryptoConfig */
 
 /* Skipped type : System.Security.Cryptography.CryptographicException CryptographicException */
+#define SSCCryptographicOperations_ System_Security_Cryptography_CryptographicOperations
 
 /* Skipped type : System.Security.Cryptography.CryptographicUnexpectedOperationException CryptographicUnexpectedOperationException */
 
@@ -2313,6 +2446,8 @@
 /* Skipped type : System.Security.Cryptography.PaddingMode PaddingMode */
 
 /* Skipped type : System.Security.Cryptography.PasswordDeriveBytes PasswordDeriveBytes */
+#define SSCPbeEncryptionAlgorithm_ System_Security_Cryptography_PbeEncryptionAlgorithm
+#define SSCPbeParameters_ System_Security_Cryptography_PbeParameters
 
 /* Skipped type : System.Security.Cryptography.PKCS1MaskGenerationMethod PKCS1MaskGenerationMethod */
 
@@ -2650,8 +2785,6 @@
 
 /* Skipped type : System.Security.Principal.WindowsPrincipal WindowsPrincipal */
 
-/* Skipped type : System.Security.ReadOnlyPermissionSet ReadOnlyPermissionSet */
-
 /* Skipped type : System.Security.SecureString SecureString */
 
 /* Skipped type : System.Security.SecurityContext SecurityContext */
@@ -2689,9 +2822,13 @@
 /* Skipped type : System.Security.VerificationException VerificationException */
 
 /* Skipped type : System.Security.XmlSyntaxException XmlSyntaxException */
+#define SSequencePosition_ System_SequencePosition
 
 /* Skipped type : System.SerializableAttribute SerializableAttribute */
 #define SSingle_ System_Single
+
+/* Skipped type : System.Span`1<System.Span`1+Enumerator+T>+Enumerator Span`1<T>.Enumerator */
+#define SSpanA1_ System_SpanA1
 
 /* Skipped type : System.StackOverflowException StackOverflowException */
 
@@ -2795,8 +2932,10 @@
 /* Skipped type : System.Threading.LazyInitializer LazyInitializer */
 
 /* Skipped type : System.Threading.LazyThreadSafetyMode LazyThreadSafetyMode */
+#define STLock_ System_Threading_Lock
 
 /* Skipped type : System.Threading.LockCookie LockCookie */
+#define STLockHolder_ System_Threading_LockHolder
 
 /* Skipped type : System.Threading.LockRecursionException LockRecursionException */
 
@@ -2841,8 +2980,15 @@
 /* Skipped type : System.Threading.Tasks.ParallelLoopState ParallelLoopState */
 
 /* Skipped type : System.Threading.Tasks.ParallelOptions ParallelOptions */
+#define STTSIValueTaskSource_ System_Threading_Tasks_Sources_IValueTaskSource
+#define STTSIValueTaskSourceA1_ System_Threading_Tasks_Sources_IValueTaskSourceA1
+#define STTSManualResetValueTaskSourceCoreA1_ System_Threading_Tasks_Sources_ManualResetValueTaskSourceCoreA1
+#define STTSValueTaskSourceOnCompletedFlags_ System_Threading_Tasks_Sources_ValueTaskSourceOnCompletedFlags
+#define STTSValueTaskSourceStatus_ System_Threading_Tasks_Sources_ValueTaskSourceStatus
 #define STTTask_ System_Threading_Tasks_Task
 #define STTTaskA1_ System_Threading_Tasks_TaskA1
+
+/* Skipped type : System.Threading.Tasks.TaskAsyncEnumerableExtensions TaskAsyncEnumerableExtensions */
 
 /* Skipped type : System.Threading.Tasks.TaskCanceledException TaskCanceledException */
 
@@ -2863,6 +3009,8 @@
 /* Skipped type : System.Threading.Tasks.TaskStatus TaskStatus */
 
 /* Skipped type : System.Threading.Tasks.UnobservedTaskExceptionEventArgs UnobservedTaskExceptionEventArgs */
+#define STTValueTask_ System_Threading_Tasks_ValueTask
+#define STTValueTaskA1_ System_Threading_Tasks_ValueTaskA1
 
 /* Skipped type : System.Threading.Thread Thread */
 
@@ -3005,12 +3153,19 @@ Assembly type imports
 #import "System_Collections_Concurrent_OrderablePartitionerA1.h"
 #import "System_Collections_Concurrent_Partitioner.h"
 #import "System_Collections_Concurrent_PartitionerA1.h"
+#import "System_Collections_Generic_CollectionExtensions.h"
 #import "System_Collections_Generic_DictionaryA2__Enumerator.h"
 #import "System_Collections_Generic_DictionaryA2__KeyCollection__Enumerator.h"
 #import "System_Collections_Generic_DictionaryA2__KeyCollection.h"
 #import "System_Collections_Generic_DictionaryA2.h"
 #import "System_Collections_Generic_DictionaryA2__ValueCollection__Enumerator.h"
 #import "System_Collections_Generic_DictionaryA2__ValueCollection.h"
+#import "System_Collections_Generic_IAsyncEnumerableA1.h"
+#import "System_Collections_Generic_IAsyncEnumerableA1.h"
+#import "System_Collections_Generic_IAsyncEnumerableA1_Protocol.h"
+#import "System_Collections_Generic_IAsyncEnumeratorA1.h"
+#import "System_Collections_Generic_IAsyncEnumeratorA1.h"
+#import "System_Collections_Generic_IAsyncEnumeratorA1_Protocol.h"
 #import "System_Collections_Generic_ICollectionA1.h"
 #import "System_Collections_Generic_ICollectionA1.h"
 #import "System_Collections_Generic_ICollectionA1_Protocol.h"
@@ -3038,9 +3193,14 @@ Assembly type imports
 #import "System_Collections_Generic_IReadOnlyListA1.h"
 #import "System_Collections_Generic_IReadOnlyListA1.h"
 #import "System_Collections_Generic_IReadOnlyListA1_Protocol.h"
+#import "System_Collections_Generic_KeyValuePair.h"
 #import "System_Collections_Generic_KeyValuePairA2.h"
 #import "System_Collections_Generic_ListA1__Enumerator.h"
 #import "System_Collections_Generic_ListA1.h"
+#import "System_Collections_Generic_QueueA1__Enumerator.h"
+#import "System_Collections_Generic_QueueA1.h"
+#import "System_Collections_Generic_StackA1__Enumerator.h"
+#import "System_Collections_Generic_StackA1.h"
 #import "System_Collections_ICollection.h"
 #import "System_Collections_ICollection.h"
 #import "System_Collections_ICollection_Protocol.h"
@@ -3059,6 +3219,7 @@ Assembly type imports
 #import "System_Collections_ObjectModel_CollectionA1.h"
 #import "System_Convert.h"
 #import "System_CrossAppDomainDelegate.h"
+#import "System_CultureAwareComparer.h"
 #import "System_DateTime.h"
 #import "System_DateTimeKind.h"
 #import "System_DateTimeOffset.h"
@@ -3066,6 +3227,20 @@ Assembly type imports
 #import "System_DBNull.h"
 #import "System_Decimal.h"
 #import "System_Delegate.h"
+#import "System_Diagnostics_CodeAnalysis_AllowNullAttribute.h"
+#import "System_Diagnostics_CodeAnalysis_DisallowNullAttribute.h"
+#import "System_Diagnostics_CodeAnalysis_DoesNotReturnAttribute.h"
+#import "System_Diagnostics_CodeAnalysis_DoesNotReturnIfAttribute.h"
+#import "System_Diagnostics_CodeAnalysis_MaybeNullAttribute.h"
+#import "System_Diagnostics_CodeAnalysis_MaybeNullWhenAttribute.h"
+#import "System_Diagnostics_CodeAnalysis_NotNullAttribute.h"
+#import "System_Diagnostics_CodeAnalysis_NotNullIfNotNullAttribute.h"
+#import "System_Diagnostics_CodeAnalysis_NotNullWhenAttribute.h"
+#import "System_Diagnostics_Tracing_DiagnosticCounter.h"
+#import "System_Diagnostics_Tracing_EventCounter.h"
+#import "System_Diagnostics_Tracing_IncrementingEventCounter.h"
+#import "System_Diagnostics_Tracing_IncrementingPollingCounter.h"
+#import "System_Diagnostics_Tracing_PollingCounter.h"
 #import "System_Double.h"
 #import "System_Enum.h"
 #import "System_EventArgs.h"
@@ -3082,7 +3257,12 @@ Assembly type imports
 #import "System_FuncA8.h"
 #import "System_FuncA9.h"
 #import "System_Globalization_CultureInfo.h"
+#import "System_Globalization_ISOWeek.h"
 #import "System_Guid.h"
+#import "System_HashCode.h"
+#import "System_IAsyncDisposable.h"
+#import "System_IAsyncDisposable.h"
+#import "System_IAsyncDisposable_Protocol.h"
 #import "System_IAsyncResult.h"
 #import "System_IAsyncResult.h"
 #import "System_IAsyncResult_Protocol.h"
@@ -3101,21 +3281,39 @@ Assembly type imports
 #import "System_IEquatableA1.h"
 #import "System_IEquatableA1.h"
 #import "System_IEquatableA1_Protocol.h"
+#import "System_Index.h"
 #import "System_Int16.h"
 #import "System_Int32.h"
 #import "System_Int64.h"
 #import "System_IntPtr.h"
+#import "System_IO_Enumeration_FileSystemEntry.h"
+#import "System_IO_Enumeration_FileSystemEnumerableA1__FindPredicate.h"
+#import "System_IO_Enumeration_FileSystemEnumerableA1__FindTransform.h"
+#import "System_IO_Enumeration_FileSystemEnumerableA1.h"
+#import "System_IO_Enumeration_FileSystemEnumeratorA1.h"
+#import "System_IO_Enumeration_FileSystemName.h"
+#import "System_IO_EnumerationOptions.h"
 #import "System_IO_FileAttributes.h"
 #import "System_IO_FileInfo.h"
+#import "System_IO_MatchCasing.h"
+#import "System_IO_MatchType.h"
 #import "System_IO_Stream.h"
 #import "System_IO_StringReader.h"
 #import "System_IO_StringWriter.h"
 #import "System_IO_TextReader.h"
 #import "System_MarshalByRefObject.h"
+#import "System_MemoryA1.h"
+#import "System_MemoryExtensions.h"
 #import "System_MulticastDelegate.h"
 #import "System_NullableA1.h"
+#import "System_Numerics_Vector.h"
+#import "System_Numerics_VectorA1.h"
 #import "System_Object.h"
+#import "System_OrdinalComparer.h"
 #import "System_PredicateA1.h"
+#import "System_Range.h"
+#import "System_ReadOnlyMemoryA1.h"
+#import "System_ReadOnlySpanA1.h"
 #import "System_Reflection_Assembly.h"
 #import "System_Reflection_AssemblyName.h"
 #import "System_Reflection_Binder.h"
@@ -3123,16 +3321,37 @@ Assembly type imports
 #import "System_Reflection_GenericParameterAttributes.h"
 #import "System_Reflection_MemberFilter.h"
 #import "System_Reflection_MemberInfo.h"
+#import "System_Reflection_Metadata_AssemblyExtensions.h"
 #import "System_Reflection_MethodBase.h"
 #import "System_Reflection_MethodInfo.h"
 #import "System_Reflection_PropertyInfo.h"
 #import "System_Reflection_TypeAttributes.h"
+#import "System_Reflection_TypeExtensions.h"
+#import "System_Runtime_AmbiguousImplementationException.h"
+#import "System_Runtime_CompilerServices_AsyncIteratorMethodBuilder.h"
+#import "System_Runtime_CompilerServices_AsyncIteratorStateMachineAttribute.h"
+#import "System_Runtime_CompilerServices_AsyncMethodBuilderAttribute.h"
+#import "System_Runtime_CompilerServices_AsyncValueTaskMethodBuilder.h"
+#import "System_Runtime_CompilerServices_AsyncValueTaskMethodBuilderA1.h"
+#import "System_Runtime_CompilerServices_ConfiguredAsyncDisposable.h"
+#import "System_Runtime_CompilerServices_ConfiguredCancelableAsyncEnumerableA1__Enumerator.h"
+#import "System_Runtime_CompilerServices_ConfiguredCancelableAsyncEnumerableA1.h"
+#import "System_Runtime_CompilerServices_ConfiguredValueTaskAwaitable.h"
+#import "System_Runtime_CompilerServices_ConfiguredValueTaskAwaitableA1__ConfiguredValueTaskAwaiter.h"
+#import "System_Runtime_CompilerServices_ConfiguredValueTaskAwaitableA1.h"
+#import "System_Runtime_CompilerServices_ConfiguredValueTaskAwaitable__ConfiguredValueTaskAwaiter.h"
+#import "System_Runtime_CompilerServices_EnumeratorCancellationAttribute.h"
+#import "System_Runtime_CompilerServices_SwitchExpressionException.h"
+#import "System_Runtime_CompilerServices_ValueTaskAwaiter.h"
+#import "System_Runtime_CompilerServices_ValueTaskAwaiterA1.h"
 #import "System_Runtime_InteropServices__Attribute.h"
 #import "System_Runtime_InteropServices__Attribute.h"
 #import "System_Runtime_InteropServices__Attribute_Protocol.h"
 #import "System_Runtime_InteropServices__Exception.h"
 #import "System_Runtime_InteropServices__Exception.h"
 #import "System_Runtime_InteropServices__Exception_Protocol.h"
+#import "System_Runtime_InteropServices_MemoryMarshal.h"
+#import "System_Runtime_InteropServices_SequenceMarshal.h"
 #import "System_Runtime_Remoting_Lifetime_ClientSponsor.h"
 #import "System_Runtime_Remoting_Lifetime_ILease.h"
 #import "System_Runtime_Remoting_Lifetime_ILease.h"
@@ -3154,17 +3373,36 @@ Assembly type imports
 #import "System_Runtime_Serialization_ISerializable.h"
 #import "System_Runtime_Serialization_ISerializable.h"
 #import "System_Runtime_Serialization_ISerializable_Protocol.h"
+#import "System_Runtime_Serialization_SerializationEventHandler.h"
 #import "System_SByte.h"
+#import "System_Security_Cryptography_CryptographicOperations.h"
+#import "System_Security_Cryptography_PbeEncryptionAlgorithm.h"
+#import "System_Security_Cryptography_PbeParameters.h"
+#import "System_SequencePosition.h"
 #import "System_Single.h"
+#import "System_SpanA1.h"
 #import "System_String.h"
 #import "System_StringComparison.h"
 #import "System_Text_Encoding.h"
 #import "System_Text_StringBuilder.h"
 #import "System_Threading_CancellationToken.h"
+#import "System_Threading_Lock.h"
+#import "System_Threading_LockHolder.h"
 #import "System_Threading_SendOrPostCallback.h"
 #import "System_Threading_SynchronizationContext.h"
+#import "System_Threading_Tasks_Sources_IValueTaskSource.h"
+#import "System_Threading_Tasks_Sources_IValueTaskSource.h"
+#import "System_Threading_Tasks_Sources_IValueTaskSource_Protocol.h"
+#import "System_Threading_Tasks_Sources_IValueTaskSourceA1.h"
+#import "System_Threading_Tasks_Sources_IValueTaskSourceA1.h"
+#import "System_Threading_Tasks_Sources_IValueTaskSourceA1_Protocol.h"
+#import "System_Threading_Tasks_Sources_ManualResetValueTaskSourceCoreA1.h"
+#import "System_Threading_Tasks_Sources_ValueTaskSourceOnCompletedFlags.h"
+#import "System_Threading_Tasks_Sources_ValueTaskSourceStatus.h"
 #import "System_Threading_Tasks_Task.h"
 #import "System_Threading_Tasks_TaskA1.h"
+#import "System_Threading_Tasks_ValueTask.h"
+#import "System_Threading_Tasks_ValueTaskA1.h"
 #import "System_TimeSpan.h"
 #import "System_TimeZoneInfo.h"
 #import "System_TimeZoneInfo__AdjustmentRule.h"

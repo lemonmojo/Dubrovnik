@@ -18,6 +18,7 @@
 // Forward class and protocol declarations
 //
 @class System_Boolean;
+@class System_IEquatableA1;
 @class System_Int32;
 @class System_Object;
 @class System_Runtime_Serialization_ISerializable;
@@ -34,10 +35,11 @@
 //
 // Import superclass and adopted protocols
 //
+#import "System_IEquatableA1_Protocol.h"
 #import "System_Runtime_Serialization_ISerializable_Protocol.h"
 #import "System_ValueType.h"
 
-@interface System_UIntPtr : System_ValueType <System_Runtime_Serialization_ISerializable_>
+@interface System_UIntPtr : System_ValueType <System_Runtime_Serialization_ISerializable_, System_IEquatableA1_>
 
 #pragma mark -
 #pragma mark Setup
@@ -55,13 +57,13 @@
    .ctor
 
  Params
-   System.UInt32
+   System.UInt64
 
  Return
    System.UIntPtr
  @/textblock
 */
-+ (System_UIntPtr *)new_withValueUint:(uint32_t)p1;
++ (System_UIntPtr *)new_withValueUlong:(uint64_t)p1;
 
 /**
  Managed method.
@@ -70,13 +72,13 @@
    .ctor
 
  Params
-   System.UInt64
+   System.UInt32
 
  Return
    System.UIntPtr
  @/textblock
 */
-+ (System_UIntPtr *)new_withValueUlong:(uint64_t)p1;
++ (System_UIntPtr *)new_withValueUint:(uint32_t)p1;
 
 /* Skipped constructor : System.UIntPtr (System.Void* value) */
 
@@ -198,21 +200,6 @@
    op_Explicit
 
  Params
-   System.UInt32
-
- Return
-   System.UIntPtr
- @/textblock
-*/
-+ (void *)op_Explicit_withValueUint:(uint32_t)p1;
-
-/**
- Managed method.
- @textblock
- Name
-   op_Explicit
-
- Params
    System.UInt64
 
  Return
@@ -224,6 +211,21 @@
 /* Skipped method : System.UIntPtr op_Explicit(System.Void* value) */
 
 /* Skipped method : System.Void* op_Explicit(System.UIntPtr value) */
+
+/**
+ Managed method.
+ @textblock
+ Name
+   op_Explicit
+
+ Params
+   System.UInt32
+
+ Return
+   System.UIntPtr
+ @/textblock
+*/
++ (void *)op_Explicit_withValueUint:(uint32_t)p1;
 
 /**
  Managed method.

@@ -23,6 +23,8 @@
 @class System_IEquatableA1;
 @class System_Int32;
 @class System_Object;
+@class System_ReadOnlySpanA1;
+@class System_SpanA1;
 @class System_String;
 
 //
@@ -166,7 +168,22 @@
    System.Boolean
  @/textblock
 */
-+ (BOOL)parse_withValue:(NSString *)p1;
++ (BOOL)parse_withValueString:(NSString *)p1;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   Parse
+
+ Params
+   System.ReadOnlySpan`1<System.Char>
+
+ Return
+   System.Boolean
+ @/textblock
+*/
++ (BOOL)parse_withValueSReadOnlySpanA1char:(System_ReadOnlySpanA1 *)p1;
 
 /**
  Managed method.
@@ -189,6 +206,22 @@
  Managed method.
  @textblock
  Name
+   TryFormat
+
+ Params
+   System.Span`1<System.Char>
+   ref System.Int32&
+
+ Return
+   System.Boolean
+ @/textblock
+*/
+- (BOOL)tryFormat_withDestination:(System_SpanA1 *)p1 charsWrittenRef:(int32_t*)p2;
+
+/**
+ Managed method.
+ @textblock
+ Name
    TryParse
 
  Params
@@ -199,6 +232,22 @@
    System.Boolean
  @/textblock
 */
-+ (BOOL)tryParse_withValue:(NSString *)p1 resultRef:(BOOL*)p2;
++ (BOOL)tryParse_withValueString:(NSString *)p1 resultBoolRef:(BOOL*)p2;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   TryParse
+
+ Params
+   System.ReadOnlySpan`1<System.Char>
+   ref System.Boolean&
+
+ Return
+   System.Boolean
+ @/textblock
+*/
++ (BOOL)tryParse_withValueSReadOnlySpanA1char:(System_ReadOnlySpanA1 *)p1 resultBoolRef:(BOOL*)p2;
 @end
 //--Dubrovnik.CodeGenerator

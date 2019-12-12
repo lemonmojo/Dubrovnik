@@ -94,12 +94,13 @@
 
  Params
    System.String
+   System.Boolean
 
  Return
    System.Void
  @/textblock
 */
-+ (void)configure_withFilename:(NSString *)p1;
++ (void)configure_withFilename:(NSString *)p1 ensureSecurity:(BOOL)p2;
 
 /**
  Managed method.
@@ -109,13 +110,12 @@
 
  Params
    System.String
-   System.Boolean
 
  Return
    System.Void
  @/textblock
 */
-+ (void)configure_withFilename:(NSString *)p1 ensureSecurity:(BOOL)p2;
++ (void)configure_withFilename:(NSString *)p1;
 
 /**
  Managed method.
@@ -163,6 +163,8 @@
 
 /* Skipped method : System.Runtime.Remoting.WellKnownClientTypeEntry IsWellKnownClientType(System.String typeName, System.String assemblyName) */
 
+/* Skipped method : System.Void RegisterActivatedClientType(System.Runtime.Remoting.ActivatedClientTypeEntry entry) */
+
 /**
  Managed method.
  @textblock
@@ -179,7 +181,7 @@
 */
 + (void)registerActivatedClientType_withType:(System_Type *)p1 appUrl:(NSString *)p2;
 
-/* Skipped method : System.Void RegisterActivatedClientType(System.Runtime.Remoting.ActivatedClientTypeEntry entry) */
+/* Skipped method : System.Void RegisterActivatedServiceType(System.Runtime.Remoting.ActivatedServiceTypeEntry entry) */
 
 /**
  Managed method.
@@ -195,8 +197,6 @@
  @/textblock
 */
 + (void)registerActivatedServiceType_withType:(System_Type *)p1;
-
-/* Skipped method : System.Void RegisterActivatedServiceType(System.Runtime.Remoting.ActivatedServiceTypeEntry entry) */
 
 /**
  Managed method.

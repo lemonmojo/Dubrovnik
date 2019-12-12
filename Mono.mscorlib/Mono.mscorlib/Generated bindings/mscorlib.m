@@ -9,15 +9,15 @@
 // http://github.com/ThesaurusSoftware/Dubrovnik
 // This code has dependencies on the above project.
 //
-// Date:     09/12/2019 23:14:23
+// Date:     12/12/2019 4:51:17 PM
 //
 // Assembly: mscorlib
 // Fullname: mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
-// Path:     C:\Windows\Microsoft.NET\Framework\v4.0.30319\mscorlib.dll
+// Path:     /Library/Frameworks/Mono.framework/Versions/6.4.0/lib/mono/4.5/mscorlib.dll
 //
-// Platform: Microsoft Windows NT 6.2.9200.0
+// Platform: Unix 19.2.0.0
 // OS Arch:  64 bit
-// Process:  32 bit
+// Process:  64 bit
 // Target:   mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
 // Runtime:  4.0.30319.42000
 //
@@ -65,12 +65,15 @@ Assembly type imports
 // Dubrovnik.CodeGenerator made System_Collections_Concurrent_OrderablePartitionerA1.m
 // Dubrovnik.CodeGenerator made System_Collections_Concurrent_Partitioner.m
 // Dubrovnik.CodeGenerator made System_Collections_Concurrent_PartitionerA1.m
+// Dubrovnik.CodeGenerator made System_Collections_Generic_CollectionExtensions.m
 // Dubrovnik.CodeGenerator made System_Collections_Generic_DictionaryA2__Enumerator.m
 // Dubrovnik.CodeGenerator made System_Collections_Generic_DictionaryA2__KeyCollection__Enumerator.m
 // Dubrovnik.CodeGenerator made System_Collections_Generic_DictionaryA2__KeyCollection.m
 // Dubrovnik.CodeGenerator made System_Collections_Generic_DictionaryA2.m
 // Dubrovnik.CodeGenerator made System_Collections_Generic_DictionaryA2__ValueCollection__Enumerator.m
 // Dubrovnik.CodeGenerator made System_Collections_Generic_DictionaryA2__ValueCollection.m
+// Dubrovnik.CodeGenerator made System_Collections_Generic_IAsyncEnumerableA1.m
+// Dubrovnik.CodeGenerator made System_Collections_Generic_IAsyncEnumeratorA1.m
 // Dubrovnik.CodeGenerator made System_Collections_Generic_ICollectionA1.m
 // Dubrovnik.CodeGenerator made System_Collections_Generic_IComparerA1.m
 // Dubrovnik.CodeGenerator made System_Collections_Generic_IDictionaryA2.m
@@ -80,9 +83,14 @@ Assembly type imports
 // Dubrovnik.CodeGenerator made System_Collections_Generic_IReadOnlyCollectionA1.m
 // Dubrovnik.CodeGenerator made System_Collections_Generic_IReadOnlyDictionaryA2.m
 // Dubrovnik.CodeGenerator made System_Collections_Generic_IReadOnlyListA1.m
+// Dubrovnik.CodeGenerator made System_Collections_Generic_KeyValuePair.m
 // Dubrovnik.CodeGenerator made System_Collections_Generic_KeyValuePairA2.m
 // Dubrovnik.CodeGenerator made System_Collections_Generic_ListA1__Enumerator.m
 // Dubrovnik.CodeGenerator made System_Collections_Generic_ListA1.m
+// Dubrovnik.CodeGenerator made System_Collections_Generic_QueueA1__Enumerator.m
+// Dubrovnik.CodeGenerator made System_Collections_Generic_QueueA1.m
+// Dubrovnik.CodeGenerator made System_Collections_Generic_StackA1__Enumerator.m
+// Dubrovnik.CodeGenerator made System_Collections_Generic_StackA1.m
 // Dubrovnik.CodeGenerator made System_Collections_ICollection.m
 // Dubrovnik.CodeGenerator made System_Collections_IDictionary.m
 // Dubrovnik.CodeGenerator made System_Collections_IEnumerable.m
@@ -91,6 +99,7 @@ Assembly type imports
 // Dubrovnik.CodeGenerator made System_Collections_ObjectModel_CollectionA1.m
 // Dubrovnik.CodeGenerator made System_Convert.m
 // Dubrovnik.CodeGenerator made System_CrossAppDomainDelegate.m
+// Dubrovnik.CodeGenerator made System_CultureAwareComparer.m
 // Dubrovnik.CodeGenerator made System_DateTime.m
 // Dubrovnik.CodeGenerator made System_DateTimeKind.m
 // Dubrovnik.CodeGenerator made System_DateTimeOffset.m
@@ -98,6 +107,20 @@ Assembly type imports
 // Dubrovnik.CodeGenerator made System_DBNull.m
 // Dubrovnik.CodeGenerator made System_Decimal.m
 // Dubrovnik.CodeGenerator made System_Delegate.m
+// Dubrovnik.CodeGenerator made System_Diagnostics_CodeAnalysis_AllowNullAttribute.m
+// Dubrovnik.CodeGenerator made System_Diagnostics_CodeAnalysis_DisallowNullAttribute.m
+// Dubrovnik.CodeGenerator made System_Diagnostics_CodeAnalysis_DoesNotReturnAttribute.m
+// Dubrovnik.CodeGenerator made System_Diagnostics_CodeAnalysis_DoesNotReturnIfAttribute.m
+// Dubrovnik.CodeGenerator made System_Diagnostics_CodeAnalysis_MaybeNullAttribute.m
+// Dubrovnik.CodeGenerator made System_Diagnostics_CodeAnalysis_MaybeNullWhenAttribute.m
+// Dubrovnik.CodeGenerator made System_Diagnostics_CodeAnalysis_NotNullAttribute.m
+// Dubrovnik.CodeGenerator made System_Diagnostics_CodeAnalysis_NotNullIfNotNullAttribute.m
+// Dubrovnik.CodeGenerator made System_Diagnostics_CodeAnalysis_NotNullWhenAttribute.m
+// Dubrovnik.CodeGenerator made System_Diagnostics_Tracing_DiagnosticCounter.m
+// Dubrovnik.CodeGenerator made System_Diagnostics_Tracing_EventCounter.m
+// Dubrovnik.CodeGenerator made System_Diagnostics_Tracing_IncrementingEventCounter.m
+// Dubrovnik.CodeGenerator made System_Diagnostics_Tracing_IncrementingPollingCounter.m
+// Dubrovnik.CodeGenerator made System_Diagnostics_Tracing_PollingCounter.m
 // Dubrovnik.CodeGenerator made System_Double.m
 // Dubrovnik.CodeGenerator made System_Enum.m
 // Dubrovnik.CodeGenerator made System_EventArgs.m
@@ -114,28 +137,49 @@ Assembly type imports
 // Dubrovnik.CodeGenerator made System_FuncA8.m
 // Dubrovnik.CodeGenerator made System_FuncA9.m
 // Dubrovnik.CodeGenerator made System_Globalization_CultureInfo.m
+// Dubrovnik.CodeGenerator made System_Globalization_ISOWeek.m
 // Dubrovnik.CodeGenerator made System_Guid.m
+// Dubrovnik.CodeGenerator made System_HashCode.m
+// Dubrovnik.CodeGenerator made System_IAsyncDisposable.m
 // Dubrovnik.CodeGenerator made System_IAsyncResult.m
 // Dubrovnik.CodeGenerator made System_ICloneable.m
 // Dubrovnik.CodeGenerator made System_IComparable.m
 // Dubrovnik.CodeGenerator made System_IComparableA1.m
 // Dubrovnik.CodeGenerator made System_IDisposable.m
 // Dubrovnik.CodeGenerator made System_IEquatableA1.m
+// Dubrovnik.CodeGenerator made System_Index.m
 // Dubrovnik.CodeGenerator made System_Int16.m
 // Dubrovnik.CodeGenerator made System_Int32.m
 // Dubrovnik.CodeGenerator made System_Int64.m
 // Dubrovnik.CodeGenerator made System_IntPtr.m
+// Dubrovnik.CodeGenerator made System_IO_Enumeration_FileSystemEntry.m
+// Dubrovnik.CodeGenerator made System_IO_Enumeration_FileSystemEnumerableA1__FindPredicate.m
+// Dubrovnik.CodeGenerator made System_IO_Enumeration_FileSystemEnumerableA1__FindTransform.m
+// Dubrovnik.CodeGenerator made System_IO_Enumeration_FileSystemEnumerableA1.m
+// Dubrovnik.CodeGenerator made System_IO_Enumeration_FileSystemEnumeratorA1.m
+// Dubrovnik.CodeGenerator made System_IO_Enumeration_FileSystemName.m
+// Dubrovnik.CodeGenerator made System_IO_EnumerationOptions.m
 // Dubrovnik.CodeGenerator made System_IO_FileAttributes.m
 // Dubrovnik.CodeGenerator made System_IO_FileInfo.m
+// Dubrovnik.CodeGenerator made System_IO_MatchCasing.m
+// Dubrovnik.CodeGenerator made System_IO_MatchType.m
 // Dubrovnik.CodeGenerator made System_IO_Stream.m
 // Dubrovnik.CodeGenerator made System_IO_StringReader.m
 // Dubrovnik.CodeGenerator made System_IO_StringWriter.m
 // Dubrovnik.CodeGenerator made System_IO_TextReader.m
 // Dubrovnik.CodeGenerator made System_MarshalByRefObject.m
+// Dubrovnik.CodeGenerator made System_MemoryA1.m
+// Dubrovnik.CodeGenerator made System_MemoryExtensions.m
 // Dubrovnik.CodeGenerator made System_MulticastDelegate.m
 // Dubrovnik.CodeGenerator made System_NullableA1.m
+// Dubrovnik.CodeGenerator made System_Numerics_Vector.m
+// Dubrovnik.CodeGenerator made System_Numerics_VectorA1.m
 // Dubrovnik.CodeGenerator made System_Object.m
+// Dubrovnik.CodeGenerator made System_OrdinalComparer.m
 // Dubrovnik.CodeGenerator made System_PredicateA1.m
+// Dubrovnik.CodeGenerator made System_Range.m
+// Dubrovnik.CodeGenerator made System_ReadOnlyMemoryA1.m
+// Dubrovnik.CodeGenerator made System_ReadOnlySpanA1.m
 // Dubrovnik.CodeGenerator made System_Reflection_Assembly.m
 // Dubrovnik.CodeGenerator made System_Reflection_AssemblyName.m
 // Dubrovnik.CodeGenerator made System_Reflection_Binder.m
@@ -143,12 +187,33 @@ Assembly type imports
 // Dubrovnik.CodeGenerator made System_Reflection_GenericParameterAttributes.m
 // Dubrovnik.CodeGenerator made System_Reflection_MemberFilter.m
 // Dubrovnik.CodeGenerator made System_Reflection_MemberInfo.m
+// Dubrovnik.CodeGenerator made System_Reflection_Metadata_AssemblyExtensions.m
 // Dubrovnik.CodeGenerator made System_Reflection_MethodBase.m
 // Dubrovnik.CodeGenerator made System_Reflection_MethodInfo.m
 // Dubrovnik.CodeGenerator made System_Reflection_PropertyInfo.m
 // Dubrovnik.CodeGenerator made System_Reflection_TypeAttributes.m
+// Dubrovnik.CodeGenerator made System_Reflection_TypeExtensions.m
+// Dubrovnik.CodeGenerator made System_Runtime_AmbiguousImplementationException.m
+// Dubrovnik.CodeGenerator made System_Runtime_CompilerServices_AsyncIteratorMethodBuilder.m
+// Dubrovnik.CodeGenerator made System_Runtime_CompilerServices_AsyncIteratorStateMachineAttribute.m
+// Dubrovnik.CodeGenerator made System_Runtime_CompilerServices_AsyncMethodBuilderAttribute.m
+// Dubrovnik.CodeGenerator made System_Runtime_CompilerServices_AsyncValueTaskMethodBuilder.m
+// Dubrovnik.CodeGenerator made System_Runtime_CompilerServices_AsyncValueTaskMethodBuilderA1.m
+// Dubrovnik.CodeGenerator made System_Runtime_CompilerServices_ConfiguredAsyncDisposable.m
+// Dubrovnik.CodeGenerator made System_Runtime_CompilerServices_ConfiguredCancelableAsyncEnumerableA1__Enumerator.m
+// Dubrovnik.CodeGenerator made System_Runtime_CompilerServices_ConfiguredCancelableAsyncEnumerableA1.m
+// Dubrovnik.CodeGenerator made System_Runtime_CompilerServices_ConfiguredValueTaskAwaitable.m
+// Dubrovnik.CodeGenerator made System_Runtime_CompilerServices_ConfiguredValueTaskAwaitableA1__ConfiguredValueTaskAwaiter.m
+// Dubrovnik.CodeGenerator made System_Runtime_CompilerServices_ConfiguredValueTaskAwaitableA1.m
+// Dubrovnik.CodeGenerator made System_Runtime_CompilerServices_ConfiguredValueTaskAwaitable__ConfiguredValueTaskAwaiter.m
+// Dubrovnik.CodeGenerator made System_Runtime_CompilerServices_EnumeratorCancellationAttribute.m
+// Dubrovnik.CodeGenerator made System_Runtime_CompilerServices_SwitchExpressionException.m
+// Dubrovnik.CodeGenerator made System_Runtime_CompilerServices_ValueTaskAwaiter.m
+// Dubrovnik.CodeGenerator made System_Runtime_CompilerServices_ValueTaskAwaiterA1.m
 // Dubrovnik.CodeGenerator made System_Runtime_InteropServices__Attribute.m
 // Dubrovnik.CodeGenerator made System_Runtime_InteropServices__Exception.m
+// Dubrovnik.CodeGenerator made System_Runtime_InteropServices_MemoryMarshal.m
+// Dubrovnik.CodeGenerator made System_Runtime_InteropServices_SequenceMarshal.m
 // Dubrovnik.CodeGenerator made System_Runtime_Remoting_Lifetime_ClientSponsor.m
 // Dubrovnik.CodeGenerator made System_Runtime_Remoting_Lifetime_ILease.m
 // Dubrovnik.CodeGenerator made System_Runtime_Remoting_Lifetime_ISponsor.m
@@ -162,17 +227,32 @@ Assembly type imports
 // Dubrovnik.CodeGenerator made System_Runtime_Remoting_RemotingTimeoutException.m
 // Dubrovnik.CodeGenerator made System_Runtime_Serialization_IDeserializationCallback.m
 // Dubrovnik.CodeGenerator made System_Runtime_Serialization_ISerializable.m
+// Dubrovnik.CodeGenerator made System_Runtime_Serialization_SerializationEventHandler.m
 // Dubrovnik.CodeGenerator made System_SByte.m
+// Dubrovnik.CodeGenerator made System_Security_Cryptography_CryptographicOperations.m
+// Dubrovnik.CodeGenerator made System_Security_Cryptography_PbeEncryptionAlgorithm.m
+// Dubrovnik.CodeGenerator made System_Security_Cryptography_PbeParameters.m
+// Dubrovnik.CodeGenerator made System_SequencePosition.m
 // Dubrovnik.CodeGenerator made System_Single.m
+// Dubrovnik.CodeGenerator made System_SpanA1.m
 // Dubrovnik.CodeGenerator made System_String.m
 // Dubrovnik.CodeGenerator made System_StringComparison.m
 // Dubrovnik.CodeGenerator made System_Text_Encoding.m
 // Dubrovnik.CodeGenerator made System_Text_StringBuilder.m
 // Dubrovnik.CodeGenerator made System_Threading_CancellationToken.m
+// Dubrovnik.CodeGenerator made System_Threading_Lock.m
+// Dubrovnik.CodeGenerator made System_Threading_LockHolder.m
 // Dubrovnik.CodeGenerator made System_Threading_SendOrPostCallback.m
 // Dubrovnik.CodeGenerator made System_Threading_SynchronizationContext.m
+// Dubrovnik.CodeGenerator made System_Threading_Tasks_Sources_IValueTaskSource.m
+// Dubrovnik.CodeGenerator made System_Threading_Tasks_Sources_IValueTaskSourceA1.m
+// Dubrovnik.CodeGenerator made System_Threading_Tasks_Sources_ManualResetValueTaskSourceCoreA1.m
+// Dubrovnik.CodeGenerator made System_Threading_Tasks_Sources_ValueTaskSourceOnCompletedFlags.m
+// Dubrovnik.CodeGenerator made System_Threading_Tasks_Sources_ValueTaskSourceStatus.m
 // Dubrovnik.CodeGenerator made System_Threading_Tasks_Task.m
 // Dubrovnik.CodeGenerator made System_Threading_Tasks_TaskA1.m
+// Dubrovnik.CodeGenerator made System_Threading_Tasks_ValueTask.m
+// Dubrovnik.CodeGenerator made System_Threading_Tasks_ValueTaskA1.m
 // Dubrovnik.CodeGenerator made System_TimeSpan.m
 // Dubrovnik.CodeGenerator made System_TimeZoneInfo.m
 // Dubrovnik.CodeGenerator made System_TimeZoneInfo__AdjustmentRule.m

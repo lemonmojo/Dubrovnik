@@ -20,6 +20,7 @@
 @class System_Collections_Generic_KeyValuePairA2;
 @class System_Object;
 @class System_String;
+@class System_Void;
 
 //
 // Local assembly imports
@@ -87,6 +88,22 @@
 
 #pragma mark -
 #pragma mark Methods
+
+/**
+ Managed method.
+ @textblock
+ Name
+   Deconstruct
+
+ Params
+   ref TKey&
+   ref TValue&
+
+ Return
+   System.Void
+ @/textblock
+*/
+- (void)deconstruct_withKeyRef:(System_Object **)p1 valueRef:(System_Object **)p2;
 
 /**
  Managed method.

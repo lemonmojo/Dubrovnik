@@ -409,6 +409,21 @@
  Managed method.
  @textblock
  Name
+   GetForwardedTypes
+
+ Params
+   (none)
+
+ Return
+   System.Type[]
+ @/textblock
+*/
+- (System_Array *)getForwardedTypes;
+
+/**
+ Managed method.
+ @textblock
+ Name
    GetHashCode
 
  Params
@@ -448,6 +463,21 @@
    GetManifestResourceStream
 
  Params
+   System.String
+
+ Return
+   System.IO.Stream
+ @/textblock
+*/
+- (System_IO_Stream *)getManifestResourceStream_withName:(NSString *)p1;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   GetManifestResourceStream
+
+ Params
    System.Type
    System.String
 
@@ -457,41 +487,11 @@
 */
 - (System_IO_Stream *)getManifestResourceStream_withType:(System_Type *)p1 name:(NSString *)p2;
 
-/**
- Managed method.
- @textblock
- Name
-   GetManifestResourceStream
-
- Params
-   System.String
-
- Return
-   System.IO.Stream
- @/textblock
-*/
-- (System_IO_Stream *)getManifestResourceStream_withName:(NSString *)p1;
-
 /* Skipped method : System.Reflection.Module GetModule(System.String name) */
 
 /* Skipped method : System.Reflection.Module[] GetModules() */
 
 /* Skipped method : System.Reflection.Module[] GetModules(System.Boolean getResourceModules) */
-
-/**
- Managed method.
- @textblock
- Name
-   GetName
-
- Params
-   (none)
-
- Return
-   System.Reflection.AssemblyName
- @/textblock
-*/
-- (System_Reflection_AssemblyName *)getName;
 
 /**
  Managed method.
@@ -507,6 +507,21 @@
  @/textblock
 */
 - (System_Reflection_AssemblyName *)getName_withCopiedName:(BOOL)p1;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   GetName
+
+ Params
+   (none)
+
+ Return
+   System.Reflection.AssemblyName
+ @/textblock
+*/
+- (System_Reflection_AssemblyName *)getName;
 
 /* Skipped method : System.Void GetObjectData(System.Runtime.Serialization.SerializationInfo info, System.Runtime.Serialization.StreamingContext context) */
 
@@ -564,12 +579,13 @@
 
  Params
    System.String
+   System.Boolean
 
  Return
    System.Type
  @/textblock
 */
-- (System_Type *)getType_withName:(NSString *)p1;
+- (System_Type *)getType_withName:(NSString *)p1 throwOnError:(BOOL)p2;
 
 /**
  Managed method.
@@ -579,13 +595,12 @@
 
  Params
    System.String
-   System.Boolean
 
  Return
    System.Type
  @/textblock
 */
-- (System_Type *)getType_withName:(NSString *)p1 throwOnError:(BOOL)p2;
+- (System_Type *)getType_withName:(NSString *)p1;
 
 /**
  Managed method.
@@ -700,9 +715,11 @@
 */
 + (System_Reflection_Assembly *)load_withRawAssembly:(NSData *)p1 rawSymbolStore:(NSData *)p2;
 
+/* Skipped method : System.Reflection.Assembly Load(System.Byte[] rawAssembly, System.Byte[] rawSymbolStore, System.Security.Policy.Evidence securityEvidence) */
+
 /* Skipped method : System.Reflection.Assembly Load(System.Byte[] rawAssembly, System.Byte[] rawSymbolStore, System.Security.SecurityContextSource securityContextSource) */
 
-/* Skipped method : System.Reflection.Assembly Load(System.Byte[] rawAssembly, System.Byte[] rawSymbolStore, System.Security.Policy.Evidence securityEvidence) */
+/* Skipped method : System.Reflection.Assembly LoadFile(System.String path, System.Security.Policy.Evidence securityEvidence) */
 
 /**
  Managed method.
@@ -718,8 +735,6 @@
  @/textblock
 */
 + (System_Reflection_Assembly *)loadFile_withPath:(NSString *)p1;
-
-/* Skipped method : System.Reflection.Assembly LoadFile(System.String path, System.Security.Policy.Evidence securityEvidence) */
 
 /**
  Managed method.
@@ -802,13 +817,13 @@
    ReflectionOnlyLoad
 
  Params
-   System.String
+   System.Byte[]
 
  Return
    System.Reflection.Assembly
  @/textblock
 */
-+ (System_Reflection_Assembly *)reflectionOnlyLoad_withAssemblyString:(NSString *)p1;
++ (System_Reflection_Assembly *)reflectionOnlyLoad_withRawAssembly:(NSData *)p1;
 
 /**
  Managed method.
@@ -817,13 +832,13 @@
    ReflectionOnlyLoad
 
  Params
-   System.Byte[]
+   System.String
 
  Return
    System.Reflection.Assembly
  @/textblock
 */
-+ (System_Reflection_Assembly *)reflectionOnlyLoad_withRawAssembly:(NSData *)p1;
++ (System_Reflection_Assembly *)reflectionOnlyLoad_withAssemblyString:(NSString *)p1;
 
 /**
  Managed method.

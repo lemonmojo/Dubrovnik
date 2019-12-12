@@ -17,7 +17,6 @@
 //
 // Forward class and protocol declarations
 //
-@class KeyValuePairA2;
 @class System_Array;
 @class System_Boolean;
 @class System_Collections_Concurrent_ConcurrentDictionaryA2;
@@ -62,7 +61,7 @@
 #import "System_Collections_IEnumerable_Protocol.h"
 #import "System_Object.h"
 
-@interface System_Collections_Concurrent_ConcurrentDictionaryA2 : System_Object <System_Collections_Generic_IDictionaryA2_, System_Collections_Generic_ICollectionA1_, System_Collections_Generic_IEnumerableA1_, System_Collections_IEnumerable_, System_Collections_IDictionary_, System_Collections_ICollection_, System_Collections_Generic_IReadOnlyDictionaryA2_, System_Collections_Generic_IReadOnlyCollectionA1_>
+@interface System_Collections_Concurrent_ConcurrentDictionaryA2 : System_Object <System_Collections_IEnumerable_, System_Collections_Generic_IReadOnlyCollectionA1_, System_Collections_Generic_ICollectionA1_, System_Collections_Generic_IReadOnlyDictionaryA2_, System_Collections_Generic_IDictionaryA2_, System_Collections_ICollection_, System_Collections_IDictionary_, System_Collections_Generic_IEnumerableA1_>
 
 #pragma mark -
 #pragma mark Setup
@@ -205,6 +204,27 @@
 
  Params
    <System.Collections.Concurrent.ConcurrentDictionary`2+TKey>
+   System.Func`3<System.Collections.Concurrent.ConcurrentDictionary`2+TKey, System.Collections.Concurrent.ConcurrentDictionary`2+TArg, System.Collections.Concurrent.ConcurrentDictionary`2+TValue>
+   System.Func`4<System.Collections.Concurrent.ConcurrentDictionary`2+TKey, System.Collections.Concurrent.ConcurrentDictionary`2+TValue, System.Collections.Concurrent.ConcurrentDictionary`2+TArg, System.Collections.Concurrent.ConcurrentDictionary`2+TValue>
+   <System.Collections.Concurrent.ConcurrentDictionary`2+TArg>
+
+ Generics
+   <System.Collections.Concurrent.ConcurrentDictionary`2+TArg>
+
+ Return
+   <System.Collections.Concurrent.ConcurrentDictionary`2+TValue>
+ @/textblock
+*/
+- (id <DBMonoObject>)addOrUpdate_withKey:(id <DBMonoObject>)p1 addValueFactory:(System_FuncA3 *)p2 updateValueFactory:(System_FuncA4 *)p3 factoryArgument:(id <DBMonoObject>)p4 typeParameter:(id)typeParameter;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   AddOrUpdate
+
+ Params
+   <System.Collections.Concurrent.ConcurrentDictionary`2+TKey>
    System.Func`2<System.Collections.Concurrent.ConcurrentDictionary`2+TKey, System.Collections.Concurrent.ConcurrentDictionary`2+TValue>
    System.Func`3<System.Collections.Concurrent.ConcurrentDictionary`2+TKey, System.Collections.Concurrent.ConcurrentDictionary`2+TValue, System.Collections.Concurrent.ConcurrentDictionary`2+TValue>
 
@@ -230,27 +250,6 @@
  @/textblock
 */
 - (id <DBMonoObject>)addOrUpdate_withKey:(id <DBMonoObject>)p1 addValue:(id <DBMonoObject>)p2 updateValueFactory:(System_FuncA3 *)p3;
-
-/**
- Managed method.
- @textblock
- Name
-   AddOrUpdate
-
- Params
-   <System.Collections.Concurrent.ConcurrentDictionary`2+TKey>
-   System.Func`3<System.Collections.Concurrent.ConcurrentDictionary`2+TKey, System.Collections.Concurrent.ConcurrentDictionary`2+TArg, System.Collections.Concurrent.ConcurrentDictionary`2+TValue>
-   System.Func`4<System.Collections.Concurrent.ConcurrentDictionary`2+TKey, System.Collections.Concurrent.ConcurrentDictionary`2+TValue, System.Collections.Concurrent.ConcurrentDictionary`2+TArg, System.Collections.Concurrent.ConcurrentDictionary`2+TValue>
-   <System.Collections.Concurrent.ConcurrentDictionary`2+TArg>
-
- Generics
-   <System.Collections.Concurrent.ConcurrentDictionary`2+TArg>
-
- Return
-   <System.Collections.Concurrent.ConcurrentDictionary`2+TValue>
- @/textblock
-*/
-- (id <DBMonoObject>)addOrUpdate_withKey:(id <DBMonoObject>)p1 addValueFactory:(System_FuncA3 *)p2 updateValueFactory:(System_FuncA4 *)p3 factoryArgument:(id <DBMonoObject>)p4 typeParameter:(id)typeParameter;
 
 /**
  Managed method.
@@ -321,22 +320,6 @@
 
  Params
    <System.Collections.Concurrent.ConcurrentDictionary`2+TKey>
-   <System.Collections.Concurrent.ConcurrentDictionary`2+TValue>
-
- Return
-   <System.Collections.Concurrent.ConcurrentDictionary`2+TValue>
- @/textblock
-*/
-- (id <DBMonoObject>)getOrAdd_withKey:(id <DBMonoObject>)p1 value:(id <DBMonoObject>)p2;
-
-/**
- Managed method.
- @textblock
- Name
-   GetOrAdd
-
- Params
-   <System.Collections.Concurrent.ConcurrentDictionary`2+TKey>
    System.Func`3<System.Collections.Concurrent.ConcurrentDictionary`2+TKey, System.Collections.Concurrent.ConcurrentDictionary`2+TArg, System.Collections.Concurrent.ConcurrentDictionary`2+TValue>
    <System.Collections.Concurrent.ConcurrentDictionary`2+TArg>
 
@@ -353,13 +336,29 @@
  Managed method.
  @textblock
  Name
+   GetOrAdd
+
+ Params
+   <System.Collections.Concurrent.ConcurrentDictionary`2+TKey>
+   <System.Collections.Concurrent.ConcurrentDictionary`2+TValue>
+
+ Return
+   <System.Collections.Concurrent.ConcurrentDictionary`2+TValue>
+ @/textblock
+*/
+- (id <DBMonoObject>)getOrAdd_withKey:(id <DBMonoObject>)p1 value:(id <DBMonoObject>)p2;
+
+/**
+ Managed method.
+ @textblock
+ Name
    ToArray
 
  Params
    (none)
 
  Return
-   KeyValuePair`2[]
+   System.Collections.Generic.KeyValuePair`2[TKey,TValue][]
  @/textblock
 */
 - (System_Array *)toArray;

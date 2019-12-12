@@ -19,6 +19,7 @@
 //
 @class System_Array;
 @class System_Char;
+@class System_IAsyncDisposable;
 @class System_IDisposable;
 @class System_Int32;
 @class System_IO_StringWriter;
@@ -36,10 +37,11 @@
 //
 // Import superclass and adopted protocols
 //
+#import "System_IAsyncDisposable_Protocol.h"
 #import "System_IDisposable_Protocol.h"
 //#import "System_IO_TextWriter.h" // class base defaults to System.Object
 
-@interface System_IO_StringWriter : System_Object <System_IDisposable_>
+@interface System_IO_StringWriter : System_Object <System_IAsyncDisposable_, System_IDisposable_>
 
 #pragma mark -
 #pragma mark Setup

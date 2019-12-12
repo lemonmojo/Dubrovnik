@@ -147,6 +147,12 @@
 	return DB_UNBOX_INT32(monoObject);
 }
 
+- (BOOL)hasSameMetadataDefinitionAs_withOther:(System_Reflection_MemberInfo *)p1
+{
+	MonoObject *monoObject = [self invokeMonoMethod:"HasSameMetadataDefinitionAs(System.Reflection.MemberInfo)" withNumArgs:1, [p1 monoRTInvokeObject]];
+	return DB_UNBOX_BOOLEAN(monoObject);
+}
+
 - (BOOL)isDefined_withAttributeType:(System_Type *)p1 inherit:(BOOL)p2
 {
 	MonoObject *monoObject = [self invokeMonoMethod:"IsDefined(System.Type,bool)" withNumArgs:2, [p1 monoRTInvokeObject], &p2];

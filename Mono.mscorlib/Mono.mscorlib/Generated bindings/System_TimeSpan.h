@@ -26,6 +26,8 @@
 @class System_Int32;
 @class System_Int64;
 @class System_Object;
+@class System_ReadOnlySpanA1;
+@class System_SpanA1;
 @class System_String;
 @class System_TimeSpan;
 
@@ -424,6 +426,36 @@
  Managed method.
  @textblock
  Name
+   Divide
+
+ Params
+   System.Double
+
+ Return
+   System.TimeSpan
+ @/textblock
+*/
+- (System_TimeSpan *)divide_withDivisor:(double)p1;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   Divide
+
+ Params
+   System.TimeSpan
+
+ Return
+   System.Double
+ @/textblock
+*/
+- (double)divide_withTs:(System_TimeSpan *)p1;
+
+/**
+ Managed method.
+ @textblock
+ Name
    Duration
 
  Params
@@ -590,6 +622,21 @@
  Managed method.
  @textblock
  Name
+   Multiply
+
+ Params
+   System.Double
+
+ Return
+   System.TimeSpan
+ @/textblock
+*/
+- (System_TimeSpan *)multiply_withFactor:(double)p1;
+
+/**
+ Managed method.
+ @textblock
+ Name
    Negate
 
  Params
@@ -616,6 +663,38 @@
  @/textblock
 */
 + (System_TimeSpan *)op_Addition_withT1:(System_TimeSpan *)p1 t2:(System_TimeSpan *)p2;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   op_Division
+
+ Params
+   System.TimeSpan
+   System.Double
+
+ Return
+   System.TimeSpan
+ @/textblock
+*/
++ (System_TimeSpan *)op_Division_withTimeSpan:(System_TimeSpan *)p1 divisor:(double)p2;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   op_Division
+
+ Params
+   System.TimeSpan
+   System.TimeSpan
+
+ Return
+   System.Double
+ @/textblock
+*/
++ (double)op_Division_withT1:(System_TimeSpan *)p1 t2:(System_TimeSpan *)p2;
 
 /**
  Managed method.
@@ -717,6 +796,38 @@
  Managed method.
  @textblock
  Name
+   op_Multiply
+
+ Params
+   System.TimeSpan
+   System.Double
+
+ Return
+   System.TimeSpan
+ @/textblock
+*/
++ (System_TimeSpan *)op_Multiply_withTimeSpan:(System_TimeSpan *)p1 factor:(double)p2;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   op_Multiply
+
+ Params
+   System.Double
+   System.TimeSpan
+
+ Return
+   System.TimeSpan
+ @/textblock
+*/
++ (System_TimeSpan *)op_Multiply_withFactor:(double)p1 timeSpan:(System_TimeSpan *)p2;
+
+/**
+ Managed method.
+ @textblock
+ Name
    op_Subtraction
 
  Params
@@ -776,13 +887,19 @@
 
 /* Skipped method : System.TimeSpan Parse(System.String input, System.IFormatProvider formatProvider) */
 
+/* Skipped method : System.TimeSpan Parse(System.ReadOnlySpan`1<System.Char> input, System.IFormatProvider formatProvider) */
+
 /* Skipped method : System.TimeSpan ParseExact(System.String input, System.String format, System.IFormatProvider formatProvider) */
 
 /* Skipped method : System.TimeSpan ParseExact(System.String input, System.String[] formats, System.IFormatProvider formatProvider) */
 
 /* Skipped method : System.TimeSpan ParseExact(System.String input, System.String format, System.IFormatProvider formatProvider, System.Globalization.TimeSpanStyles styles) */
 
+/* Skipped method : System.TimeSpan ParseExact(System.ReadOnlySpan`1<System.Char> input, System.ReadOnlySpan`1<System.Char> format, System.IFormatProvider formatProvider, System.Globalization.TimeSpanStyles styles) */
+
 /* Skipped method : System.TimeSpan ParseExact(System.String input, System.String[] formats, System.IFormatProvider formatProvider, System.Globalization.TimeSpanStyles styles) */
+
+/* Skipped method : System.TimeSpan ParseExact(System.ReadOnlySpan`1<System.Char> input, System.String[] formats, System.IFormatProvider formatProvider, System.Globalization.TimeSpanStyles styles) */
 
 /**
  Managed method.
@@ -831,6 +948,8 @@
 
 /* Skipped method : System.String ToString(System.String format, System.IFormatProvider formatProvider) */
 
+/* Skipped method : System.Boolean TryFormat(System.Span`1<System.Char> destination, System.Int32& charsWritten, System.ReadOnlySpan`1<System.Char> format, System.IFormatProvider formatProvider) */
+
 /**
  Managed method.
  @textblock
@@ -845,16 +964,42 @@
    System.Boolean
  @/textblock
 */
-+ (BOOL)tryParse_withS:(NSString *)p1 resultRef:(System_TimeSpan **)p2;
++ (BOOL)tryParse_withSString:(NSString *)p1 resultSTimeSpanRef:(System_TimeSpan **)p2;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   TryParse
+
+ Params
+   System.ReadOnlySpan`1<System.Char>
+   ref System.TimeSpan&
+
+ Return
+   System.Boolean
+ @/textblock
+*/
++ (BOOL)tryParse_withSSReadOnlySpanA1char:(System_ReadOnlySpanA1 *)p1 resultSTimeSpanRef:(System_TimeSpan **)p2;
 
 /* Skipped method : System.Boolean TryParse(System.String input, System.IFormatProvider formatProvider, System.TimeSpan& result) */
 
+/* Skipped method : System.Boolean TryParse(System.ReadOnlySpan`1<System.Char> input, System.IFormatProvider formatProvider, System.TimeSpan& result) */
+
 /* Skipped method : System.Boolean TryParseExact(System.String input, System.String format, System.IFormatProvider formatProvider, System.TimeSpan& result) */
+
+/* Skipped method : System.Boolean TryParseExact(System.ReadOnlySpan`1<System.Char> input, System.ReadOnlySpan`1<System.Char> format, System.IFormatProvider formatProvider, System.TimeSpan& result) */
 
 /* Skipped method : System.Boolean TryParseExact(System.String input, System.String[] formats, System.IFormatProvider formatProvider, System.TimeSpan& result) */
 
+/* Skipped method : System.Boolean TryParseExact(System.ReadOnlySpan`1<System.Char> input, System.String[] formats, System.IFormatProvider formatProvider, System.TimeSpan& result) */
+
 /* Skipped method : System.Boolean TryParseExact(System.String input, System.String format, System.IFormatProvider formatProvider, System.Globalization.TimeSpanStyles styles, System.TimeSpan& result) */
 
+/* Skipped method : System.Boolean TryParseExact(System.ReadOnlySpan`1<System.Char> input, System.ReadOnlySpan`1<System.Char> format, System.IFormatProvider formatProvider, System.Globalization.TimeSpanStyles styles, System.TimeSpan& result) */
+
 /* Skipped method : System.Boolean TryParseExact(System.String input, System.String[] formats, System.IFormatProvider formatProvider, System.Globalization.TimeSpanStyles styles, System.TimeSpan& result) */
+
+/* Skipped method : System.Boolean TryParseExact(System.ReadOnlySpan`1<System.Char> input, System.String[] formats, System.IFormatProvider formatProvider, System.Globalization.TimeSpanStyles styles, System.TimeSpan& result) */
 @end
 //--Dubrovnik.CodeGenerator

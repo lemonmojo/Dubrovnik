@@ -33,6 +33,18 @@
 #pragma mark -
 #pragma mark Constructors
 
++ (System_String *)new_withValueCharArray:(System_Array *)p1
+{
+	System_String * object = [[self alloc] initWithSignature:"char[]" withNumArgs:1, [p1 monoRTInvokeObject]];
+	return object;
+}
+
++ (System_String *)new_withValueCharArray:(System_Array *)p1 startIndexInt:(int32_t)p2 lengthInt:(int32_t)p3
+{
+	System_String * object = [[self alloc] initWithSignature:"char[],int,int" withNumArgs:3, [p1 monoRTInvokeObject], &p2, &p3];
+	return object;
+}
+
 /* Skipped constructor : System.String (System.Char* value) */
 
 /* Skipped constructor : System.String (System.Char* value, System.Int32 startIndex, System.Int32 length) */
@@ -43,21 +55,15 @@
 
 /* Skipped constructor : System.String (System.SByte* value, System.Int32 startIndex, System.Int32 length, System.Text.Encoding enc) */
 
-+ (System_String *)new_withValueCharArray:(System_Array *)p1 startIndexInt:(int32_t)p2 lengthInt:(int32_t)p3
-{
-	System_String * object = [[self alloc] initWithSignature:"char[],int,int" withNumArgs:3, [p1 monoRTInvokeObject], &p2, &p3];
-	return object;
-}
-
-+ (System_String *)new_withValueCharArray:(System_Array *)p1
-{
-	System_String * object = [[self alloc] initWithSignature:"char[]" withNumArgs:1, [p1 monoRTInvokeObject]];
-	return object;
-}
-
 + (System_String *)new_withC:(uint16_t)p1 count:(int32_t)p2
 {
 	System_String * object = [[self alloc] initWithSignature:"char,int" withNumArgs:2, &p1, &p2];
+	return object;
+}
+
++ (System_String *)new_withValueSReadOnlySpanA1char:(System_ReadOnlySpanA1 *)p1
+{
+	System_String * object = [[self alloc] initWithSignature:"System.ReadOnlySpan`1<char>" withNumArgs:1, [p1 monoRTInvokeArg]];
 	return object;
 }
 
@@ -205,15 +211,16 @@ static NSString * m_empty;
 	return [NSString stringWithMonoString:DB_STRING(monoObject)];
 }
 
-+ (NSString *)concat_withArg0:(id <DBMonoObject>)p1 arg1:(id <DBMonoObject>)p2 arg2:(id <DBMonoObject>)p3 arg3:(id <DBMonoObject>)p4
-{
-	MonoObject *monoObject = [self invokeMonoClassMethod:"Concat(object,object,object,object)" withNumArgs:4, [p1 monoRTInvokeObject], [p2 monoRTInvokeObject], [p3 monoRTInvokeObject], [p4 monoRTInvokeObject]];
-	return [NSString stringWithMonoString:DB_STRING(monoObject)];
-}
-
 + (NSString *)concat_withArgs:(System_Array *)p1
 {
 	MonoObject *monoObject = [self invokeMonoClassMethod:"Concat(object[])" withNumArgs:1, [p1 monoRTInvokeObject]];
+	return [NSString stringWithMonoString:DB_STRING(monoObject)];
+}
+
++ (NSString *)concat_withValuesSCGIEnumerableA1string__T:(System_Object <System_Collections_Generic_IEnumerableA1_> *)p1 typeParameter:(id)typeParameter
+{
+	DBManagedMethod *method = [self classMethodWithMonoName:"Concat(System.Collections.Generic.IEnumerable`1<string/T>)" typeParameters:typeParameter];
+	MonoObject *monoObject = [method invokeClassMethodWithNumArgs:1, [p1 monoRTInvokeObject]];
 	return [NSString stringWithMonoString:DB_STRING(monoObject)];
 }
 
@@ -247,16 +254,33 @@ static NSString * m_empty;
 	return [NSString stringWithMonoString:DB_STRING(monoObject)];
 }
 
-+ (NSString *)concat_withValuesSCGIEnumerableA1string__T:(System_Object <System_Collections_Generic_IEnumerableA1_> *)p1 typeParameter:(id)typeParameter
++ (NSString *)concat_withArg0:(id <DBMonoObject>)p1 arg1:(id <DBMonoObject>)p2 arg2:(id <DBMonoObject>)p3 arg3:(id <DBMonoObject>)p4
 {
-	DBManagedMethod *method = [self classMethodWithMonoName:"Concat(System.Collections.Generic.IEnumerable`1<string/T>)" typeParameters:typeParameter];
-	MonoObject *monoObject = [method invokeClassMethodWithNumArgs:1, [p1 monoRTInvokeObject]];
+	MonoObject *monoObject = [self invokeMonoClassMethod:"Concat(object,object,object,object)" withNumArgs:4, [p1 monoRTInvokeObject], [p2 monoRTInvokeObject], [p3 monoRTInvokeObject], [p4 monoRTInvokeObject]];
 	return [NSString stringWithMonoString:DB_STRING(monoObject)];
 }
 
-- (BOOL)contains_withValue:(NSString *)p1
+- (BOOL)contains_withValueString:(NSString *)p1
 {
 	MonoObject *monoObject = [self invokeMonoMethod:"Contains(string)" withNumArgs:1, [p1 monoRTInvokeObject]];
+	return DB_UNBOX_BOOLEAN(monoObject);
+}
+
+- (BOOL)contains_withValueString:(NSString *)p1 comparisonTypeStringComparison:(enumSystem_StringComparison)p2
+{
+	MonoObject *monoObject = [self invokeMonoMethod:"Contains(string,stringComparison)" withNumArgs:2, [p1 monoRTInvokeObject], &p2];
+	return DB_UNBOX_BOOLEAN(monoObject);
+}
+
+- (BOOL)contains_withValueChar:(uint16_t)p1
+{
+	MonoObject *monoObject = [self invokeMonoMethod:"Contains(char)" withNumArgs:1, &p1];
+	return DB_UNBOX_BOOLEAN(monoObject);
+}
+
+- (BOOL)contains_withValueChar:(uint16_t)p1 comparisonTypeStringComparison:(enumSystem_StringComparison)p2
+{
+	MonoObject *monoObject = [self invokeMonoMethod:"Contains(char,stringComparison)" withNumArgs:2, &p1, &p2];
 	return DB_UNBOX_BOOLEAN(monoObject);
 }
 
@@ -271,7 +295,9 @@ static NSString * m_empty;
 	[self invokeMonoMethod:"CopyTo(int,char[],int,int)" withNumArgs:4, &p1, [p2 monoRTInvokeObject], &p3, &p4];
 }
 
-- (BOOL)endsWith_withValue:(NSString *)p1
+/* Skipped method : System.String Create(System.Int32 length, System.String+TState state, System.Buffers.SpanAction`2<System.Char, System.String+TState> action) */
+
+- (BOOL)endsWith_withValueString:(NSString *)p1
 {
 	MonoObject *monoObject = [self invokeMonoMethod:"EndsWith(string)" withNumArgs:1, [p1 monoRTInvokeObject]];
 	return DB_UNBOX_BOOLEAN(monoObject);
@@ -286,6 +312,12 @@ static NSString * m_empty;
 - (BOOL)endsWith_withValue:(NSString *)p1 ignoreCase:(BOOL)p2 culture:(System_Globalization_CultureInfo *)p3
 {
 	MonoObject *monoObject = [self invokeMonoMethod:"EndsWith(string,bool,System.Globalization.CultureInfo)" withNumArgs:3, [p1 monoRTInvokeObject], &p2, [p3 monoRTInvokeObject]];
+	return DB_UNBOX_BOOLEAN(monoObject);
+}
+
+- (BOOL)endsWith_withValueChar:(uint16_t)p1
+{
+	MonoObject *monoObject = [self invokeMonoMethod:"EndsWith(char)" withNumArgs:1, &p1];
 	return DB_UNBOX_BOOLEAN(monoObject);
 }
 
@@ -337,17 +369,17 @@ static NSString * m_empty;
 	return [NSString stringWithMonoString:DB_STRING(monoObject)];
 }
 
-/* Skipped method : System.String Format(System.IFormatProvider provider, System.String format, System.Object arg0) */
-
-/* Skipped method : System.String Format(System.IFormatProvider provider, System.String format, System.Object arg0, System.Object arg1) */
-
-/* Skipped method : System.String Format(System.IFormatProvider provider, System.String format, System.Object arg0, System.Object arg1, System.Object arg2) */
-
 + (NSString *)format_withFormat:(NSString *)p1 args:(System_Array *)p2
 {
 	MonoObject *monoObject = [self invokeMonoClassMethod:"Format(string,object[])" withNumArgs:2, [p1 monoRTInvokeObject], [p2 monoRTInvokeObject]];
 	return [NSString stringWithMonoString:DB_STRING(monoObject)];
 }
+
+/* Skipped method : System.String Format(System.IFormatProvider provider, System.String format, System.Object arg0) */
+
+/* Skipped method : System.String Format(System.IFormatProvider provider, System.String format, System.Object arg0, System.Object arg1) */
+
+/* Skipped method : System.String Format(System.IFormatProvider provider, System.String format, System.Object arg0, System.Object arg1, System.Object arg2) */
 
 /* Skipped method : System.String Format(System.IFormatProvider provider, System.String format, System.Object[] args) */
 
@@ -356,6 +388,12 @@ static NSString * m_empty;
 - (int32_t)getHashCode
 {
 	MonoObject *monoObject = [self invokeMonoMethod:"GetHashCode()" withNumArgs:0];
+	return DB_UNBOX_INT32(monoObject);
+}
+
+- (int32_t)getHashCode_withComparisonType:(enumSystem_StringComparison)p1
+{
+	MonoObject *monoObject = [self invokeMonoMethod:"GetHashCode(stringComparison)" withNumArgs:1, &p1];
 	return DB_UNBOX_INT32(monoObject);
 }
 
@@ -370,6 +408,18 @@ static NSString * m_empty;
 - (int32_t)indexOf_withValueChar:(uint16_t)p1 startIndexInt:(int32_t)p2
 {
 	MonoObject *monoObject = [self invokeMonoMethod:"IndexOf(char,int)" withNumArgs:2, &p1, &p2];
+	return DB_UNBOX_INT32(monoObject);
+}
+
+- (int32_t)indexOf_withValueChar:(uint16_t)p1 comparisonTypeStringComparison:(enumSystem_StringComparison)p2
+{
+	MonoObject *monoObject = [self invokeMonoMethod:"IndexOf(char,stringComparison)" withNumArgs:2, &p1, &p2];
+	return DB_UNBOX_INT32(monoObject);
+}
+
+- (int32_t)indexOf_withValueChar:(uint16_t)p1 startIndexInt:(int32_t)p2 countInt:(int32_t)p3
+{
+	MonoObject *monoObject = [self invokeMonoMethod:"IndexOf(char,int,int)" withNumArgs:3, &p1, &p2, &p3];
 	return DB_UNBOX_INT32(monoObject);
 }
 
@@ -391,7 +441,7 @@ static NSString * m_empty;
 	return DB_UNBOX_INT32(monoObject);
 }
 
-- (int32_t)indexOf_withValue:(NSString *)p1 comparisonType:(enumSystem_StringComparison)p2
+- (int32_t)indexOf_withValueString:(NSString *)p1 comparisonTypeStringComparison:(enumSystem_StringComparison)p2
 {
 	MonoObject *monoObject = [self invokeMonoMethod:"IndexOf(string,stringComparison)" withNumArgs:2, [p1 monoRTInvokeObject], &p2];
 	return DB_UNBOX_INT32(monoObject);
@@ -406,12 +456,6 @@ static NSString * m_empty;
 - (int32_t)indexOf_withValue:(NSString *)p1 startIndex:(int32_t)p2 count:(int32_t)p3 comparisonType:(enumSystem_StringComparison)p4
 {
 	MonoObject *monoObject = [self invokeMonoMethod:"IndexOf(string,int,int,stringComparison)" withNumArgs:4, [p1 monoRTInvokeObject], &p2, &p3, &p4];
-	return DB_UNBOX_INT32(monoObject);
-}
-
-- (int32_t)indexOf_withValueChar:(uint16_t)p1 startIndexInt:(int32_t)p2 countInt:(int32_t)p3
-{
-	MonoObject *monoObject = [self invokeMonoMethod:"IndexOf(char,int,int)" withNumArgs:3, &p1, &p2, &p3];
 	return DB_UNBOX_INT32(monoObject);
 }
 
@@ -471,7 +515,32 @@ static NSString * m_empty;
 	return DB_UNBOX_BOOLEAN(monoObject);
 }
 
-+ (NSString *)join_withSeparator:(NSString *)p1 value:(System_Array *)p2
++ (NSString *)join_withSeparatorChar:(uint16_t)p1 valueStringArray:(System_Array *)p2
+{
+	MonoObject *monoObject = [self invokeMonoClassMethod:"Join(char,string[])" withNumArgs:2, &p1, [p2 monoRTInvokeObject]];
+	return [NSString stringWithMonoString:DB_STRING(monoObject)];
+}
+
++ (NSString *)join_withSeparatorChar:(uint16_t)p1 valuesObjectArray:(System_Array *)p2
+{
+	MonoObject *monoObject = [self invokeMonoClassMethod:"Join(char,object[])" withNumArgs:2, &p1, [p2 monoRTInvokeObject]];
+	return [NSString stringWithMonoString:DB_STRING(monoObject)];
+}
+
++ (NSString *)join_withSeparatorChar:(uint16_t)p1 valuesSCGIEnumerableA1string__T:(System_Object <System_Collections_Generic_IEnumerableA1_> *)p2 typeParameter:(id)typeParameter
+{
+	DBManagedMethod *method = [self classMethodWithMonoName:"Join(char,System.Collections.Generic.IEnumerable`1<string/T>)" typeParameters:typeParameter];
+	MonoObject *monoObject = [method invokeClassMethodWithNumArgs:2, &p1, [p2 monoRTInvokeObject]];
+	return [NSString stringWithMonoString:DB_STRING(monoObject)];
+}
+
++ (NSString *)join_withSeparatorChar:(uint16_t)p1 valueStringArray:(System_Array *)p2 startIndexInt:(int32_t)p3 countInt:(int32_t)p4
+{
+	MonoObject *monoObject = [self invokeMonoClassMethod:"Join(char,string[],int,int)" withNumArgs:4, &p1, [p2 monoRTInvokeObject], &p3, &p4];
+	return [NSString stringWithMonoString:DB_STRING(monoObject)];
+}
+
++ (NSString *)join_withSeparatorString:(NSString *)p1 valueStringArray:(System_Array *)p2
 {
 	MonoObject *monoObject = [self invokeMonoClassMethod:"Join(string,string[])" withNumArgs:2, [p1 monoRTInvokeObject], [p2 monoRTInvokeObject]];
 	return [NSString stringWithMonoString:DB_STRING(monoObject)];
@@ -483,22 +552,22 @@ static NSString * m_empty;
 	return [NSString stringWithMonoString:DB_STRING(monoObject)];
 }
 
++ (NSString *)join_withSeparatorString:(NSString *)p1 valuesSCGIEnumerableA1string__T:(System_Object <System_Collections_Generic_IEnumerableA1_> *)p2 typeParameter:(id)typeParameter
+{
+	DBManagedMethod *method = [self classMethodWithMonoName:"Join(string,System.Collections.Generic.IEnumerable`1<string/T>)" typeParameters:typeParameter];
+	MonoObject *monoObject = [method invokeClassMethodWithNumArgs:2, [p1 monoRTInvokeObject], [p2 monoRTInvokeObject]];
+	return [NSString stringWithMonoString:DB_STRING(monoObject)];
+}
+
 + (NSString *)join_withSeparatorString:(NSString *)p1 valuesSCGIEnumerableA1string:(System_Object <System_Collections_Generic_IEnumerableA1_> *)p2
 {
 	MonoObject *monoObject = [self invokeMonoClassMethod:"Join(string,System.Collections.Generic.IEnumerable`1<string>)" withNumArgs:2, [p1 monoRTInvokeObject], [p2 monoRTInvokeObject]];
 	return [NSString stringWithMonoString:DB_STRING(monoObject)];
 }
 
-+ (NSString *)join_withSeparator:(NSString *)p1 value:(System_Array *)p2 startIndex:(int32_t)p3 count:(int32_t)p4
++ (NSString *)join_withSeparatorString:(NSString *)p1 valueStringArray:(System_Array *)p2 startIndexInt:(int32_t)p3 countInt:(int32_t)p4
 {
 	MonoObject *monoObject = [self invokeMonoClassMethod:"Join(string,string[],int,int)" withNumArgs:4, [p1 monoRTInvokeObject], [p2 monoRTInvokeObject], &p3, &p4];
-	return [NSString stringWithMonoString:DB_STRING(monoObject)];
-}
-
-+ (NSString *)join_withSeparatorString:(NSString *)p1 valuesSCGIEnumerableA1string__T:(System_Object <System_Collections_Generic_IEnumerableA1_> *)p2 typeParameter:(id)typeParameter
-{
-	DBManagedMethod *method = [self classMethodWithMonoName:"Join(string,System.Collections.Generic.IEnumerable`1<string/T>)" typeParameters:typeParameter];
-	MonoObject *monoObject = [method invokeClassMethodWithNumArgs:2, [p1 monoRTInvokeObject], [p2 monoRTInvokeObject]];
 	return [NSString stringWithMonoString:DB_STRING(monoObject)];
 }
 
@@ -511,6 +580,12 @@ static NSString * m_empty;
 - (int32_t)lastIndexOf_withValueChar:(uint16_t)p1 startIndexInt:(int32_t)p2
 {
 	MonoObject *monoObject = [self invokeMonoMethod:"LastIndexOf(char,int)" withNumArgs:2, &p1, &p2];
+	return DB_UNBOX_INT32(monoObject);
+}
+
+- (int32_t)lastIndexOf_withValueChar:(uint16_t)p1 startIndexInt:(int32_t)p2 countInt:(int32_t)p3
+{
+	MonoObject *monoObject = [self invokeMonoMethod:"LastIndexOf(char,int,int)" withNumArgs:3, &p1, &p2, &p3];
 	return DB_UNBOX_INT32(monoObject);
 }
 
@@ -550,12 +625,6 @@ static NSString * m_empty;
 	return DB_UNBOX_INT32(monoObject);
 }
 
-- (int32_t)lastIndexOf_withValueChar:(uint16_t)p1 startIndexInt:(int32_t)p2 countInt:(int32_t)p3
-{
-	MonoObject *monoObject = [self invokeMonoMethod:"LastIndexOf(char,int,int)" withNumArgs:3, &p1, &p2, &p3];
-	return DB_UNBOX_INT32(monoObject);
-}
-
 - (int32_t)lastIndexOfAny_withAnyOf:(System_Array *)p1
 {
 	MonoObject *monoObject = [self invokeMonoMethod:"LastIndexOfAny(char[])" withNumArgs:1, [p1 monoRTInvokeObject]];
@@ -586,6 +655,12 @@ static NSString * m_empty;
 {
 	MonoObject *monoObject = [self invokeMonoClassMethod:"op_Equality(string,string)" withNumArgs:2, [p1 monoRTInvokeObject], [p2 monoRTInvokeObject]];
 	return DB_UNBOX_BOOLEAN(monoObject);
+}
+
++ (System_ReadOnlySpanA1 *)op_Implicit_withValue:(NSString *)p1
+{
+	MonoObject *monoObject = [self invokeMonoClassMethod:"op_Implicit(string)" withNumArgs:1, [p1 monoRTInvokeObject]];
+	return [System_ReadOnlySpanA1 bestObjectWithMonoObject:monoObject];
 }
 
 + (BOOL)op_Inequality_withA:(NSString *)p1 b:(NSString *)p2
@@ -630,6 +705,18 @@ static NSString * m_empty;
 	return [NSString stringWithMonoString:DB_STRING(monoObject)];
 }
 
+- (NSString *)replace_withOldValue:(NSString *)p1 newValue:(NSString *)p2 ignoreCase:(BOOL)p3 culture:(System_Globalization_CultureInfo *)p4
+{
+	MonoObject *monoObject = [self invokeMonoMethod:"Replace(string,string,bool,System.Globalization.CultureInfo)" withNumArgs:4, [p1 monoRTInvokeObject], [p2 monoRTInvokeObject], &p3, [p4 monoRTInvokeObject]];
+	return [NSString stringWithMonoString:DB_STRING(monoObject)];
+}
+
+- (NSString *)replace_withOldValue:(NSString *)p1 newValue:(NSString *)p2 comparisonType:(enumSystem_StringComparison)p3
+{
+	MonoObject *monoObject = [self invokeMonoMethod:"Replace(string,string,stringComparison)" withNumArgs:3, [p1 monoRTInvokeObject], [p2 monoRTInvokeObject], &p3];
+	return [NSString stringWithMonoString:DB_STRING(monoObject)];
+}
+
 - (NSString *)replace_withOldChar:(uint16_t)p1 newChar:(uint16_t)p2
 {
 	MonoObject *monoObject = [self invokeMonoMethod:"Replace(char,char)" withNumArgs:2, &p1, &p2];
@@ -641,6 +728,10 @@ static NSString * m_empty;
 	MonoObject *monoObject = [self invokeMonoMethod:"Replace(string,string)" withNumArgs:2, [p1 monoRTInvokeObject], [p2 monoRTInvokeObject]];
 	return [NSString stringWithMonoString:DB_STRING(monoObject)];
 }
+
+/* Skipped method : System.String[] Split(System.Char separator, System.StringSplitOptions options) */
+
+/* Skipped method : System.String[] Split(System.Char separator, System.Int32 count, System.StringSplitOptions options) */
 
 - (System_Array *)split_withSeparator:(System_Array *)p1
 {
@@ -658,11 +749,15 @@ static NSString * m_empty;
 
 /* Skipped method : System.String[] Split(System.Char[] separator, System.Int32 count, System.StringSplitOptions options) */
 
+/* Skipped method : System.String[] Split(System.String separator, System.StringSplitOptions options) */
+
+/* Skipped method : System.String[] Split(System.String separator, System.Int32 count, System.StringSplitOptions options) */
+
 /* Skipped method : System.String[] Split(System.String[] separator, System.StringSplitOptions options) */
 
 /* Skipped method : System.String[] Split(System.String[] separator, System.Int32 count, System.StringSplitOptions options) */
 
-- (BOOL)startsWith_withValue:(NSString *)p1
+- (BOOL)startsWith_withValueString:(NSString *)p1
 {
 	MonoObject *monoObject = [self invokeMonoMethod:"StartsWith(string)" withNumArgs:1, [p1 monoRTInvokeObject]];
 	return DB_UNBOX_BOOLEAN(monoObject);
@@ -677,6 +772,12 @@ static NSString * m_empty;
 - (BOOL)startsWith_withValue:(NSString *)p1 ignoreCase:(BOOL)p2 culture:(System_Globalization_CultureInfo *)p3
 {
 	MonoObject *monoObject = [self invokeMonoMethod:"StartsWith(string,bool,System.Globalization.CultureInfo)" withNumArgs:3, [p1 monoRTInvokeObject], &p2, [p3 monoRTInvokeObject]];
+	return DB_UNBOX_BOOLEAN(monoObject);
+}
+
+- (BOOL)startsWith_withValueChar:(uint16_t)p1
+{
+	MonoObject *monoObject = [self invokeMonoMethod:"StartsWith(char)" withNumArgs:1, &p1];
 	return DB_UNBOX_BOOLEAN(monoObject);
 }
 
@@ -748,21 +849,51 @@ static NSString * m_empty;
 	return [NSString stringWithMonoString:DB_STRING(monoObject)];
 }
 
-- (NSString *)trim_withTrimChars:(System_Array *)p1
-{
-	MonoObject *monoObject = [self invokeMonoMethod:"Trim(char[])" withNumArgs:1, [p1 monoRTInvokeObject]];
-	return [NSString stringWithMonoString:DB_STRING(monoObject)];
-}
-
 - (NSString *)trim
 {
 	MonoObject *monoObject = [self invokeMonoMethod:"Trim()" withNumArgs:0];
 	return [NSString stringWithMonoString:DB_STRING(monoObject)];
 }
 
+- (NSString *)trim_withTrimChar:(uint16_t)p1
+{
+	MonoObject *monoObject = [self invokeMonoMethod:"Trim(char)" withNumArgs:1, &p1];
+	return [NSString stringWithMonoString:DB_STRING(monoObject)];
+}
+
+- (NSString *)trim_withTrimChars:(System_Array *)p1
+{
+	MonoObject *monoObject = [self invokeMonoMethod:"Trim(char[])" withNumArgs:1, [p1 monoRTInvokeObject]];
+	return [NSString stringWithMonoString:DB_STRING(monoObject)];
+}
+
+- (NSString *)trimEnd
+{
+	MonoObject *monoObject = [self invokeMonoMethod:"TrimEnd()" withNumArgs:0];
+	return [NSString stringWithMonoString:DB_STRING(monoObject)];
+}
+
+- (NSString *)trimEnd_withTrimChar:(uint16_t)p1
+{
+	MonoObject *monoObject = [self invokeMonoMethod:"TrimEnd(char)" withNumArgs:1, &p1];
+	return [NSString stringWithMonoString:DB_STRING(monoObject)];
+}
+
 - (NSString *)trimEnd_withTrimChars:(System_Array *)p1
 {
 	MonoObject *monoObject = [self invokeMonoMethod:"TrimEnd(char[])" withNumArgs:1, [p1 monoRTInvokeObject]];
+	return [NSString stringWithMonoString:DB_STRING(monoObject)];
+}
+
+- (NSString *)trimStart
+{
+	MonoObject *monoObject = [self invokeMonoMethod:"TrimStart()" withNumArgs:0];
+	return [NSString stringWithMonoString:DB_STRING(monoObject)];
+}
+
+- (NSString *)trimStart_withTrimChar:(uint16_t)p1
+{
+	MonoObject *monoObject = [self invokeMonoMethod:"TrimStart(char)" withNumArgs:1, &p1];
 	return [NSString stringWithMonoString:DB_STRING(monoObject)];
 }
 

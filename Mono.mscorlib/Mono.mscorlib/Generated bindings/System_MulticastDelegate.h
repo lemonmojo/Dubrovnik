@@ -39,7 +39,7 @@
 #import "System_ICloneable_Protocol.h"
 #import "System_Runtime_Serialization_ISerializable_Protocol.h"
 
-@interface System_MulticastDelegate : System_Delegate <System_ICloneable_, System_Runtime_Serialization_ISerializable_>
+@interface System_MulticastDelegate : System_Delegate <System_Runtime_Serialization_ISerializable_, System_ICloneable_>
 
 #pragma mark -
 #pragma mark Setup

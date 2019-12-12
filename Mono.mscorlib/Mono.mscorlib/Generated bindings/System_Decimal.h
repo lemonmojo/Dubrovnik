@@ -30,9 +30,11 @@
 @class System_Int32;
 @class System_Int64;
 @class System_Object;
+@class System_ReadOnlySpanA1;
 @class System_Runtime_Serialization_IDeserializationCallback;
 @class System_SByte;
 @class System_Single;
+@class System_SpanA1;
 @class System_String;
 @class System_UInt16;
 @class System_UInt32;
@@ -52,7 +54,7 @@
 #import "System_Runtime_Serialization_IDeserializationCallback_Protocol.h"
 #import "System_ValueType.h"
 
-@interface System_Decimal : System_ValueType <System_IComparable_, System_Runtime_Serialization_IDeserializationCallback_, System_IComparableA1_, System_IEquatableA1_>
+@interface System_Decimal : System_ValueType <System_IComparable_, System_IComparableA1_, System_IEquatableA1_, System_Runtime_Serialization_IDeserializationCallback_>
 
 #pragma mark -
 #pragma mark Setup
@@ -907,6 +909,8 @@
 
 /* Skipped method : System.Decimal Parse(System.String s, System.Globalization.NumberStyles style, System.IFormatProvider provider) */
 
+/* Skipped method : System.Decimal Parse(System.ReadOnlySpan`1<System.Char> s, System.Globalization.NumberStyles style, System.IFormatProvider provider) */
+
 /**
  Managed method.
  @textblock
@@ -1188,6 +1192,8 @@
 */
 + (NSDecimalNumber *)truncate_withD:(NSDecimalNumber *)p1;
 
+/* Skipped method : System.Boolean TryFormat(System.Span`1<System.Char> destination, System.Int32& charsWritten, System.ReadOnlySpan`1<System.Char> format, System.IFormatProvider provider) */
+
 /**
  Managed method.
  @textblock
@@ -1202,8 +1208,26 @@
    System.Boolean
  @/textblock
 */
-+ (BOOL)tryParse_withS:(NSString *)p1 resultRef:(NSDecimalNumber **)p2;
++ (BOOL)tryParse_withSString:(NSString *)p1 resultSDecimalRef:(NSDecimalNumber **)p2;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   TryParse
+
+ Params
+   System.ReadOnlySpan`1<System.Char>
+   ref System.Decimal&
+
+ Return
+   System.Boolean
+ @/textblock
+*/
++ (BOOL)tryParse_withSSReadOnlySpanA1char:(System_ReadOnlySpanA1 *)p1 resultSDecimalRef:(NSDecimalNumber **)p2;
 
 /* Skipped method : System.Boolean TryParse(System.String s, System.Globalization.NumberStyles style, System.IFormatProvider provider, System.Decimal& result) */
+
+/* Skipped method : System.Boolean TryParse(System.ReadOnlySpan`1<System.Char> s, System.Globalization.NumberStyles style, System.IFormatProvider provider, System.Decimal& result) */
 @end
 //--Dubrovnik.CodeGenerator

@@ -82,7 +82,7 @@
 //
 // Adoption protocol
 //
-@protocol System_Collections_Concurrent_IProducerConsumerCollectionA1_ <System_Object_, System_Collections_Generic_IEnumerableA1_, System_Collections_IEnumerable_, System_Collections_ICollection_>
+@protocol System_Collections_Concurrent_IProducerConsumerCollectionA1_ <System_Object_, System_Collections_IEnumerable_, System_Collections_ICollection_, System_Collections_Generic_IEnumerableA1_>
 
 @optional
 
@@ -160,7 +160,7 @@
 //
 // Implementation protocol
 //
-@protocol System_Collections_Concurrent_IProducerConsumerCollectionA1 <System_Collections_Concurrent_IProducerConsumerCollectionA1_, System_Object, System_Collections_Generic_IEnumerableA1, System_Collections_IEnumerable, System_Collections_ICollection>
+@protocol System_Collections_Concurrent_IProducerConsumerCollectionA1 <System_Collections_Concurrent_IProducerConsumerCollectionA1_, System_Object, System_Collections_IEnumerable, System_Collections_ICollection, System_Collections_Generic_IEnumerableA1>
 
 @optional
 

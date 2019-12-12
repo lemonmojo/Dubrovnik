@@ -29,8 +29,10 @@
 @class System_Int32;
 @class System_Int64;
 @class System_Object;
+@class System_ReadOnlySpanA1;
 @class System_Runtime_Serialization_IDeserializationCallback;
 @class System_Runtime_Serialization_ISerializable;
+@class System_SpanA1;
 @class System_String;
 @class System_TimeSpan;
 
@@ -49,7 +51,7 @@
 #import "System_Runtime_Serialization_ISerializable_Protocol.h"
 #import "System_ValueType.h"
 
-@interface System_DateTimeOffset : System_ValueType <System_IComparable_, System_Runtime_Serialization_ISerializable_, System_Runtime_Serialization_IDeserializationCallback_, System_IComparableA1_, System_IEquatableA1_>
+@interface System_DateTimeOffset : System_ValueType <System_Runtime_Serialization_ISerializable_, System_IComparable_, System_IComparableA1_, System_IEquatableA1_, System_Runtime_Serialization_IDeserializationCallback_>
 
 #pragma mark -
 #pragma mark Setup
@@ -178,6 +180,18 @@
  @/textblock
 */
 + (System_DateTimeOffset *)minValue;
+
+/**
+ Managed field.
+ @textblock
+ Name
+   UnixEpoch
+
+ Type
+   System.DateTimeOffset
+ @/textblock
+*/
++ (System_DateTimeOffset *)unixEpoch;
 
 #pragma mark -
 #pragma mark Properties
@@ -878,11 +892,17 @@
 
 /* Skipped method : System.DateTimeOffset Parse(System.String input, System.IFormatProvider formatProvider, System.Globalization.DateTimeStyles styles) */
 
+/* Skipped method : System.DateTimeOffset Parse(System.ReadOnlySpan`1<System.Char> input, System.IFormatProvider formatProvider, System.Globalization.DateTimeStyles styles) */
+
 /* Skipped method : System.DateTimeOffset ParseExact(System.String input, System.String format, System.IFormatProvider formatProvider) */
 
 /* Skipped method : System.DateTimeOffset ParseExact(System.String input, System.String format, System.IFormatProvider formatProvider, System.Globalization.DateTimeStyles styles) */
 
+/* Skipped method : System.DateTimeOffset ParseExact(System.ReadOnlySpan`1<System.Char> input, System.ReadOnlySpan`1<System.Char> format, System.IFormatProvider formatProvider, System.Globalization.DateTimeStyles styles) */
+
 /* Skipped method : System.DateTimeOffset ParseExact(System.String input, System.String[] formats, System.IFormatProvider formatProvider, System.Globalization.DateTimeStyles styles) */
+
+/* Skipped method : System.DateTimeOffset ParseExact(System.ReadOnlySpan`1<System.Char> input, System.String[] formats, System.IFormatProvider formatProvider, System.Globalization.DateTimeStyles styles) */
 
 /**
  Managed method.
@@ -1038,6 +1058,8 @@
 */
 - (int64_t)toUnixTimeSeconds;
 
+/* Skipped method : System.Boolean TryFormat(System.Span`1<System.Char> destination, System.Int32& charsWritten, System.ReadOnlySpan`1<System.Char> format, System.IFormatProvider formatProvider) */
+
 /**
  Managed method.
  @textblock
@@ -1052,12 +1074,34 @@
    System.Boolean
  @/textblock
 */
-+ (BOOL)tryParse_withInput:(NSString *)p1 resultRef:(System_DateTimeOffset **)p2;
++ (BOOL)tryParse_withInputString:(NSString *)p1 resultSDateTimeOffsetRef:(System_DateTimeOffset **)p2;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   TryParse
+
+ Params
+   System.ReadOnlySpan`1<System.Char>
+   ref System.DateTimeOffset&
+
+ Return
+   System.Boolean
+ @/textblock
+*/
++ (BOOL)tryParse_withInputSReadOnlySpanA1char:(System_ReadOnlySpanA1 *)p1 resultSDateTimeOffsetRef:(System_DateTimeOffset **)p2;
 
 /* Skipped method : System.Boolean TryParse(System.String input, System.IFormatProvider formatProvider, System.Globalization.DateTimeStyles styles, System.DateTimeOffset& result) */
 
-/* Skipped method : System.Boolean TryParseExact(System.String input, System.String[] formats, System.IFormatProvider formatProvider, System.Globalization.DateTimeStyles styles, System.DateTimeOffset& result) */
+/* Skipped method : System.Boolean TryParse(System.ReadOnlySpan`1<System.Char> input, System.IFormatProvider formatProvider, System.Globalization.DateTimeStyles styles, System.DateTimeOffset& result) */
 
 /* Skipped method : System.Boolean TryParseExact(System.String input, System.String format, System.IFormatProvider formatProvider, System.Globalization.DateTimeStyles styles, System.DateTimeOffset& result) */
+
+/* Skipped method : System.Boolean TryParseExact(System.ReadOnlySpan`1<System.Char> input, System.ReadOnlySpan`1<System.Char> format, System.IFormatProvider formatProvider, System.Globalization.DateTimeStyles styles, System.DateTimeOffset& result) */
+
+/* Skipped method : System.Boolean TryParseExact(System.String input, System.String[] formats, System.IFormatProvider formatProvider, System.Globalization.DateTimeStyles styles, System.DateTimeOffset& result) */
+
+/* Skipped method : System.Boolean TryParseExact(System.ReadOnlySpan`1<System.Char> input, System.String[] formats, System.IFormatProvider formatProvider, System.Globalization.DateTimeStyles styles, System.DateTimeOffset& result) */
 @end
 //--Dubrovnik.CodeGenerator

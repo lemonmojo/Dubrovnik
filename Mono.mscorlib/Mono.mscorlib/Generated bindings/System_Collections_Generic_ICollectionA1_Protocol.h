@@ -80,7 +80,7 @@
 //
 // Adoption protocol
 //
-@protocol System_Collections_Generic_ICollectionA1_ <System_Object_, System_Collections_Generic_IEnumerableA1_, System_Collections_IEnumerable_>
+@protocol System_Collections_Generic_ICollectionA1_ <System_Object_, System_Collections_IEnumerable_, System_Collections_Generic_IEnumerableA1_>
 
 @optional
 
@@ -200,7 +200,7 @@
 //
 // Implementation protocol
 //
-@protocol System_Collections_Generic_ICollectionA1 <System_Collections_Generic_ICollectionA1_, System_Object, System_Collections_Generic_IEnumerableA1, System_Collections_IEnumerable>
+@protocol System_Collections_Generic_ICollectionA1 <System_Collections_Generic_ICollectionA1_, System_Object, System_Collections_IEnumerable, System_Collections_Generic_IEnumerableA1>
 
 @optional
 

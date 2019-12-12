@@ -88,9 +88,15 @@ static NSString * m_trueString;
 
 /* Skipped method : System.TypeCode GetTypeCode() */
 
-+ (BOOL)parse_withValue:(NSString *)p1
++ (BOOL)parse_withValueString:(NSString *)p1
 {
 	MonoObject *monoObject = [self invokeMonoClassMethod:"Parse(string)" withNumArgs:1, [p1 monoRTInvokeObject]];
+	return DB_UNBOX_BOOLEAN(monoObject);
+}
+
++ (BOOL)parse_withValueSReadOnlySpanA1char:(System_ReadOnlySpanA1 *)p1
+{
+	MonoObject *monoObject = [self invokeMonoClassMethod:"Parse(System.ReadOnlySpan`1<char>)" withNumArgs:1, [p1 monoRTInvokeArg]];
 	return DB_UNBOX_BOOLEAN(monoObject);
 }
 
@@ -102,9 +108,21 @@ static NSString * m_trueString;
 
 /* Skipped method : System.String ToString(System.IFormatProvider provider) */
 
-+ (BOOL)tryParse_withValue:(NSString *)p1 resultRef:(BOOL*)p2
+- (BOOL)tryFormat_withDestination:(System_SpanA1 *)p1 charsWrittenRef:(int32_t*)p2
+{
+	MonoObject *monoObject = [self invokeMonoMethod:"TryFormat(System.Span`1<char>,int&)" withNumArgs:2, [p1 monoRTInvokeArg], p2];
+	return DB_UNBOX_BOOLEAN(monoObject);
+}
+
++ (BOOL)tryParse_withValueString:(NSString *)p1 resultBoolRef:(BOOL*)p2
 {
 	MonoObject *monoObject = [self invokeMonoClassMethod:"TryParse(string,bool&)" withNumArgs:2, [p1 monoRTInvokeObject], p2];
+	return DB_UNBOX_BOOLEAN(monoObject);
+}
+
++ (BOOL)tryParse_withValueSReadOnlySpanA1char:(System_ReadOnlySpanA1 *)p1 resultBoolRef:(BOOL*)p2
+{
+	MonoObject *monoObject = [self invokeMonoClassMethod:"TryParse(System.ReadOnlySpan`1<char>,bool&)" withNumArgs:2, [p1 monoRTInvokeArg], p2];
 	return DB_UNBOX_BOOLEAN(monoObject);
 }
 

@@ -33,15 +33,15 @@
 #pragma mark -
 #pragma mark Constructors
 
-+ (System_UIntPtr *)new_withValueUint:(uint32_t)p1
-{
-	System_UIntPtr * object = [[self alloc] initWithSignature:"uint" withNumArgs:1, &p1];
-	return object;
-}
-
 + (System_UIntPtr *)new_withValueUlong:(uint64_t)p1
 {
 	System_UIntPtr * object = [[self alloc] initWithSignature:"ulong" withNumArgs:1, &p1];
+	return object;
+}
+
++ (System_UIntPtr *)new_withValueUint:(uint32_t)p1
+{
+	System_UIntPtr * object = [[self alloc] initWithSignature:"uint" withNumArgs:1, &p1];
 	return object;
 }
 
@@ -114,12 +114,6 @@ static int32_t m_size;
 	return DB_UNBOX_BOOLEAN(monoObject);
 }
 
-+ (void *)op_Explicit_withValueUint:(uint32_t)p1
-{
-	MonoObject *monoObject = [self invokeMonoClassMethod:"op_Explicit(uint)" withNumArgs:1, &p1];
-	return DB_UNBOX_UPTR(monoObject);
-}
-
 + (void *)op_Explicit_withValueUlong:(uint64_t)p1
 {
 	MonoObject *monoObject = [self invokeMonoClassMethod:"op_Explicit(ulong)" withNumArgs:1, &p1];
@@ -129,6 +123,12 @@ static int32_t m_size;
 /* Skipped method : System.UIntPtr op_Explicit(System.Void* value) */
 
 /* Skipped method : System.Void* op_Explicit(System.UIntPtr value) */
+
++ (void *)op_Explicit_withValueUint:(uint32_t)p1
+{
+	MonoObject *monoObject = [self invokeMonoClassMethod:"op_Explicit(uint)" withNumArgs:1, &p1];
+	return DB_UNBOX_UPTR(monoObject);
+}
 
 + (BOOL)op_Inequality_withValue1:(void *)p1 value2:(void *)p2
 {

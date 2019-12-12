@@ -82,18 +82,6 @@
  Managed property.
  @textblock
  Name
-   Exists
-
- Type
-   System.Boolean
- @/textblock
-*/
-@property (nonatomic, readonly) BOOL exists;
-
-/**
- Managed property.
- @textblock
- Name
    IsReadOnly
 
  Type
@@ -276,20 +264,5 @@
 - (System_IO_FileInfo *)replace_withDestinationFileName:(NSString *)p1 destinationBackupFileName:(NSString *)p2 ignoreMetadataErrors:(BOOL)p3;
 
 /* Skipped method : System.Void SetAccessControl(System.Security.AccessControl.FileSecurity fileSecurity) */
-
-/**
- Managed method.
- @textblock
- Name
-   ToString
-
- Params
-   (none)
-
- Return
-   System.String
- @/textblock
-*/
-- (NSString *)toString;
 @end
 //--Dubrovnik.CodeGenerator

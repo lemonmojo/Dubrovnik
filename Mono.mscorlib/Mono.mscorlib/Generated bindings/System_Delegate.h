@@ -41,7 +41,7 @@
 #import "System_Object.h"
 #import "System_Runtime_Serialization_ISerializable_Protocol.h"
 
-@interface System_Delegate : System_Object <System_ICloneable_, System_Runtime_Serialization_ISerializable_>
+@interface System_Delegate : System_Object <System_Runtime_Serialization_ISerializable_, System_ICloneable_>
 
 #pragma mark -
 #pragma mark Setup
@@ -134,6 +134,74 @@
  Params
    System.Type
    System.Object
+   System.Reflection.MethodInfo
+   System.Boolean
+
+ Return
+   System.Delegate
+ @/textblock
+*/
++ (System_Delegate *)createDelegate_withType:(System_Type *)p1 firstArgument:(id <DBMonoObject>)p2 method:(System_Reflection_MethodInfo *)p3 throwOnBindFailure:(BOOL)p4;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   CreateDelegate
+
+ Params
+   System.Type
+   System.Object
+   System.Reflection.MethodInfo
+
+ Return
+   System.Delegate
+ @/textblock
+*/
++ (System_Delegate *)createDelegate_withType:(System_Type *)p1 firstArgument:(id <DBMonoObject>)p2 method:(System_Reflection_MethodInfo *)p3;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   CreateDelegate
+
+ Params
+   System.Type
+   System.Reflection.MethodInfo
+   System.Boolean
+
+ Return
+   System.Delegate
+ @/textblock
+*/
++ (System_Delegate *)createDelegate_withType:(System_Type *)p1 method:(System_Reflection_MethodInfo *)p2 throwOnBindFailure:(BOOL)p3;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   CreateDelegate
+
+ Params
+   System.Type
+   System.Reflection.MethodInfo
+
+ Return
+   System.Delegate
+ @/textblock
+*/
++ (System_Delegate *)createDelegate_withType:(System_Type *)p1 method:(System_Reflection_MethodInfo *)p2;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   CreateDelegate
+
+ Params
+   System.Type
+   System.Object
    System.String
 
  Return
@@ -150,25 +218,7 @@
 
  Params
    System.Type
-   System.Object
-   System.String
-   System.Boolean
-
- Return
-   System.Delegate
- @/textblock
-*/
-+ (System_Delegate *)createDelegate_withTypeSType:(System_Type *)p1 targetObject:(id <DBMonoObject>)p2 methodString:(NSString *)p3 ignoreCaseBool:(BOOL)p4;
-
-/**
- Managed method.
- @textblock
- Name
-   CreateDelegate
-
- Params
    System.Type
-   System.Object
    System.String
    System.Boolean
    System.Boolean
@@ -177,7 +227,7 @@
    System.Delegate
  @/textblock
 */
-+ (System_Delegate *)createDelegate_withTypeSType:(System_Type *)p1 targetObject:(id <DBMonoObject>)p2 methodString:(NSString *)p3 ignoreCaseBool:(BOOL)p4 throwOnBindFailureBool:(BOOL)p5;
++ (System_Delegate *)createDelegate_withTypeSType:(System_Type *)p1 targetSType:(System_Type *)p2 methodString:(NSString *)p3 ignoreCaseBool:(BOOL)p4 throwOnBindFailureBool:(BOOL)p5;
 
 /**
  Managed method.
@@ -222,7 +272,7 @@
 
  Params
    System.Type
-   System.Type
+   System.Object
    System.String
    System.Boolean
    System.Boolean
@@ -231,24 +281,7 @@
    System.Delegate
  @/textblock
 */
-+ (System_Delegate *)createDelegate_withTypeSType:(System_Type *)p1 targetSType:(System_Type *)p2 methodString:(NSString *)p3 ignoreCaseBool:(BOOL)p4 throwOnBindFailureBool:(BOOL)p5;
-
-/**
- Managed method.
- @textblock
- Name
-   CreateDelegate
-
- Params
-   System.Type
-   System.Reflection.MethodInfo
-   System.Boolean
-
- Return
-   System.Delegate
- @/textblock
-*/
-+ (System_Delegate *)createDelegate_withType:(System_Type *)p1 method:(System_Reflection_MethodInfo *)p2 throwOnBindFailure:(BOOL)p3;
++ (System_Delegate *)createDelegate_withTypeSType:(System_Type *)p1 targetObject:(id <DBMonoObject>)p2 methodString:(NSString *)p3 ignoreCaseBool:(BOOL)p4 throwOnBindFailureBool:(BOOL)p5;
 
 /**
  Managed method.
@@ -259,47 +292,14 @@
  Params
    System.Type
    System.Object
-   System.Reflection.MethodInfo
+   System.String
    System.Boolean
 
  Return
    System.Delegate
  @/textblock
 */
-+ (System_Delegate *)createDelegate_withType:(System_Type *)p1 firstArgument:(id <DBMonoObject>)p2 method:(System_Reflection_MethodInfo *)p3 throwOnBindFailure:(BOOL)p4;
-
-/**
- Managed method.
- @textblock
- Name
-   CreateDelegate
-
- Params
-   System.Type
-   System.Reflection.MethodInfo
-
- Return
-   System.Delegate
- @/textblock
-*/
-+ (System_Delegate *)createDelegate_withType:(System_Type *)p1 method:(System_Reflection_MethodInfo *)p2;
-
-/**
- Managed method.
- @textblock
- Name
-   CreateDelegate
-
- Params
-   System.Type
-   System.Object
-   System.Reflection.MethodInfo
-
- Return
-   System.Delegate
- @/textblock
-*/
-+ (System_Delegate *)createDelegate_withType:(System_Type *)p1 firstArgument:(id <DBMonoObject>)p2 method:(System_Reflection_MethodInfo *)p3;
++ (System_Delegate *)createDelegate_withTypeSType:(System_Type *)p1 targetObject:(id <DBMonoObject>)p2 methodString:(NSString *)p3 ignoreCaseBool:(BOOL)p4;
 
 /**
  Managed method.

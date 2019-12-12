@@ -51,6 +51,14 @@
 
 /* Skipped constructor : System.Collections.Generic.Dictionary`2<System.Collections.Generic.Dictionary`2+TKey, System.Collections.Generic.Dictionary`2+TValue> (System.Collections.Generic.IDictionary`2<System.Collections.Generic.Dictionary`2+TKey, System.Collections.Generic.Dictionary`2+TValue> dictionary, System.Collections.Generic.IEqualityComparer`1<System.Collections.Generic.Dictionary`2+TKey> comparer) */
 
++ (System_Collections_Generic_DictionaryA2 *)new_withCollection:(System_Object <System_Collections_Generic_IEnumerableA1_> *)p1
+{
+	System_Collections_Generic_DictionaryA2 * object = [[self alloc] initWithSignature:"System.Collections.Generic.IEnumerable`1<System.Collections.Generic.KeyValuePair`2<System.Collections.Generic.Dictionary`2/TKey, System.Collections.Generic.Dictionary`2/TValue>>" withNumArgs:1, [p1 monoRTInvokeObject]];
+	return object;
+}
+
+/* Skipped constructor : System.Collections.Generic.Dictionary`2<System.Collections.Generic.Dictionary`2+TKey, System.Collections.Generic.Dictionary`2+TValue> (System.Collections.Generic.IEnumerable`1<System.Collections.Generic.KeyValuePair`2<System.Collections.Generic.Dictionary`2+TKey, System.Collections.Generic.Dictionary`2+TValue>> collection, System.Collections.Generic.IEqualityComparer`1<System.Collections.Generic.Dictionary`2+TKey> comparer) */
+
 #pragma mark -
 #pragma mark Properties
 
@@ -151,6 +159,12 @@
 	return DB_UNBOX_BOOLEAN(monoObject);
 }
 
+- (int32_t)ensureCapacity_withCapacity:(int32_t)p1
+{
+	MonoObject *monoObject = [self invokeMonoMethod:"EnsureCapacity(int)" withNumArgs:1, &p1];
+	return DB_UNBOX_INT32(monoObject);
+}
+
 - (System_Collections_Generic_DictionaryA2__Enumerator *)getEnumerator
 {
 	MonoObject *monoObject = [self invokeMonoMethod:"GetEnumerator()" withNumArgs:0];
@@ -167,6 +181,30 @@
 - (BOOL)remove_withKey:(id <DBMonoObject>)p1
 {
 	MonoObject *monoObject = [self invokeMonoMethod:"Remove(<_T_0>)" withNumArgs:1, [self monoRTInvokeArg:p1 typeParameterIndex:0]];
+	return DB_UNBOX_BOOLEAN(monoObject);
+}
+
+- (BOOL)remove_withKey:(id <DBMonoObject>)p1 valueRef:(System_Object **)p2
+{
+	void *refPtr2 = [*p2 monoRTInvokeArg];
+	MonoObject *monoObject = [self invokeMonoMethod:"Remove(<_T_0>,System.Collections.Generic.Dictionary`2/TValue&)" withNumArgs:2, [self monoRTInvokeArg:p1 typeParameterIndex:0], &refPtr2];
+	*p2 = [System_Object bestObjectWithMonoObject:refPtr2];
+	return DB_UNBOX_BOOLEAN(monoObject);
+}
+
+- (void)trimExcess
+{
+	[self invokeMonoMethod:"TrimExcess()" withNumArgs:0];
+}
+
+- (void)trimExcess_withCapacity:(int32_t)p1
+{
+	[self invokeMonoMethod:"TrimExcess(int)" withNumArgs:1, &p1];
+}
+
+- (BOOL)tryAdd_withKey:(id <DBMonoObject>)p1 value:(id <DBMonoObject>)p2
+{
+	MonoObject *monoObject = [self invokeMonoMethod:"TryAdd(<_T_0>,<_T_1>)" withNumArgs:2, [self monoRTInvokeArg:p1 typeParameterIndex:0], [self monoRTInvokeArg:p2 typeParameterIndex:1]];
 	return DB_UNBOX_BOOLEAN(monoObject);
 }
 

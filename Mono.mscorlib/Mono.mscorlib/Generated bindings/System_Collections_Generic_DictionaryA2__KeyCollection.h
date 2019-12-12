@@ -46,7 +46,7 @@
 #import "System_Collections_IEnumerable_Protocol.h"
 #import "System_Object.h"
 
-@interface System_Collections_Generic_DictionaryA2__KeyCollection : System_Object <System_Collections_Generic_ICollectionA1_, System_Collections_Generic_IEnumerableA1_, System_Collections_IEnumerable_, System_Collections_ICollection_, System_Collections_Generic_IReadOnlyCollectionA1_>
+@interface System_Collections_Generic_DictionaryA2__KeyCollection : System_Object <System_Collections_IEnumerable_, System_Collections_Generic_IReadOnlyCollectionA1_, System_Collections_Generic_ICollectionA1_, System_Collections_ICollection_, System_Collections_Generic_IEnumerableA1_>
 
 #pragma mark -
 #pragma mark Setup

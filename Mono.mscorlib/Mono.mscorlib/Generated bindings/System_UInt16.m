@@ -98,6 +98,8 @@ static uint16_t m_minValue;
 
 /* Skipped method : System.UInt16 Parse(System.String s, System.Globalization.NumberStyles style, System.IFormatProvider provider) */
 
+/* Skipped method : System.UInt16 Parse(System.ReadOnlySpan`1<System.Char> s, System.Globalization.NumberStyles style, System.IFormatProvider provider) */
+
 - (NSString *)toString
 {
 	MonoObject *monoObject = [self invokeMonoMethod:"ToString()" withNumArgs:0];
@@ -114,13 +116,23 @@ static uint16_t m_minValue;
 
 /* Skipped method : System.String ToString(System.String format, System.IFormatProvider provider) */
 
-+ (BOOL)tryParse_withS:(NSString *)p1 resultRef:(uint16_t*)p2
+/* Skipped method : System.Boolean TryFormat(System.Span`1<System.Char> destination, System.Int32& charsWritten, System.ReadOnlySpan`1<System.Char> format, System.IFormatProvider provider) */
+
++ (BOOL)tryParse_withSString:(NSString *)p1 resultUint16Ref:(uint16_t*)p2
 {
 	MonoObject *monoObject = [self invokeMonoClassMethod:"TryParse(string,uint16&)" withNumArgs:2, [p1 monoRTInvokeObject], p2];
 	return DB_UNBOX_BOOLEAN(monoObject);
 }
 
++ (BOOL)tryParse_withSSReadOnlySpanA1char:(System_ReadOnlySpanA1 *)p1 resultUint16Ref:(uint16_t*)p2
+{
+	MonoObject *monoObject = [self invokeMonoClassMethod:"TryParse(System.ReadOnlySpan`1<char>,uint16&)" withNumArgs:2, [p1 monoRTInvokeArg], p2];
+	return DB_UNBOX_BOOLEAN(monoObject);
+}
+
 /* Skipped method : System.Boolean TryParse(System.String s, System.Globalization.NumberStyles style, System.IFormatProvider provider, System.UInt16& result) */
+
+/* Skipped method : System.Boolean TryParse(System.ReadOnlySpan`1<System.Char> s, System.Globalization.NumberStyles style, System.IFormatProvider provider, System.UInt16& result) */
 
 #pragma mark -
 #pragma mark Teardown

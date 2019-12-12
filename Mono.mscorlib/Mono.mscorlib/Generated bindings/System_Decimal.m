@@ -397,6 +397,8 @@ static NSDecimalNumber * m_zero;
 
 /* Skipped method : System.Decimal Parse(System.String s, System.Globalization.NumberStyles style, System.IFormatProvider provider) */
 
+/* Skipped method : System.Decimal Parse(System.ReadOnlySpan`1<System.Char> s, System.Globalization.NumberStyles style, System.IFormatProvider provider) */
+
 + (NSDecimalNumber *)remainder_withD1:(NSDecimalNumber *)p1 d2:(NSDecimalNumber *)p2
 {
 	MonoObject *monoObject = [self invokeMonoClassMethod:"Remainder(System.Decimal,System.Decimal)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
@@ -513,7 +515,9 @@ static NSDecimalNumber * m_zero;
 	return [NSDecimalNumber decimalNumberWithMonoDecimal:monoObject];
 }
 
-+ (BOOL)tryParse_withS:(NSString *)p1 resultRef:(NSDecimalNumber **)p2
+/* Skipped method : System.Boolean TryFormat(System.Span`1<System.Char> destination, System.Int32& charsWritten, System.ReadOnlySpan`1<System.Char> format, System.IFormatProvider provider) */
+
++ (BOOL)tryParse_withSString:(NSString *)p1 resultSDecimalRef:(NSDecimalNumber **)p2
 {
 	void *refPtr2 = [*p2 monoRTInvokeArg];
 	MonoObject *monoObject = [self invokeMonoClassMethod:"TryParse(string,System.Decimal&)" withNumArgs:2, [p1 monoRTInvokeObject], &refPtr2];
@@ -521,7 +525,17 @@ static NSDecimalNumber * m_zero;
 	return DB_UNBOX_BOOLEAN(monoObject);
 }
 
++ (BOOL)tryParse_withSSReadOnlySpanA1char:(System_ReadOnlySpanA1 *)p1 resultSDecimalRef:(NSDecimalNumber **)p2
+{
+	void *refPtr2 = [*p2 monoRTInvokeArg];
+	MonoObject *monoObject = [self invokeMonoClassMethod:"TryParse(System.ReadOnlySpan`1<char>,System.Decimal&)" withNumArgs:2, [p1 monoRTInvokeArg], &refPtr2];
+	*p2 = [System_Object bestObjectWithMonoObject:refPtr2];
+	return DB_UNBOX_BOOLEAN(monoObject);
+}
+
 /* Skipped method : System.Boolean TryParse(System.String s, System.Globalization.NumberStyles style, System.IFormatProvider provider, System.Decimal& result) */
+
+/* Skipped method : System.Boolean TryParse(System.ReadOnlySpan`1<System.Char> s, System.Globalization.NumberStyles style, System.IFormatProvider provider, System.Decimal& result) */
 
 #pragma mark -
 #pragma mark Teardown

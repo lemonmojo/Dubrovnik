@@ -113,14 +113,14 @@ static NSString * m_processId;
 #pragma mark -
 #pragma mark Methods
 
-+ (void)configure_withFilename:(NSString *)p1
-{
-	[self invokeMonoClassMethod:"Configure(string)" withNumArgs:1, [p1 monoRTInvokeObject]];
-}
-
 + (void)configure_withFilename:(NSString *)p1 ensureSecurity:(BOOL)p2
 {
 	[self invokeMonoClassMethod:"Configure(string,bool)" withNumArgs:2, [p1 monoRTInvokeObject], &p2];
+}
+
++ (void)configure_withFilename:(NSString *)p1
+{
+	[self invokeMonoClassMethod:"Configure(string)" withNumArgs:1, [p1 monoRTInvokeObject]];
 }
 
 + (BOOL)customErrorsEnabled_withIsLocalRequest:(BOOL)p1
@@ -151,19 +151,19 @@ static NSString * m_processId;
 
 /* Skipped method : System.Runtime.Remoting.WellKnownClientTypeEntry IsWellKnownClientType(System.String typeName, System.String assemblyName) */
 
+/* Skipped method : System.Void RegisterActivatedClientType(System.Runtime.Remoting.ActivatedClientTypeEntry entry) */
+
 + (void)registerActivatedClientType_withType:(System_Type *)p1 appUrl:(NSString *)p2
 {
 	[self invokeMonoClassMethod:"RegisterActivatedClientType(System.Type,string)" withNumArgs:2, [p1 monoRTInvokeObject], [p2 monoRTInvokeObject]];
 }
 
-/* Skipped method : System.Void RegisterActivatedClientType(System.Runtime.Remoting.ActivatedClientTypeEntry entry) */
+/* Skipped method : System.Void RegisterActivatedServiceType(System.Runtime.Remoting.ActivatedServiceTypeEntry entry) */
 
 + (void)registerActivatedServiceType_withType:(System_Type *)p1
 {
 	[self invokeMonoClassMethod:"RegisterActivatedServiceType(System.Type)" withNumArgs:1, [p1 monoRTInvokeObject]];
 }
-
-/* Skipped method : System.Void RegisterActivatedServiceType(System.Runtime.Remoting.ActivatedServiceTypeEntry entry) */
 
 + (void)registerWellKnownClientType_withType:(System_Type *)p1 objectUrl:(NSString *)p2
 {

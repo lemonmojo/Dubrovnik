@@ -249,9 +249,15 @@
 	return DB_UNBOX_BOOLEAN(monoObject);
 }
 
-+ (System_Version *)parse_withInput:(NSString *)p1
++ (System_Version *)parse_withInputString:(NSString *)p1
 {
 	MonoObject *monoObject = [self invokeMonoClassMethod:"Parse(string)" withNumArgs:1, [p1 monoRTInvokeObject]];
+	return [System_Version bestObjectWithMonoObject:monoObject];
+}
+
++ (System_Version *)parse_withInputSReadOnlySpanA1char:(System_ReadOnlySpanA1 *)p1
+{
+	MonoObject *monoObject = [self invokeMonoClassMethod:"Parse(System.ReadOnlySpan`1<char>)" withNumArgs:1, [p1 monoRTInvokeArg]];
 	return [System_Version bestObjectWithMonoObject:monoObject];
 }
 
@@ -267,10 +273,30 @@
 	return [NSString stringWithMonoString:DB_STRING(monoObject)];
 }
 
-+ (BOOL)tryParse_withInput:(NSString *)p1 resultRef:(System_Version **)p2
+- (BOOL)tryFormat_withDestination:(System_SpanA1 *)p1 charsWrittenRef:(int32_t*)p2
+{
+	MonoObject *monoObject = [self invokeMonoMethod:"TryFormat(System.Span`1<char>,int&)" withNumArgs:2, [p1 monoRTInvokeArg], p2];
+	return DB_UNBOX_BOOLEAN(monoObject);
+}
+
+- (BOOL)tryFormat_withDestination:(System_SpanA1 *)p1 fieldCount:(int32_t)p2 charsWrittenRef:(int32_t*)p3
+{
+	MonoObject *monoObject = [self invokeMonoMethod:"TryFormat(System.Span`1<char>,int,int&)" withNumArgs:3, [p1 monoRTInvokeArg], &p2, p3];
+	return DB_UNBOX_BOOLEAN(monoObject);
+}
+
++ (BOOL)tryParse_withInputString:(NSString *)p1 resultSVersionRef:(System_Version **)p2
 {
 	void *refPtr2 = [*p2 monoRTInvokeArg];
 	MonoObject *monoObject = [self invokeMonoClassMethod:"TryParse(string,System.Version&)" withNumArgs:2, [p1 monoRTInvokeObject], &refPtr2];
+	*p2 = [System_Object bestObjectWithMonoObject:refPtr2];
+	return DB_UNBOX_BOOLEAN(monoObject);
+}
+
++ (BOOL)tryParse_withInputSReadOnlySpanA1char:(System_ReadOnlySpanA1 *)p1 resultSVersionRef:(System_Version **)p2
+{
+	void *refPtr2 = [*p2 monoRTInvokeArg];
+	MonoObject *monoObject = [self invokeMonoClassMethod:"TryParse(System.ReadOnlySpan`1<char>,System.Version&)" withNumArgs:2, [p1 monoRTInvokeArg], &refPtr2];
 	*p2 = [System_Object bestObjectWithMonoObject:refPtr2];
 	return DB_UNBOX_BOOLEAN(monoObject);
 }

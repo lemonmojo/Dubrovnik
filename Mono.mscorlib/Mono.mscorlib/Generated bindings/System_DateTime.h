@@ -30,7 +30,9 @@
 @class System_Int32;
 @class System_Int64;
 @class System_Object;
+@class System_ReadOnlySpanA1;
 @class System_Runtime_Serialization_ISerializable;
+@class System_SpanA1;
 @class System_String;
 @class System_TimeSpan;
 
@@ -49,7 +51,7 @@
 #import "System_Runtime_Serialization_ISerializable_Protocol.h"
 #import "System_ValueType.h"
 
-@interface System_DateTime : System_ValueType <System_IComparable_, System_Runtime_Serialization_ISerializable_, System_IComparableA1_, System_IEquatableA1_>
+@interface System_DateTime : System_ValueType <System_Runtime_Serialization_ISerializable_, System_IComparable_, System_IComparableA1_, System_IEquatableA1_>
 
 #pragma mark -
 #pragma mark Setup
@@ -226,6 +228,18 @@
  @/textblock
 */
 + (NSDate *)minValue;
+
+/**
+ Managed field.
+ @textblock
+ Name
+   UnixEpoch
+
+ Type
+   System.DateTime
+ @/textblock
+*/
++ (NSDate *)unixEpoch;
 
 #pragma mark -
 #pragma mark Properties
@@ -972,11 +986,17 @@
 
 /* Skipped method : System.DateTime Parse(System.String s, System.IFormatProvider provider, System.Globalization.DateTimeStyles styles) */
 
+/* Skipped method : System.DateTime Parse(System.ReadOnlySpan`1<System.Char> s, System.IFormatProvider provider, System.Globalization.DateTimeStyles styles) */
+
 /* Skipped method : System.DateTime ParseExact(System.String s, System.String format, System.IFormatProvider provider) */
 
 /* Skipped method : System.DateTime ParseExact(System.String s, System.String format, System.IFormatProvider provider, System.Globalization.DateTimeStyles style) */
 
+/* Skipped method : System.DateTime ParseExact(System.ReadOnlySpan`1<System.Char> s, System.ReadOnlySpan`1<System.Char> format, System.IFormatProvider provider, System.Globalization.DateTimeStyles style) */
+
 /* Skipped method : System.DateTime ParseExact(System.String s, System.String[] formats, System.IFormatProvider provider, System.Globalization.DateTimeStyles style) */
+
+/* Skipped method : System.DateTime ParseExact(System.ReadOnlySpan`1<System.Char> s, System.String[] formats, System.IFormatProvider provider, System.Globalization.DateTimeStyles style) */
 
 /**
  Managed method.
@@ -1208,6 +1228,8 @@
 */
 - (NSDate *)toUniversalTime;
 
+/* Skipped method : System.Boolean TryFormat(System.Span`1<System.Char> destination, System.Int32& charsWritten, System.ReadOnlySpan`1<System.Char> format, System.IFormatProvider provider) */
+
 /**
  Managed method.
  @textblock
@@ -1222,12 +1244,34 @@
    System.Boolean
  @/textblock
 */
-+ (BOOL)tryParse_withS:(NSString *)p1 resultRef:(NSDate **)p2;
++ (BOOL)tryParse_withSString:(NSString *)p1 resultSDateTimeRef:(NSDate **)p2;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   TryParse
+
+ Params
+   System.ReadOnlySpan`1<System.Char>
+   ref System.DateTime&
+
+ Return
+   System.Boolean
+ @/textblock
+*/
++ (BOOL)tryParse_withSSReadOnlySpanA1char:(System_ReadOnlySpanA1 *)p1 resultSDateTimeRef:(NSDate **)p2;
 
 /* Skipped method : System.Boolean TryParse(System.String s, System.IFormatProvider provider, System.Globalization.DateTimeStyles styles, System.DateTime& result) */
 
+/* Skipped method : System.Boolean TryParse(System.ReadOnlySpan`1<System.Char> s, System.IFormatProvider provider, System.Globalization.DateTimeStyles styles, System.DateTime& result) */
+
 /* Skipped method : System.Boolean TryParseExact(System.String s, System.String format, System.IFormatProvider provider, System.Globalization.DateTimeStyles style, System.DateTime& result) */
 
+/* Skipped method : System.Boolean TryParseExact(System.ReadOnlySpan`1<System.Char> s, System.ReadOnlySpan`1<System.Char> format, System.IFormatProvider provider, System.Globalization.DateTimeStyles style, System.DateTime& result) */
+
 /* Skipped method : System.Boolean TryParseExact(System.String s, System.String[] formats, System.IFormatProvider provider, System.Globalization.DateTimeStyles style, System.DateTime& result) */
+
+/* Skipped method : System.Boolean TryParseExact(System.ReadOnlySpan`1<System.Char> s, System.String[] formats, System.IFormatProvider provider, System.Globalization.DateTimeStyles style, System.DateTime& result) */
 @end
 //--Dubrovnik.CodeGenerator

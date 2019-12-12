@@ -248,6 +248,43 @@
  Managed method.
  @textblock
  Name
+   Parse
+
+ Params
+   System.String
+
+ Generics
+   <System.Enum+TEnum>
+
+ Return
+   <System.Enum+TEnum>
+ @/textblock
+*/
++ (id <DBMonoObject>)parse_withValue:(NSString *)p1 typeParameter:(id)typeParameter;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   Parse
+
+ Params
+   System.String
+   System.Boolean
+
+ Generics
+   <System.Enum+TEnum>
+
+ Return
+   <System.Enum+TEnum>
+ @/textblock
+*/
++ (id <DBMonoObject>)parse_withValue:(NSString *)p1 ignoreCase:(BOOL)p2 typeParameter:(id)typeParameter;
+
+/**
+ Managed method.
+ @textblock
+ Name
    ToObject
 
  Params
@@ -405,8 +442,6 @@
 
 /* Skipped method : System.String ToString(System.String format, System.IFormatProvider provider) */
 
-/* Skipped method : System.String ToString(System.IFormatProvider provider) */
-
 /**
  Managed method.
  @textblock
@@ -421,6 +456,8 @@
  @/textblock
 */
 - (NSString *)toString_withFormat:(NSString *)p1;
+
+/* Skipped method : System.String ToString(System.IFormatProvider provider) */
 
 /**
  Managed method.
@@ -460,5 +497,40 @@
  @/textblock
 */
 + (BOOL)tryParse_withValue:(NSString *)p1 ignoreCase:(BOOL)p2 resultRef:(System_Object **)p3 typeParameter:(id)typeParameter;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   TryParse
+
+ Params
+   System.Type
+   System.String
+   System.Boolean
+   ref System.Object&
+
+ Return
+   System.Boolean
+ @/textblock
+*/
++ (BOOL)tryParse_withEnumType:(System_Type *)p1 value:(NSString *)p2 ignoreCase:(BOOL)p3 resultRef:(System_Object **)p4;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   TryParse
+
+ Params
+   System.Type
+   System.String
+   ref System.Object&
+
+ Return
+   System.Boolean
+ @/textblock
+*/
++ (BOOL)tryParse_withEnumType:(System_Type *)p1 value:(NSString *)p2 resultRef:(System_Object **)p3;
 @end
 //--Dubrovnik.CodeGenerator

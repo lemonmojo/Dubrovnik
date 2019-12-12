@@ -106,6 +106,16 @@ static NSDate * m_minValue;
 	return m_minValue;
 }
 
+static NSDate * m_unixEpoch;
++ (NSDate *)unixEpoch
+{
+	MonoObject *monoObject = [[self class] getMonoClassField:"UnixEpoch"];
+	if ([self object:m_unixEpoch isEqualToMonoObject:monoObject]) return m_unixEpoch;
+	m_unixEpoch = [NSDate dateWithMonoDateTime:monoObject];
+
+	return m_unixEpoch;
+}
+
 #pragma mark -
 #pragma mark Properties
 
@@ -641,11 +651,17 @@ static NSDate * m_utcNow;
 
 /* Skipped method : System.DateTime Parse(System.String s, System.IFormatProvider provider, System.Globalization.DateTimeStyles styles) */
 
+/* Skipped method : System.DateTime Parse(System.ReadOnlySpan`1<System.Char> s, System.IFormatProvider provider, System.Globalization.DateTimeStyles styles) */
+
 /* Skipped method : System.DateTime ParseExact(System.String s, System.String format, System.IFormatProvider provider) */
 
 /* Skipped method : System.DateTime ParseExact(System.String s, System.String format, System.IFormatProvider provider, System.Globalization.DateTimeStyles style) */
 
+/* Skipped method : System.DateTime ParseExact(System.ReadOnlySpan`1<System.Char> s, System.ReadOnlySpan`1<System.Char> format, System.IFormatProvider provider, System.Globalization.DateTimeStyles style) */
+
 /* Skipped method : System.DateTime ParseExact(System.String s, System.String[] formats, System.IFormatProvider provider, System.Globalization.DateTimeStyles style) */
+
+/* Skipped method : System.DateTime ParseExact(System.ReadOnlySpan`1<System.Char> s, System.String[] formats, System.IFormatProvider provider, System.Globalization.DateTimeStyles style) */
 
 + (NSDate *)specifyKind_withValue:(NSDate *)p1 kind:(enumSystem_DateTimeKind)p2
 {
@@ -741,7 +757,9 @@ static NSDate * m_utcNow;
 	return [NSDate dateWithMonoDateTime:monoObject];
 }
 
-+ (BOOL)tryParse_withS:(NSString *)p1 resultRef:(NSDate **)p2
+/* Skipped method : System.Boolean TryFormat(System.Span`1<System.Char> destination, System.Int32& charsWritten, System.ReadOnlySpan`1<System.Char> format, System.IFormatProvider provider) */
+
++ (BOOL)tryParse_withSString:(NSString *)p1 resultSDateTimeRef:(NSDate **)p2
 {
 	void *refPtr2 = [*p2 monoRTInvokeArg];
 	MonoObject *monoObject = [self invokeMonoClassMethod:"TryParse(string,System.DateTime&)" withNumArgs:2, [p1 monoRTInvokeObject], &refPtr2];
@@ -749,11 +767,25 @@ static NSDate * m_utcNow;
 	return DB_UNBOX_BOOLEAN(monoObject);
 }
 
++ (BOOL)tryParse_withSSReadOnlySpanA1char:(System_ReadOnlySpanA1 *)p1 resultSDateTimeRef:(NSDate **)p2
+{
+	void *refPtr2 = [*p2 monoRTInvokeArg];
+	MonoObject *monoObject = [self invokeMonoClassMethod:"TryParse(System.ReadOnlySpan`1<char>,System.DateTime&)" withNumArgs:2, [p1 monoRTInvokeArg], &refPtr2];
+	*p2 = [System_Object bestObjectWithMonoObject:refPtr2];
+	return DB_UNBOX_BOOLEAN(monoObject);
+}
+
 /* Skipped method : System.Boolean TryParse(System.String s, System.IFormatProvider provider, System.Globalization.DateTimeStyles styles, System.DateTime& result) */
+
+/* Skipped method : System.Boolean TryParse(System.ReadOnlySpan`1<System.Char> s, System.IFormatProvider provider, System.Globalization.DateTimeStyles styles, System.DateTime& result) */
 
 /* Skipped method : System.Boolean TryParseExact(System.String s, System.String format, System.IFormatProvider provider, System.Globalization.DateTimeStyles style, System.DateTime& result) */
 
+/* Skipped method : System.Boolean TryParseExact(System.ReadOnlySpan`1<System.Char> s, System.ReadOnlySpan`1<System.Char> format, System.IFormatProvider provider, System.Globalization.DateTimeStyles style, System.DateTime& result) */
+
 /* Skipped method : System.Boolean TryParseExact(System.String s, System.String[] formats, System.IFormatProvider provider, System.Globalization.DateTimeStyles style, System.DateTime& result) */
+
+/* Skipped method : System.Boolean TryParseExact(System.ReadOnlySpan`1<System.Char> s, System.String[] formats, System.IFormatProvider provider, System.Globalization.DateTimeStyles style, System.DateTime& result) */
 
 #pragma mark -
 #pragma mark Teardown

@@ -91,6 +91,18 @@
  Managed property.
  @textblock
  Name
+   IsConstructedGenericMethod
+
+ Type
+   System.Boolean
+ @/textblock
+*/
+@property (nonatomic, readonly) BOOL isConstructedGenericMethod;
+
+/**
+ Managed property.
+ @textblock
+ Name
    IsConstructor
 
  Type

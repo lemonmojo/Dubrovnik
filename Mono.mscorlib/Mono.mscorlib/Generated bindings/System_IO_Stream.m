@@ -273,12 +273,6 @@ static System_IO_Stream * m_null;
 	[self invokeMonoMethod:"CopyTo(System.IO.Stream,int)" withNumArgs:2, [p1 monoRTInvokeObject], &p2];
 }
 
-- (System_Threading_Tasks_Task *)copyToAsync_withDestination:(System_IO_Stream *)p1 bufferSize:(int32_t)p2 cancellationToken:(System_Threading_CancellationToken *)p3
-{
-	MonoObject *monoObject = [self invokeMonoMethod:"CopyToAsync(System.IO.Stream,int,System.Threading.CancellationToken)" withNumArgs:3, [p1 monoRTInvokeObject], &p2, [p3 monoRTInvokeArg]];
-	return [System_Threading_Tasks_Task bestObjectWithMonoObject:monoObject];
-}
-
 - (System_Threading_Tasks_Task *)copyToAsync_withDestination:(System_IO_Stream *)p1
 {
 	MonoObject *monoObject = [self invokeMonoMethod:"CopyToAsync(System.IO.Stream)" withNumArgs:1, [p1 monoRTInvokeObject]];
@@ -291,9 +285,27 @@ static System_IO_Stream * m_null;
 	return [System_Threading_Tasks_Task bestObjectWithMonoObject:monoObject];
 }
 
+- (System_Threading_Tasks_Task *)copyToAsync_withDestination:(System_IO_Stream *)p1 cancellationToken:(System_Threading_CancellationToken *)p2
+{
+	MonoObject *monoObject = [self invokeMonoMethod:"CopyToAsync(System.IO.Stream,System.Threading.CancellationToken)" withNumArgs:2, [p1 monoRTInvokeObject], [p2 monoRTInvokeArg]];
+	return [System_Threading_Tasks_Task bestObjectWithMonoObject:monoObject];
+}
+
+- (System_Threading_Tasks_Task *)copyToAsync_withDestination:(System_IO_Stream *)p1 bufferSize:(int32_t)p2 cancellationToken:(System_Threading_CancellationToken *)p3
+{
+	MonoObject *monoObject = [self invokeMonoMethod:"CopyToAsync(System.IO.Stream,int,System.Threading.CancellationToken)" withNumArgs:3, [p1 monoRTInvokeObject], &p2, [p3 monoRTInvokeArg]];
+	return [System_Threading_Tasks_Task bestObjectWithMonoObject:monoObject];
+}
+
 - (void)dispose
 {
 	[self invokeMonoMethod:"Dispose()" withNumArgs:0];
+}
+
+- (System_Threading_Tasks_ValueTask *)disposeAsync
+{
+	MonoObject *monoObject = [self invokeMonoMethod:"DisposeAsync()" withNumArgs:0];
+	return [System_Threading_Tasks_ValueTask bestObjectWithMonoObject:monoObject];
 }
 
 - (int32_t)endRead_withAsyncResult:(System_Object <System_IAsyncResult_> *)p1
@@ -330,16 +342,28 @@ static System_IO_Stream * m_null;
 	return DB_UNBOX_INT32(monoObject);
 }
 
-- (System_Threading_Tasks_TaskA1 *)readAsync_withBuffer:(NSData *)p1 offset:(int32_t)p2 count:(int32_t)p3 cancellationToken:(System_Threading_CancellationToken *)p4
+- (int32_t)read_withBuffer:(System_SpanA1 *)p1
 {
-	MonoObject *monoObject = [self invokeMonoMethod:"ReadAsync(byte[],int,int,System.Threading.CancellationToken)" withNumArgs:4, [p1 monoRTInvokeObject], &p2, &p3, [p4 monoRTInvokeArg]];
-	return [System_Threading_Tasks_TaskA1 bestObjectWithMonoObject:monoObject];
+	MonoObject *monoObject = [self invokeMonoMethod:"Read(System.Span`1<byte>)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	return DB_UNBOX_INT32(monoObject);
 }
 
 - (System_Threading_Tasks_TaskA1 *)readAsync_withBuffer:(NSData *)p1 offset:(int32_t)p2 count:(int32_t)p3
 {
 	MonoObject *monoObject = [self invokeMonoMethod:"ReadAsync(byte[],int,int)" withNumArgs:3, [p1 monoRTInvokeObject], &p2, &p3];
 	return [System_Threading_Tasks_TaskA1 bestObjectWithMonoObject:monoObject];
+}
+
+- (System_Threading_Tasks_TaskA1 *)readAsync_withBuffer:(NSData *)p1 offset:(int32_t)p2 count:(int32_t)p3 cancellationToken:(System_Threading_CancellationToken *)p4
+{
+	MonoObject *monoObject = [self invokeMonoMethod:"ReadAsync(byte[],int,int,System.Threading.CancellationToken)" withNumArgs:4, [p1 monoRTInvokeObject], &p2, &p3, [p4 monoRTInvokeArg]];
+	return [System_Threading_Tasks_TaskA1 bestObjectWithMonoObject:monoObject];
+}
+
+- (System_Threading_Tasks_ValueTaskA1 *)readAsync_withBuffer:(System_MemoryA1 *)p1 cancellationToken:(System_Threading_CancellationToken *)p2
+{
+	MonoObject *monoObject = [self invokeMonoMethod:"ReadAsync(System.Memory`1<byte>,System.Threading.CancellationToken)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+	return [System_Threading_Tasks_ValueTaskA1 bestObjectWithMonoObject:monoObject];
 }
 
 - (int32_t)readByte
@@ -366,16 +390,27 @@ static System_IO_Stream * m_null;
 	[self invokeMonoMethod:"Write(byte[],int,int)" withNumArgs:3, [p1 monoRTInvokeObject], &p2, &p3];
 }
 
-- (System_Threading_Tasks_Task *)writeAsync_withBuffer:(NSData *)p1 offset:(int32_t)p2 count:(int32_t)p3 cancellationToken:(System_Threading_CancellationToken *)p4
+- (void)write_withBuffer:(System_ReadOnlySpanA1 *)p1
 {
-	MonoObject *monoObject = [self invokeMonoMethod:"WriteAsync(byte[],int,int,System.Threading.CancellationToken)" withNumArgs:4, [p1 monoRTInvokeObject], &p2, &p3, [p4 monoRTInvokeArg]];
-	return [System_Threading_Tasks_Task bestObjectWithMonoObject:monoObject];
+	[self invokeMonoMethod:"Write(System.ReadOnlySpan`1<byte>)" withNumArgs:1, [p1 monoRTInvokeArg]];
 }
 
 - (System_Threading_Tasks_Task *)writeAsync_withBuffer:(NSData *)p1 offset:(int32_t)p2 count:(int32_t)p3
 {
 	MonoObject *monoObject = [self invokeMonoMethod:"WriteAsync(byte[],int,int)" withNumArgs:3, [p1 monoRTInvokeObject], &p2, &p3];
 	return [System_Threading_Tasks_Task bestObjectWithMonoObject:monoObject];
+}
+
+- (System_Threading_Tasks_Task *)writeAsync_withBuffer:(NSData *)p1 offset:(int32_t)p2 count:(int32_t)p3 cancellationToken:(System_Threading_CancellationToken *)p4
+{
+	MonoObject *monoObject = [self invokeMonoMethod:"WriteAsync(byte[],int,int,System.Threading.CancellationToken)" withNumArgs:4, [p1 monoRTInvokeObject], &p2, &p3, [p4 monoRTInvokeArg]];
+	return [System_Threading_Tasks_Task bestObjectWithMonoObject:monoObject];
+}
+
+- (System_Threading_Tasks_ValueTask *)writeAsync_withBuffer:(System_ReadOnlyMemoryA1 *)p1 cancellationToken:(System_Threading_CancellationToken *)p2
+{
+	MonoObject *monoObject = [self invokeMonoMethod:"WriteAsync(System.ReadOnlyMemory`1<byte>,System.Threading.CancellationToken)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+	return [System_Threading_Tasks_ValueTask bestObjectWithMonoObject:monoObject];
 }
 
 - (void)writeByte_withValue:(uint8_t)p1

@@ -23,6 +23,8 @@
 @class System_IEquatableA1;
 @class System_Int32;
 @class System_Object;
+@class System_ReadOnlySpanA1;
+@class System_SpanA1;
 @class System_String;
 
 //
@@ -174,6 +176,8 @@
 
 /* Skipped method : System.Int32 Parse(System.String s, System.Globalization.NumberStyles style, System.IFormatProvider provider) */
 
+/* Skipped method : System.Int32 Parse(System.ReadOnlySpan`1<System.Char> s, System.Globalization.NumberStyles style, System.IFormatProvider provider) */
+
 /**
  Managed method.
  @textblock
@@ -208,6 +212,8 @@
 
 /* Skipped method : System.String ToString(System.String format, System.IFormatProvider provider) */
 
+/* Skipped method : System.Boolean TryFormat(System.Span`1<System.Char> destination, System.Int32& charsWritten, System.ReadOnlySpan`1<System.Char> format, System.IFormatProvider provider) */
+
 /**
  Managed method.
  @textblock
@@ -222,8 +228,26 @@
    System.Boolean
  @/textblock
 */
-+ (BOOL)tryParse_withS:(NSString *)p1 resultRef:(int32_t*)p2;
++ (BOOL)tryParse_withSString:(NSString *)p1 resultIntRef:(int32_t*)p2;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   TryParse
+
+ Params
+   System.ReadOnlySpan`1<System.Char>
+   ref System.Int32&
+
+ Return
+   System.Boolean
+ @/textblock
+*/
++ (BOOL)tryParse_withSSReadOnlySpanA1char:(System_ReadOnlySpanA1 *)p1 resultIntRef:(int32_t*)p2;
 
 /* Skipped method : System.Boolean TryParse(System.String s, System.Globalization.NumberStyles style, System.IFormatProvider provider, System.Int32& result) */
+
+/* Skipped method : System.Boolean TryParse(System.ReadOnlySpan`1<System.Char> s, System.Globalization.NumberStyles style, System.IFormatProvider provider, System.Int32& result) */
 @end
 //--Dubrovnik.CodeGenerator

@@ -33,30 +33,6 @@
 #pragma mark -
 #pragma mark Methods
 
-+ (System_Collections_Concurrent_OrderablePartitionerA1 *)create_withFromInclusiveLong:(int64_t)p1 toExclusiveLong:(int64_t)p2
-{
-	MonoObject *monoObject = [self invokeMonoClassMethod:"Create(long,long)" withNumArgs:2, &p1, &p2];
-	return [System_Collections_Concurrent_OrderablePartitionerA1 bestObjectWithMonoObject:monoObject];
-}
-
-+ (System_Collections_Concurrent_OrderablePartitionerA1 *)create_withFromInclusiveLong:(int64_t)p1 toExclusiveLong:(int64_t)p2 rangeSizeLong:(int64_t)p3
-{
-	MonoObject *monoObject = [self invokeMonoClassMethod:"Create(long,long,long)" withNumArgs:3, &p1, &p2, &p3];
-	return [System_Collections_Concurrent_OrderablePartitionerA1 bestObjectWithMonoObject:monoObject];
-}
-
-+ (System_Collections_Concurrent_OrderablePartitionerA1 *)create_withFromInclusiveInt:(int32_t)p1 toExclusiveInt:(int32_t)p2
-{
-	MonoObject *monoObject = [self invokeMonoClassMethod:"Create(int,int)" withNumArgs:2, &p1, &p2];
-	return [System_Collections_Concurrent_OrderablePartitionerA1 bestObjectWithMonoObject:monoObject];
-}
-
-+ (System_Collections_Concurrent_OrderablePartitionerA1 *)create_withFromInclusiveInt:(int32_t)p1 toExclusiveInt:(int32_t)p2 rangeSizeInt:(int32_t)p3
-{
-	MonoObject *monoObject = [self invokeMonoClassMethod:"Create(int,int,int)" withNumArgs:3, &p1, &p2, &p3];
-	return [System_Collections_Concurrent_OrderablePartitionerA1 bestObjectWithMonoObject:monoObject];
-}
-
 + (System_Collections_Concurrent_OrderablePartitionerA1 *)create_withList:(System_Object <System_Collections_Generic_IListA1_> *)p1 loadBalance:(BOOL)p2 typeParameter:(id)typeParameter
 {
 	DBManagedMethod *method = [self classMethodWithMonoName:"Create(System.Collections.Generic.IList`1<System.Collections.Concurrent.Partitioner/TSource>,bool)" typeParameters:typeParameter];
@@ -82,6 +58,30 @@
 {
 	DBManagedMethod *method = [self classMethodWithMonoName:"Create(System.Collections.Generic.IEnumerable`1<System.Collections.Concurrent.Partitioner/TSource>,System.Collections.Concurrent.EnumerablePartitionerOptions)" typeParameters:typeParameter];
 	MonoObject *monoObject = [method invokeClassMethodWithNumArgs:2, [p1 monoRTInvokeObject], &p2];
+	return [System_Collections_Concurrent_OrderablePartitionerA1 bestObjectWithMonoObject:monoObject];
+}
+
++ (System_Collections_Concurrent_OrderablePartitionerA1 *)create_withFromInclusiveLong:(int64_t)p1 toExclusiveLong:(int64_t)p2
+{
+	MonoObject *monoObject = [self invokeMonoClassMethod:"Create(long,long)" withNumArgs:2, &p1, &p2];
+	return [System_Collections_Concurrent_OrderablePartitionerA1 bestObjectWithMonoObject:monoObject];
+}
+
++ (System_Collections_Concurrent_OrderablePartitionerA1 *)create_withFromInclusiveLong:(int64_t)p1 toExclusiveLong:(int64_t)p2 rangeSizeLong:(int64_t)p3
+{
+	MonoObject *monoObject = [self invokeMonoClassMethod:"Create(long,long,long)" withNumArgs:3, &p1, &p2, &p3];
+	return [System_Collections_Concurrent_OrderablePartitionerA1 bestObjectWithMonoObject:monoObject];
+}
+
++ (System_Collections_Concurrent_OrderablePartitionerA1 *)create_withFromInclusiveInt:(int32_t)p1 toExclusiveInt:(int32_t)p2
+{
+	MonoObject *monoObject = [self invokeMonoClassMethod:"Create(int,int)" withNumArgs:2, &p1, &p2];
+	return [System_Collections_Concurrent_OrderablePartitionerA1 bestObjectWithMonoObject:monoObject];
+}
+
++ (System_Collections_Concurrent_OrderablePartitionerA1 *)create_withFromInclusiveInt:(int32_t)p1 toExclusiveInt:(int32_t)p2 rangeSizeInt:(int32_t)p3
+{
+	MonoObject *monoObject = [self invokeMonoClassMethod:"Create(int,int,int)" withNumArgs:3, &p1, &p2, &p3];
 	return [System_Collections_Concurrent_OrderablePartitionerA1 bestObjectWithMonoObject:monoObject];
 }
 

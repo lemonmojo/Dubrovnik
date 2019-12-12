@@ -75,7 +75,7 @@
 //
 // Adoption protocol
 //
-@protocol System_Collections_Generic_IEnumeratorA1_ <System_Object_, System_IDisposable_, System_Collections_IEnumerator_>
+@protocol System_Collections_Generic_IEnumeratorA1_ <System_Object_, System_Collections_IEnumerator_, System_IDisposable_>
 
 @optional
 
@@ -104,7 +104,7 @@
 //
 // Implementation protocol
 //
-@protocol System_Collections_Generic_IEnumeratorA1 <System_Collections_Generic_IEnumeratorA1_, System_Object, System_IDisposable, System_Collections_IEnumerator>
+@protocol System_Collections_Generic_IEnumeratorA1 <System_Collections_Generic_IEnumeratorA1_, System_Object, System_Collections_IEnumerator, System_IDisposable>
 
 @optional
 

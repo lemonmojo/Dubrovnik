@@ -22,8 +22,12 @@
 @class System_IDisposable;
 @class System_Int32;
 @class System_IO_TextReader;
+@class System_MemoryA1;
+@class System_SpanA1;
 @class System_String;
+@class System_Threading_CancellationToken;
 @class System_Threading_Tasks_TaskA1;
+@class System_Threading_Tasks_ValueTaskA1;
 @class System_Void;
 
 //
@@ -144,6 +148,21 @@
  Managed method.
  @textblock
  Name
+   Read
+
+ Params
+   System.Span`1<System.Char>
+
+ Return
+   System.Int32
+ @/textblock
+*/
+- (int32_t)read_withBuffer:(System_SpanA1 *)p1;
+
+/**
+ Managed method.
+ @textblock
+ Name
    ReadAsync
 
  Params
@@ -156,6 +175,22 @@
  @/textblock
 */
 - (System_Threading_Tasks_TaskA1 *)readAsync_withBuffer:(System_Array *)p1 index:(int32_t)p2 count:(int32_t)p3;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   ReadAsync
+
+ Params
+   System.Memory`1<System.Char>
+   System.Threading.CancellationToken
+
+ Return
+   System.Threading.Tasks.ValueTask`1<System.Int32>
+ @/textblock
+*/
+- (System_Threading_Tasks_ValueTaskA1 *)readAsync_withBuffer:(System_MemoryA1 *)p1 cancellationToken:(System_Threading_CancellationToken *)p2;
 
 /**
  Managed method.
@@ -178,6 +213,21 @@
  Managed method.
  @textblock
  Name
+   ReadBlock
+
+ Params
+   System.Span`1<System.Char>
+
+ Return
+   System.Int32
+ @/textblock
+*/
+- (int32_t)readBlock_withBuffer:(System_SpanA1 *)p1;
+
+/**
+ Managed method.
+ @textblock
+ Name
    ReadBlockAsync
 
  Params
@@ -190,6 +240,22 @@
  @/textblock
 */
 - (System_Threading_Tasks_TaskA1 *)readBlockAsync_withBuffer:(System_Array *)p1 index:(int32_t)p2 count:(int32_t)p3;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   ReadBlockAsync
+
+ Params
+   System.Memory`1<System.Char>
+   System.Threading.CancellationToken
+
+ Return
+   System.Threading.Tasks.ValueTask`1<System.Int32>
+ @/textblock
+*/
+- (System_Threading_Tasks_ValueTaskA1 *)readBlockAsync_withBuffer:(System_MemoryA1 *)p1 cancellationToken:(System_Threading_CancellationToken *)p2;
 
 /**
  Managed method.

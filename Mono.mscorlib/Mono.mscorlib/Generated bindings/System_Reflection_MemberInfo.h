@@ -170,6 +170,21 @@
  Managed method.
  @textblock
  Name
+   HasSameMetadataDefinitionAs
+
+ Params
+   System.Reflection.MemberInfo
+
+ Return
+   System.Boolean
+ @/textblock
+*/
+- (BOOL)hasSameMetadataDefinitionAs_withOther:(System_Reflection_MemberInfo *)p1;
+
+/**
+ Managed method.
+ @textblock
+ Name
    IsDefined
 
  Params

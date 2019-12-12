@@ -39,7 +39,7 @@
 #import "System_MulticastDelegate.h"
 #import "System_Runtime_Serialization_ISerializable_Protocol.h"
 
-@interface System_FuncA3 : System_MulticastDelegate <System_ICloneable_, System_Runtime_Serialization_ISerializable_>
+@interface System_FuncA3 : System_MulticastDelegate <System_Runtime_Serialization_ISerializable_, System_ICloneable_>
 
 #pragma mark -
 #pragma mark Setup

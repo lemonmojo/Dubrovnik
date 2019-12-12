@@ -64,25 +64,6 @@
 	return _directoryName;
 }
 
-@synthesize exists = _exists;
-- (BOOL)exists
-{
-	typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
-	static Thunk thunk;
-	static MonoClass* thunkClass;
-	MonoObject* monoException = NULL;
-	if (!thunk || thunkClass != self.monoClass) {
-		thunkClass = self.monoClass;
-		MonoMethod* monoMethod = GetPropertyGetMethod(thunkClass, "Exists");
-		thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
-	}
-	BOOL monoObject = thunk(self.monoObject, &monoException);
-	if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
-	_exists = monoObject;
-
-	return _exists;
-}
-
 @synthesize isReadOnly = _isReadOnly;
 - (BOOL)isReadOnly
 {
@@ -226,12 +207,6 @@
 }
 
 /* Skipped method : System.Void SetAccessControl(System.Security.AccessControl.FileSecurity fileSecurity) */
-
-- (NSString *)toString
-{
-	MonoObject *monoObject = [self invokeMonoMethod:"ToString()" withNumArgs:0];
-	return [NSString stringWithMonoString:DB_STRING(monoObject)];
-}
 
 #pragma mark -
 #pragma mark Teardown

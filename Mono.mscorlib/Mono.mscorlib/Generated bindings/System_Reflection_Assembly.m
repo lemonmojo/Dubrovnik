@@ -361,6 +361,12 @@
 
 /* Skipped method : System.IO.FileStream[] GetFiles(System.Boolean getResourceModules) */
 
+- (System_Array *)getForwardedTypes
+{
+	MonoObject *monoObject = [self invokeMonoMethod:"GetForwardedTypes()" withNumArgs:0];
+	return [System_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
+}
+
 - (int32_t)getHashCode
 {
 	MonoObject *monoObject = [self invokeMonoMethod:"GetHashCode()" withNumArgs:0];
@@ -379,15 +385,15 @@
 	return [System_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
 }
 
-- (System_IO_Stream *)getManifestResourceStream_withType:(System_Type *)p1 name:(NSString *)p2
-{
-	MonoObject *monoObject = [self invokeMonoMethod:"GetManifestResourceStream(System.Type,string)" withNumArgs:2, [p1 monoRTInvokeObject], [p2 monoRTInvokeObject]];
-	return [System_IO_Stream bestObjectWithMonoObject:monoObject];
-}
-
 - (System_IO_Stream *)getManifestResourceStream_withName:(NSString *)p1
 {
 	MonoObject *monoObject = [self invokeMonoMethod:"GetManifestResourceStream(string)" withNumArgs:1, [p1 monoRTInvokeObject]];
+	return [System_IO_Stream bestObjectWithMonoObject:monoObject];
+}
+
+- (System_IO_Stream *)getManifestResourceStream_withType:(System_Type *)p1 name:(NSString *)p2
+{
+	MonoObject *monoObject = [self invokeMonoMethod:"GetManifestResourceStream(System.Type,string)" withNumArgs:2, [p1 monoRTInvokeObject], [p2 monoRTInvokeObject]];
 	return [System_IO_Stream bestObjectWithMonoObject:monoObject];
 }
 
@@ -397,15 +403,15 @@
 
 /* Skipped method : System.Reflection.Module[] GetModules(System.Boolean getResourceModules) */
 
-- (System_Reflection_AssemblyName *)getName
-{
-	MonoObject *monoObject = [self invokeMonoMethod:"GetName()" withNumArgs:0];
-	return [System_Reflection_AssemblyName bestObjectWithMonoObject:monoObject];
-}
-
 - (System_Reflection_AssemblyName *)getName_withCopiedName:(BOOL)p1
 {
 	MonoObject *monoObject = [self invokeMonoMethod:"GetName(bool)" withNumArgs:1, &p1];
+	return [System_Reflection_AssemblyName bestObjectWithMonoObject:monoObject];
+}
+
+- (System_Reflection_AssemblyName *)getName
+{
+	MonoObject *monoObject = [self invokeMonoMethod:"GetName()" withNumArgs:0];
 	return [System_Reflection_AssemblyName bestObjectWithMonoObject:monoObject];
 }
 
@@ -429,15 +435,15 @@
 	return [System_Reflection_Assembly bestObjectWithMonoObject:monoObject];
 }
 
-- (System_Type *)getType_withName:(NSString *)p1
-{
-	MonoObject *monoObject = [self invokeMonoMethod:"GetType(string)" withNumArgs:1, [p1 monoRTInvokeObject]];
-	return [System_Type bestObjectWithMonoObject:monoObject];
-}
-
 - (System_Type *)getType_withName:(NSString *)p1 throwOnError:(BOOL)p2
 {
 	MonoObject *monoObject = [self invokeMonoMethod:"GetType(string,bool)" withNumArgs:2, [p1 monoRTInvokeObject], &p2];
+	return [System_Type bestObjectWithMonoObject:monoObject];
+}
+
+- (System_Type *)getType_withName:(NSString *)p1
+{
+	MonoObject *monoObject = [self invokeMonoMethod:"GetType(string)" withNumArgs:1, [p1 monoRTInvokeObject]];
 	return [System_Type bestObjectWithMonoObject:monoObject];
 }
 
@@ -487,17 +493,17 @@
 	return [System_Reflection_Assembly bestObjectWithMonoObject:monoObject];
 }
 
+/* Skipped method : System.Reflection.Assembly Load(System.Byte[] rawAssembly, System.Byte[] rawSymbolStore, System.Security.Policy.Evidence securityEvidence) */
+
 /* Skipped method : System.Reflection.Assembly Load(System.Byte[] rawAssembly, System.Byte[] rawSymbolStore, System.Security.SecurityContextSource securityContextSource) */
 
-/* Skipped method : System.Reflection.Assembly Load(System.Byte[] rawAssembly, System.Byte[] rawSymbolStore, System.Security.Policy.Evidence securityEvidence) */
+/* Skipped method : System.Reflection.Assembly LoadFile(System.String path, System.Security.Policy.Evidence securityEvidence) */
 
 + (System_Reflection_Assembly *)loadFile_withPath:(NSString *)p1
 {
 	MonoObject *monoObject = [self invokeMonoClassMethod:"LoadFile(string)" withNumArgs:1, [p1 monoRTInvokeObject]];
 	return [System_Reflection_Assembly bestObjectWithMonoObject:monoObject];
 }
-
-/* Skipped method : System.Reflection.Assembly LoadFile(System.String path, System.Security.Policy.Evidence securityEvidence) */
 
 + (System_Reflection_Assembly *)loadFrom_withAssemblyFile:(NSString *)p1
 {
@@ -535,15 +541,15 @@
 	return DB_UNBOX_BOOLEAN(monoObject);
 }
 
-+ (System_Reflection_Assembly *)reflectionOnlyLoad_withAssemblyString:(NSString *)p1
-{
-	MonoObject *monoObject = [self invokeMonoClassMethod:"ReflectionOnlyLoad(string)" withNumArgs:1, [p1 monoRTInvokeObject]];
-	return [System_Reflection_Assembly bestObjectWithMonoObject:monoObject];
-}
-
 + (System_Reflection_Assembly *)reflectionOnlyLoad_withRawAssembly:(NSData *)p1
 {
 	MonoObject *monoObject = [self invokeMonoClassMethod:"ReflectionOnlyLoad(byte[])" withNumArgs:1, [p1 monoRTInvokeObject]];
+	return [System_Reflection_Assembly bestObjectWithMonoObject:monoObject];
+}
+
++ (System_Reflection_Assembly *)reflectionOnlyLoad_withAssemblyString:(NSString *)p1
+{
+	MonoObject *monoObject = [self invokeMonoClassMethod:"ReflectionOnlyLoad(string)" withNumArgs:1, [p1 monoRTInvokeObject]];
 	return [System_Reflection_Assembly bestObjectWithMonoObject:monoObject];
 }
 

@@ -74,10 +74,22 @@ static System_IO_TextReader * m_null;
 	return DB_UNBOX_INT32(monoObject);
 }
 
+- (int32_t)read_withBuffer:(System_SpanA1 *)p1
+{
+	MonoObject *monoObject = [self invokeMonoMethod:"Read(System.Span`1<char>)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	return DB_UNBOX_INT32(monoObject);
+}
+
 - (System_Threading_Tasks_TaskA1 *)readAsync_withBuffer:(System_Array *)p1 index:(int32_t)p2 count:(int32_t)p3
 {
 	MonoObject *monoObject = [self invokeMonoMethod:"ReadAsync(char[],int,int)" withNumArgs:3, [p1 monoRTInvokeObject], &p2, &p3];
 	return [System_Threading_Tasks_TaskA1 bestObjectWithMonoObject:monoObject];
+}
+
+- (System_Threading_Tasks_ValueTaskA1 *)readAsync_withBuffer:(System_MemoryA1 *)p1 cancellationToken:(System_Threading_CancellationToken *)p2
+{
+	MonoObject *monoObject = [self invokeMonoMethod:"ReadAsync(System.Memory`1<char>,System.Threading.CancellationToken)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+	return [System_Threading_Tasks_ValueTaskA1 bestObjectWithMonoObject:monoObject];
 }
 
 - (int32_t)readBlock_withBuffer:(System_Array *)p1 index:(int32_t)p2 count:(int32_t)p3
@@ -86,10 +98,22 @@ static System_IO_TextReader * m_null;
 	return DB_UNBOX_INT32(monoObject);
 }
 
+- (int32_t)readBlock_withBuffer:(System_SpanA1 *)p1
+{
+	MonoObject *monoObject = [self invokeMonoMethod:"ReadBlock(System.Span`1<char>)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	return DB_UNBOX_INT32(monoObject);
+}
+
 - (System_Threading_Tasks_TaskA1 *)readBlockAsync_withBuffer:(System_Array *)p1 index:(int32_t)p2 count:(int32_t)p3
 {
 	MonoObject *monoObject = [self invokeMonoMethod:"ReadBlockAsync(char[],int,int)" withNumArgs:3, [p1 monoRTInvokeObject], &p2, &p3];
 	return [System_Threading_Tasks_TaskA1 bestObjectWithMonoObject:monoObject];
+}
+
+- (System_Threading_Tasks_ValueTaskA1 *)readBlockAsync_withBuffer:(System_MemoryA1 *)p1 cancellationToken:(System_Threading_CancellationToken *)p2
+{
+	MonoObject *monoObject = [self invokeMonoMethod:"ReadBlockAsync(System.Memory`1<char>,System.Threading.CancellationToken)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+	return [System_Threading_Tasks_ValueTaskA1 bestObjectWithMonoObject:monoObject];
 }
 
 - (NSString *)readLine

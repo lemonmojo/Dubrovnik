@@ -21,21 +21,26 @@
 @class System_Boolean;
 @class System_Byte;
 @class System_Char;
+@class System_Collections_Generic_IEnumerableA1;
 @class System_Decimal;
 @class System_Double;
 @class System_Int16;
 @class System_Int32;
 @class System_Int64;
 @class System_Object;
+@class System_ReadOnlySpanA1;
 @class System_Runtime_Serialization_ISerializable;
 @class System_SByte;
 @class System_Single;
+@class System_SpanA1;
 @class System_String;
 @class System_Text_StringBuilder;
 @class System_UInt16;
 @class System_UInt32;
 @class System_UInt64;
 @class System_Void;
+@protocol System_Collections_Generic_IEnumerableA1;
+@protocol System_Collections_Generic_IEnumerableA1_;
 
 //
 // Local assembly imports
@@ -275,7 +280,69 @@
    System.Text.StringBuilder
  @/textblock
 */
-- (System_Text_StringBuilder *)append_withValue:(NSString *)p1 startIndex:(int32_t)p2 count:(int32_t)p3;
+- (System_Text_StringBuilder *)append_withValueString:(NSString *)p1 startIndexInt:(int32_t)p2 countInt:(int32_t)p3;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   Append
+
+ Params
+   System.Text.StringBuilder
+
+ Return
+   System.Text.StringBuilder
+ @/textblock
+*/
+- (System_Text_StringBuilder *)append_withValueSTStringBuilder:(System_Text_StringBuilder *)p1;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   Append
+
+ Params
+   System.Text.StringBuilder
+   System.Int32
+   System.Int32
+
+ Return
+   System.Text.StringBuilder
+ @/textblock
+*/
+- (System_Text_StringBuilder *)append_withValueSTStringBuilder:(System_Text_StringBuilder *)p1 startIndexInt:(int32_t)p2 countInt:(int32_t)p3;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   Append
+
+ Params
+   System.Boolean
+
+ Return
+   System.Text.StringBuilder
+ @/textblock
+*/
+- (System_Text_StringBuilder *)append_withValueBool:(BOOL)p1;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   Append
+
+ Params
+   System.Char
+
+ Return
+   System.Text.StringBuilder
+ @/textblock
+*/
+- (System_Text_StringBuilder *)append_withValueChar:(uint16_t)p1;
 
 /**
  Managed method.
@@ -306,21 +373,6 @@
  @/textblock
 */
 - (System_Text_StringBuilder *)append_withValueByte:(uint8_t)p1;
-
-/**
- Managed method.
- @textblock
- Name
-   Append
-
- Params
-   System.Char
-
- Return
-   System.Text.StringBuilder
- @/textblock
-*/
-- (System_Text_StringBuilder *)append_withValueChar:(uint16_t)p1;
 
 /**
  Managed method.
@@ -487,8 +539,6 @@
 */
 - (System_Text_StringBuilder *)append_withValueCharArray:(System_Array *)p1;
 
-/* Skipped method : System.Text.StringBuilder Append(System.Char* value, System.Int32 valueCount) */
-
 /**
  Managed method.
  @textblock
@@ -496,13 +546,15 @@
    Append
 
  Params
-   System.Boolean
+   System.ReadOnlySpan`1<System.Char>
 
  Return
    System.Text.StringBuilder
  @/textblock
 */
-- (System_Text_StringBuilder *)append_withValueBool:(BOOL)p1;
+- (System_Text_StringBuilder *)append_withValueSReadOnlySpanA1char:(System_ReadOnlySpanA1 *)p1;
+
+/* Skipped method : System.Text.StringBuilder Append(System.Char* value, System.Int32 valueCount) */
 
 /**
  Managed method.
@@ -555,12 +607,6 @@
 */
 - (System_Text_StringBuilder *)appendFormat_withFormat:(NSString *)p1 arg0:(id <DBMonoObject>)p2 arg1:(id <DBMonoObject>)p3 arg2:(id <DBMonoObject>)p4;
 
-/* Skipped method : System.Text.StringBuilder AppendFormat(System.IFormatProvider provider, System.String format, System.Object arg0) */
-
-/* Skipped method : System.Text.StringBuilder AppendFormat(System.IFormatProvider provider, System.String format, System.Object arg0, System.Object arg1) */
-
-/* Skipped method : System.Text.StringBuilder AppendFormat(System.IFormatProvider provider, System.String format, System.Object arg0, System.Object arg1, System.Object arg2) */
-
 /**
  Managed method.
  @textblock
@@ -577,7 +623,115 @@
 */
 - (System_Text_StringBuilder *)appendFormat_withFormat:(NSString *)p1 args:(System_Array *)p2;
 
+/* Skipped method : System.Text.StringBuilder AppendFormat(System.IFormatProvider provider, System.String format, System.Object arg0) */
+
+/* Skipped method : System.Text.StringBuilder AppendFormat(System.IFormatProvider provider, System.String format, System.Object arg0, System.Object arg1) */
+
+/* Skipped method : System.Text.StringBuilder AppendFormat(System.IFormatProvider provider, System.String format, System.Object arg0, System.Object arg1, System.Object arg2) */
+
 /* Skipped method : System.Text.StringBuilder AppendFormat(System.IFormatProvider provider, System.String format, System.Object[] args) */
+
+/**
+ Managed method.
+ @textblock
+ Name
+   AppendJoin
+
+ Params
+   System.String
+   System.Object[]
+
+ Return
+   System.Text.StringBuilder
+ @/textblock
+*/
+- (System_Text_StringBuilder *)appendJoin_withSeparatorString:(NSString *)p1 valuesObjectArray:(System_Array *)p2;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   AppendJoin
+
+ Params
+   System.String
+   System.Collections.Generic.IEnumerable`1<System.Text.StringBuilder+T>
+
+ Generics
+   <System.Text.StringBuilder+T>
+
+ Return
+   System.Text.StringBuilder
+ @/textblock
+*/
+- (System_Text_StringBuilder *)appendJoin_withSeparatorString:(NSString *)p1 valuesSCGITStringBuilder__T:(System_Object <System_Collections_Generic_IEnumerableA1_> *)p2 typeParameter:(id)typeParameter;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   AppendJoin
+
+ Params
+   System.String
+   System.String[]
+
+ Return
+   System.Text.StringBuilder
+ @/textblock
+*/
+- (System_Text_StringBuilder *)appendJoin_withSeparatorString:(NSString *)p1 valuesStringArray:(System_Array *)p2;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   AppendJoin
+
+ Params
+   System.Char
+   System.Object[]
+
+ Return
+   System.Text.StringBuilder
+ @/textblock
+*/
+- (System_Text_StringBuilder *)appendJoin_withSeparatorChar:(uint16_t)p1 valuesObjectArray:(System_Array *)p2;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   AppendJoin
+
+ Params
+   System.Char
+   System.Collections.Generic.IEnumerable`1<System.Text.StringBuilder+T>
+
+ Generics
+   <System.Text.StringBuilder+T>
+
+ Return
+   System.Text.StringBuilder
+ @/textblock
+*/
+- (System_Text_StringBuilder *)appendJoin_withSeparatorChar:(uint16_t)p1 valuesSCGITStringBuilder__T:(System_Object <System_Collections_Generic_IEnumerableA1_> *)p2 typeParameter:(id)typeParameter;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   AppendJoin
+
+ Params
+   System.Char
+   System.String[]
+
+ Return
+   System.Text.StringBuilder
+ @/textblock
+*/
+- (System_Text_StringBuilder *)appendJoin_withSeparatorChar:(uint16_t)p1 valuesStringArray:(System_Array *)p2;
 
 /**
  Managed method.
@@ -646,6 +800,23 @@
  Managed method.
  @textblock
  Name
+   CopyTo
+
+ Params
+   System.Int32
+   System.Span`1<System.Char>
+   System.Int32
+
+ Return
+   System.Void
+ @/textblock
+*/
+- (void)copyTo_withSourceIndex:(int32_t)p1 destination:(System_SpanA1 *)p2 count:(int32_t)p3;
+
+/**
+ Managed method.
+ @textblock
+ Name
    EnsureCapacity
 
  Params
@@ -671,6 +842,21 @@
  @/textblock
 */
 - (BOOL)equals_withSb:(System_Text_StringBuilder *)p1;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   Equals
+
+ Params
+   System.ReadOnlySpan`1<System.Char>
+
+ Return
+   System.Boolean
+ @/textblock
+*/
+- (BOOL)equals_withSpan:(System_ReadOnlySpanA1 *)p1;
 
 /**
  Managed method.
@@ -704,6 +890,22 @@
  @/textblock
 */
 - (System_Text_StringBuilder *)insert_withIndexInt:(int32_t)p1 valueString:(NSString *)p2;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   Insert
+
+ Params
+   System.Int32
+   System.Boolean
+
+ Return
+   System.Text.StringBuilder
+ @/textblock
+*/
+- (System_Text_StringBuilder *)insert_withIndexInt:(int32_t)p1 valueBool:(BOOL)p2;
 
 /**
  Managed method.
@@ -955,13 +1157,13 @@
 
  Params
    System.Int32
-   System.Boolean
+   System.ReadOnlySpan`1<System.Char>
 
  Return
    System.Text.StringBuilder
  @/textblock
 */
-- (System_Text_StringBuilder *)insert_withIndexInt:(int32_t)p1 valueBool:(BOOL)p2;
+- (System_Text_StringBuilder *)insert_withIndexInt:(int32_t)p1 valueSReadOnlySpanA1char:(System_ReadOnlySpanA1 *)p2;
 
 /**
  Managed method.

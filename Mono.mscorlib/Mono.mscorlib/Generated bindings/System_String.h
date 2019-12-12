@@ -29,6 +29,7 @@
 @class System_IEquatableA1;
 @class System_Int32;
 @class System_Object;
+@class System_ReadOnlySpanA1;
 @class System_String;
 @class System_StringComparison;
 @class System_Text_Encoding;
@@ -52,7 +53,7 @@
 #import "System_IEquatableA1_Protocol.h"
 #import "System_Object.h"
 
-@interface System_String : System_Object <System_IComparable_, System_ICloneable_, System_Collections_IEnumerable_, System_IComparableA1_, System_Collections_Generic_IEnumerableA1_, System_IEquatableA1_>
+@interface System_String : System_Object <System_Collections_IEnumerable_, System_ICloneable_, System_IComparable_, System_IComparableA1_, System_IEquatableA1_, System_Collections_Generic_IEnumerableA1_>
 
 #pragma mark -
 #pragma mark Setup
@@ -62,33 +63,6 @@
 
 #pragma mark -
 #pragma mark Constructors
-
-/* Skipped constructor : System.String (System.Char* value) */
-
-/* Skipped constructor : System.String (System.Char* value, System.Int32 startIndex, System.Int32 length) */
-
-/* Skipped constructor : System.String (System.SByte* value) */
-
-/* Skipped constructor : System.String (System.SByte* value, System.Int32 startIndex, System.Int32 length) */
-
-/* Skipped constructor : System.String (System.SByte* value, System.Int32 startIndex, System.Int32 length, System.Text.Encoding enc) */
-
-/**
- Managed method.
- @textblock
- Name
-   .ctor
-
- Params
-   System.Char[]
-   System.Int32
-   System.Int32
-
- Return
-   System.String
- @/textblock
-*/
-+ (System_String *)new_withValueCharArray:(System_Array *)p1 startIndexInt:(int32_t)p2 lengthInt:(int32_t)p3;
 
 /**
  Managed method.
@@ -112,6 +86,33 @@
    .ctor
 
  Params
+   System.Char[]
+   System.Int32
+   System.Int32
+
+ Return
+   System.String
+ @/textblock
+*/
++ (System_String *)new_withValueCharArray:(System_Array *)p1 startIndexInt:(int32_t)p2 lengthInt:(int32_t)p3;
+
+/* Skipped constructor : System.String (System.Char* value) */
+
+/* Skipped constructor : System.String (System.Char* value, System.Int32 startIndex, System.Int32 length) */
+
+/* Skipped constructor : System.String (System.SByte* value) */
+
+/* Skipped constructor : System.String (System.SByte* value, System.Int32 startIndex, System.Int32 length) */
+
+/* Skipped constructor : System.String (System.SByte* value, System.Int32 startIndex, System.Int32 length, System.Text.Encoding enc) */
+
+/**
+ Managed method.
+ @textblock
+ Name
+   .ctor
+
+ Params
    System.Char
    System.Int32
 
@@ -120,6 +121,21 @@
  @/textblock
 */
 + (System_String *)new_withC:(uint16_t)p1 count:(int32_t)p2;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   .ctor
+
+ Params
+   System.ReadOnlySpan`1<System.Char>
+
+ Return
+   System.String
+ @/textblock
+*/
++ (System_String *)new_withValueSReadOnlySpanA1char:(System_ReadOnlySpanA1 *)p1;
 
 #pragma mark -
 #pragma mark Fields
@@ -456,16 +472,13 @@
    Concat
 
  Params
-   System.Object
-   System.Object
-   System.Object
-   System.Object
+   System.Object[]
 
  Return
    System.String
  @/textblock
 */
-+ (NSString *)concat_withArg0:(id <DBMonoObject>)p1 arg1:(id <DBMonoObject>)p2 arg2:(id <DBMonoObject>)p3 arg3:(id <DBMonoObject>)p4;
++ (NSString *)concat_withArgs:(System_Array *)p1;
 
 /**
  Managed method.
@@ -474,13 +487,16 @@
    Concat
 
  Params
-   System.Object[]
+   System.Collections.Generic.IEnumerable`1<System.String+T>
+
+ Generics
+   <System.String+T>
 
  Return
    System.String
  @/textblock
 */
-+ (NSString *)concat_withArgs:(System_Array *)p1;
++ (NSString *)concat_withValuesSCGIEnumerableA1string__T:(System_Object <System_Collections_Generic_IEnumerableA1_> *)p1 typeParameter:(id)typeParameter;
 
 /**
  Managed method.
@@ -570,16 +586,16 @@
    Concat
 
  Params
-   System.Collections.Generic.IEnumerable`1<System.String+T>
-
- Generics
-   <System.String+T>
+   System.Object
+   System.Object
+   System.Object
+   System.Object
 
  Return
    System.String
  @/textblock
 */
-+ (NSString *)concat_withValuesSCGIEnumerableA1string__T:(System_Object <System_Collections_Generic_IEnumerableA1_> *)p1 typeParameter:(id)typeParameter;
++ (NSString *)concat_withArg0:(id <DBMonoObject>)p1 arg1:(id <DBMonoObject>)p2 arg2:(id <DBMonoObject>)p3 arg3:(id <DBMonoObject>)p4;
 
 /**
  Managed method.
@@ -594,7 +610,54 @@
    System.Boolean
  @/textblock
 */
-- (BOOL)contains_withValue:(NSString *)p1;
+- (BOOL)contains_withValueString:(NSString *)p1;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   Contains
+
+ Params
+   System.String
+   System.StringComparison
+
+ Return
+   System.Boolean
+ @/textblock
+*/
+- (BOOL)contains_withValueString:(NSString *)p1 comparisonTypeStringComparison:(enumSystem_StringComparison)p2;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   Contains
+
+ Params
+   System.Char
+
+ Return
+   System.Boolean
+ @/textblock
+*/
+- (BOOL)contains_withValueChar:(uint16_t)p1;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   Contains
+
+ Params
+   System.Char
+   System.StringComparison
+
+ Return
+   System.Boolean
+ @/textblock
+*/
+- (BOOL)contains_withValueChar:(uint16_t)p1 comparisonTypeStringComparison:(enumSystem_StringComparison)p2;
 
 /**
  Managed method.
@@ -629,6 +692,8 @@
 */
 - (void)copyTo_withSourceIndex:(int32_t)p1 destination:(System_Array *)p2 destinationIndex:(int32_t)p3 count:(int32_t)p4;
 
+/* Skipped method : System.String Create(System.Int32 length, System.String+TState state, System.Buffers.SpanAction`2<System.Char, System.String+TState> action) */
+
 /**
  Managed method.
  @textblock
@@ -642,7 +707,7 @@
    System.Boolean
  @/textblock
 */
-- (BOOL)endsWith_withValue:(NSString *)p1;
+- (BOOL)endsWith_withValueString:(NSString *)p1;
 
 /**
  Managed method.
@@ -676,6 +741,21 @@
  @/textblock
 */
 - (BOOL)endsWith_withValue:(NSString *)p1 ignoreCase:(BOOL)p2 culture:(System_Globalization_CultureInfo *)p3;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   EndsWith
+
+ Params
+   System.Char
+
+ Return
+   System.Boolean
+ @/textblock
+*/
+- (BOOL)endsWith_withValueChar:(uint16_t)p1;
 
 /**
  Managed method.
@@ -807,12 +887,6 @@
 */
 + (NSString *)format_withFormat:(NSString *)p1 arg0:(id <DBMonoObject>)p2 arg1:(id <DBMonoObject>)p3 arg2:(id <DBMonoObject>)p4;
 
-/* Skipped method : System.String Format(System.IFormatProvider provider, System.String format, System.Object arg0) */
-
-/* Skipped method : System.String Format(System.IFormatProvider provider, System.String format, System.Object arg0, System.Object arg1) */
-
-/* Skipped method : System.String Format(System.IFormatProvider provider, System.String format, System.Object arg0, System.Object arg1, System.Object arg2) */
-
 /**
  Managed method.
  @textblock
@@ -828,6 +902,12 @@
  @/textblock
 */
 + (NSString *)format_withFormat:(NSString *)p1 args:(System_Array *)p2;
+
+/* Skipped method : System.String Format(System.IFormatProvider provider, System.String format, System.Object arg0) */
+
+/* Skipped method : System.String Format(System.IFormatProvider provider, System.String format, System.Object arg0, System.Object arg1) */
+
+/* Skipped method : System.String Format(System.IFormatProvider provider, System.String format, System.Object arg0, System.Object arg1, System.Object arg2) */
 
 /* Skipped method : System.String Format(System.IFormatProvider provider, System.String format, System.Object[] args) */
 
@@ -847,6 +927,21 @@
  @/textblock
 */
 - (int32_t)getHashCode;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   GetHashCode
+
+ Params
+   System.StringComparison
+
+ Return
+   System.Int32
+ @/textblock
+*/
+- (int32_t)getHashCode_withComparisonType:(enumSystem_StringComparison)p1;
 
 /* Skipped method : System.TypeCode GetTypeCode() */
 
@@ -880,6 +975,39 @@
  @/textblock
 */
 - (int32_t)indexOf_withValueChar:(uint16_t)p1 startIndexInt:(int32_t)p2;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   IndexOf
+
+ Params
+   System.Char
+   System.StringComparison
+
+ Return
+   System.Int32
+ @/textblock
+*/
+- (int32_t)indexOf_withValueChar:(uint16_t)p1 comparisonTypeStringComparison:(enumSystem_StringComparison)p2;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   IndexOf
+
+ Params
+   System.Char
+   System.Int32
+   System.Int32
+
+ Return
+   System.Int32
+ @/textblock
+*/
+- (int32_t)indexOf_withValueChar:(uint16_t)p1 startIndexInt:(int32_t)p2 countInt:(int32_t)p3;
 
 /**
  Managed method.
@@ -943,7 +1071,7 @@
    System.Int32
  @/textblock
 */
-- (int32_t)indexOf_withValue:(NSString *)p1 comparisonType:(enumSystem_StringComparison)p2;
+- (int32_t)indexOf_withValueString:(NSString *)p1 comparisonTypeStringComparison:(enumSystem_StringComparison)p2;
 
 /**
  Managed method.
@@ -979,23 +1107,6 @@
  @/textblock
 */
 - (int32_t)indexOf_withValue:(NSString *)p1 startIndex:(int32_t)p2 count:(int32_t)p3 comparisonType:(enumSystem_StringComparison)p4;
-
-/**
- Managed method.
- @textblock
- Name
-   IndexOf
-
- Params
-   System.Char
-   System.Int32
-   System.Int32
-
- Return
-   System.Int32
- @/textblock
-*/
-- (int32_t)indexOf_withValueChar:(uint16_t)p1 startIndexInt:(int32_t)p2 countInt:(int32_t)p3;
 
 /**
  Managed method.
@@ -1145,6 +1256,75 @@
    Join
 
  Params
+   System.Char
+   System.String[]
+
+ Return
+   System.String
+ @/textblock
+*/
++ (NSString *)join_withSeparatorChar:(uint16_t)p1 valueStringArray:(System_Array *)p2;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   Join
+
+ Params
+   System.Char
+   System.Object[]
+
+ Return
+   System.String
+ @/textblock
+*/
++ (NSString *)join_withSeparatorChar:(uint16_t)p1 valuesObjectArray:(System_Array *)p2;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   Join
+
+ Params
+   System.Char
+   System.Collections.Generic.IEnumerable`1<System.String+T>
+
+ Generics
+   <System.String+T>
+
+ Return
+   System.String
+ @/textblock
+*/
++ (NSString *)join_withSeparatorChar:(uint16_t)p1 valuesSCGIEnumerableA1string__T:(System_Object <System_Collections_Generic_IEnumerableA1_> *)p2 typeParameter:(id)typeParameter;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   Join
+
+ Params
+   System.Char
+   System.String[]
+   System.Int32
+   System.Int32
+
+ Return
+   System.String
+ @/textblock
+*/
++ (NSString *)join_withSeparatorChar:(uint16_t)p1 valueStringArray:(System_Array *)p2 startIndexInt:(int32_t)p3 countInt:(int32_t)p4;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   Join
+
+ Params
    System.String
    System.String[]
 
@@ -1152,7 +1332,7 @@
    System.String
  @/textblock
 */
-+ (NSString *)join_withSeparator:(NSString *)p1 value:(System_Array *)p2;
++ (NSString *)join_withSeparatorString:(NSString *)p1 valueStringArray:(System_Array *)p2;
 
 /**
  Managed method.
@@ -1169,6 +1349,25 @@
  @/textblock
 */
 + (NSString *)join_withSeparatorString:(NSString *)p1 valuesObjectArray:(System_Array *)p2;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   Join
+
+ Params
+   System.String
+   System.Collections.Generic.IEnumerable`1<System.String+T>
+
+ Generics
+   <System.String+T>
+
+ Return
+   System.String
+ @/textblock
+*/
++ (NSString *)join_withSeparatorString:(NSString *)p1 valuesSCGIEnumerableA1string__T:(System_Object <System_Collections_Generic_IEnumerableA1_> *)p2 typeParameter:(id)typeParameter;
 
 /**
  Managed method.
@@ -1202,26 +1401,7 @@
    System.String
  @/textblock
 */
-+ (NSString *)join_withSeparator:(NSString *)p1 value:(System_Array *)p2 startIndex:(int32_t)p3 count:(int32_t)p4;
-
-/**
- Managed method.
- @textblock
- Name
-   Join
-
- Params
-   System.String
-   System.Collections.Generic.IEnumerable`1<System.String+T>
-
- Generics
-   <System.String+T>
-
- Return
-   System.String
- @/textblock
-*/
-+ (NSString *)join_withSeparatorString:(NSString *)p1 valuesSCGIEnumerableA1string__T:(System_Object <System_Collections_Generic_IEnumerableA1_> *)p2 typeParameter:(id)typeParameter;
++ (NSString *)join_withSeparatorString:(NSString *)p1 valueStringArray:(System_Array *)p2 startIndexInt:(int32_t)p3 countInt:(int32_t)p4;
 
 /**
  Managed method.
@@ -1253,6 +1433,23 @@
  @/textblock
 */
 - (int32_t)lastIndexOf_withValueChar:(uint16_t)p1 startIndexInt:(int32_t)p2;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   LastIndexOf
+
+ Params
+   System.Char
+   System.Int32
+   System.Int32
+
+ Return
+   System.Int32
+ @/textblock
+*/
+- (int32_t)lastIndexOf_withValueChar:(uint16_t)p1 startIndexInt:(int32_t)p2 countInt:(int32_t)p3;
 
 /**
  Managed method.
@@ -1357,23 +1554,6 @@
  Managed method.
  @textblock
  Name
-   LastIndexOf
-
- Params
-   System.Char
-   System.Int32
-   System.Int32
-
- Return
-   System.Int32
- @/textblock
-*/
-- (int32_t)lastIndexOf_withValueChar:(uint16_t)p1 startIndexInt:(int32_t)p2 countInt:(int32_t)p3;
-
-/**
- Managed method.
- @textblock
- Name
    LastIndexOfAny
 
  Params
@@ -1450,6 +1630,21 @@
  @/textblock
 */
 + (BOOL)op_Equality_withA:(NSString *)p1 b:(NSString *)p2;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   op_Implicit
+
+ Params
+   System.String
+
+ Return
+   System.ReadOnlySpan`1<System.Char>
+ @/textblock
+*/
++ (System_ReadOnlySpanA1 *)op_Implicit_withValue:(NSString *)p1;
 
 /**
  Managed method.
@@ -1567,6 +1762,41 @@
    Replace
 
  Params
+   System.String
+   System.String
+   System.Boolean
+   System.Globalization.CultureInfo
+
+ Return
+   System.String
+ @/textblock
+*/
+- (NSString *)replace_withOldValue:(NSString *)p1 newValue:(NSString *)p2 ignoreCase:(BOOL)p3 culture:(System_Globalization_CultureInfo *)p4;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   Replace
+
+ Params
+   System.String
+   System.String
+   System.StringComparison
+
+ Return
+   System.String
+ @/textblock
+*/
+- (NSString *)replace_withOldValue:(NSString *)p1 newValue:(NSString *)p2 comparisonType:(enumSystem_StringComparison)p3;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   Replace
+
+ Params
    System.Char
    System.Char
 
@@ -1591,6 +1821,10 @@
  @/textblock
 */
 - (NSString *)replace_withOldValue:(NSString *)p1 newValue:(NSString *)p2;
+
+/* Skipped method : System.String[] Split(System.Char separator, System.StringSplitOptions options) */
+
+/* Skipped method : System.String[] Split(System.Char separator, System.Int32 count, System.StringSplitOptions options) */
 
 /**
  Managed method.
@@ -1627,6 +1861,10 @@
 
 /* Skipped method : System.String[] Split(System.Char[] separator, System.Int32 count, System.StringSplitOptions options) */
 
+/* Skipped method : System.String[] Split(System.String separator, System.StringSplitOptions options) */
+
+/* Skipped method : System.String[] Split(System.String separator, System.Int32 count, System.StringSplitOptions options) */
+
 /* Skipped method : System.String[] Split(System.String[] separator, System.StringSplitOptions options) */
 
 /* Skipped method : System.String[] Split(System.String[] separator, System.Int32 count, System.StringSplitOptions options) */
@@ -1644,7 +1882,7 @@
    System.Boolean
  @/textblock
 */
-- (BOOL)startsWith_withValue:(NSString *)p1;
+- (BOOL)startsWith_withValueString:(NSString *)p1;
 
 /**
  Managed method.
@@ -1678,6 +1916,21 @@
  @/textblock
 */
 - (BOOL)startsWith_withValue:(NSString *)p1 ignoreCase:(BOOL)p2 culture:(System_Globalization_CultureInfo *)p3;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   StartsWith
+
+ Params
+   System.Char
+
+ Return
+   System.Boolean
+ @/textblock
+*/
+- (BOOL)startsWith_withValueChar:(uint16_t)p1;
 
 /**
  Managed method.
@@ -1855,6 +2108,36 @@
    Trim
 
  Params
+   (none)
+
+ Return
+   System.String
+ @/textblock
+*/
+- (NSString *)trim;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   Trim
+
+ Params
+   System.Char
+
+ Return
+   System.String
+ @/textblock
+*/
+- (NSString *)trim_withTrimChar:(uint16_t)p1;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   Trim
+
+ Params
    System.Char[]
 
  Return
@@ -1867,7 +2150,7 @@
  Managed method.
  @textblock
  Name
-   Trim
+   TrimEnd
 
  Params
    (none)
@@ -1876,7 +2159,22 @@
    System.String
  @/textblock
 */
-- (NSString *)trim;
+- (NSString *)trimEnd;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   TrimEnd
+
+ Params
+   System.Char
+
+ Return
+   System.String
+ @/textblock
+*/
+- (NSString *)trimEnd_withTrimChar:(uint16_t)p1;
 
 /**
  Managed method.
@@ -1892,6 +2190,36 @@
  @/textblock
 */
 - (NSString *)trimEnd_withTrimChars:(System_Array *)p1;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   TrimStart
+
+ Params
+   (none)
+
+ Return
+   System.String
+ @/textblock
+*/
+- (NSString *)trimStart;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   TrimStart
+
+ Params
+   System.Char
+
+ Return
+   System.String
+ @/textblock
+*/
+- (NSString *)trimStart_withTrimChar:(uint16_t)p1;
 
 /**
  Managed method.

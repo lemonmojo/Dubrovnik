@@ -33,9 +33,15 @@
 #pragma mark -
 #pragma mark Constructors
 
-+ (System_Guid *)new_withB:(NSData *)p1
++ (System_Guid *)new_withBByteArray:(NSData *)p1
 {
 	System_Guid * object = [[self alloc] initWithSignature:"byte[]" withNumArgs:1, [p1 monoRTInvokeObject]];
+	return object;
+}
+
++ (System_Guid *)new_withBSReadOnlySpanA1byte:(System_ReadOnlySpanA1 *)p1
+{
+	System_Guid * object = [[self alloc] initWithSignature:"System.ReadOnlySpan`1<byte>" withNumArgs:1, [p1 monoRTInvokeArg]];
 	return object;
 }
 
@@ -127,15 +133,27 @@ static System_Guid * m_empty;
 	return DB_UNBOX_BOOLEAN(monoObject);
 }
 
-+ (System_Guid *)parse_withInput:(NSString *)p1
++ (System_Guid *)parse_withInputString:(NSString *)p1
 {
 	MonoObject *monoObject = [self invokeMonoClassMethod:"Parse(string)" withNumArgs:1, [p1 monoRTInvokeObject]];
 	return [System_Guid bestObjectWithMonoObject:monoObject];
 }
 
-+ (System_Guid *)parseExact_withInput:(NSString *)p1 format:(NSString *)p2
++ (System_Guid *)parse_withInputSReadOnlySpanA1char:(System_ReadOnlySpanA1 *)p1
+{
+	MonoObject *monoObject = [self invokeMonoClassMethod:"Parse(System.ReadOnlySpan`1<char>)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	return [System_Guid bestObjectWithMonoObject:monoObject];
+}
+
++ (System_Guid *)parseExact_withInputString:(NSString *)p1 formatString:(NSString *)p2
 {
 	MonoObject *monoObject = [self invokeMonoClassMethod:"ParseExact(string,string)" withNumArgs:2, [p1 monoRTInvokeObject], [p2 monoRTInvokeObject]];
+	return [System_Guid bestObjectWithMonoObject:monoObject];
+}
+
++ (System_Guid *)parseExact_withInputSReadOnlySpanA1char:(System_ReadOnlySpanA1 *)p1 formatSReadOnlySpanA1char:(System_ReadOnlySpanA1 *)p2
+{
+	MonoObject *monoObject = [self invokeMonoClassMethod:"ParseExact(System.ReadOnlySpan`1<char>,System.ReadOnlySpan`1<char>)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
 	return [System_Guid bestObjectWithMonoObject:monoObject];
 }
 
@@ -145,21 +163,27 @@ static System_Guid * m_empty;
 	return [NSData dataWithMonoArray:DB_ARRAY(monoObject)];
 }
 
-- (NSString *)toString_withFormat:(NSString *)p1
-{
-	MonoObject *monoObject = [self invokeMonoMethod:"ToString(string)" withNumArgs:1, [p1 monoRTInvokeObject]];
-	return [NSString stringWithMonoString:DB_STRING(monoObject)];
-}
-
 - (NSString *)toString
 {
 	MonoObject *monoObject = [self invokeMonoMethod:"ToString()" withNumArgs:0];
 	return [NSString stringWithMonoString:DB_STRING(monoObject)];
 }
 
+- (NSString *)toString_withFormat:(NSString *)p1
+{
+	MonoObject *monoObject = [self invokeMonoMethod:"ToString(string)" withNumArgs:1, [p1 monoRTInvokeObject]];
+	return [NSString stringWithMonoString:DB_STRING(monoObject)];
+}
+
 /* Skipped method : System.String ToString(System.String format, System.IFormatProvider provider) */
 
-+ (BOOL)tryParse_withInput:(NSString *)p1 resultRef:(System_Guid **)p2
+- (BOOL)tryFormat_withDestination:(System_SpanA1 *)p1 charsWrittenRef:(int32_t*)p2 format:(System_ReadOnlySpanA1 *)p3
+{
+	MonoObject *monoObject = [self invokeMonoMethod:"TryFormat(System.Span`1<char>,int&,System.ReadOnlySpan`1<char>)" withNumArgs:3, [p1 monoRTInvokeArg], p2, [p3 monoRTInvokeArg]];
+	return DB_UNBOX_BOOLEAN(monoObject);
+}
+
++ (BOOL)tryParse_withInputString:(NSString *)p1 resultSGuidRef:(System_Guid **)p2
 {
 	void *refPtr2 = [*p2 monoRTInvokeArg];
 	MonoObject *monoObject = [self invokeMonoClassMethod:"TryParse(string,System.Guid&)" withNumArgs:2, [p1 monoRTInvokeObject], &refPtr2];
@@ -167,11 +191,33 @@ static System_Guid * m_empty;
 	return DB_UNBOX_BOOLEAN(monoObject);
 }
 
-+ (BOOL)tryParseExact_withInput:(NSString *)p1 format:(NSString *)p2 resultRef:(System_Guid **)p3
++ (BOOL)tryParse_withInputSReadOnlySpanA1char:(System_ReadOnlySpanA1 *)p1 resultSGuidRef:(System_Guid **)p2
+{
+	void *refPtr2 = [*p2 monoRTInvokeArg];
+	MonoObject *monoObject = [self invokeMonoClassMethod:"TryParse(System.ReadOnlySpan`1<char>,System.Guid&)" withNumArgs:2, [p1 monoRTInvokeArg], &refPtr2];
+	*p2 = [System_Object bestObjectWithMonoObject:refPtr2];
+	return DB_UNBOX_BOOLEAN(monoObject);
+}
+
++ (BOOL)tryParseExact_withInputString:(NSString *)p1 formatString:(NSString *)p2 resultSGuidRef:(System_Guid **)p3
 {
 	void *refPtr3 = [*p3 monoRTInvokeArg];
 	MonoObject *monoObject = [self invokeMonoClassMethod:"TryParseExact(string,string,System.Guid&)" withNumArgs:3, [p1 monoRTInvokeObject], [p2 monoRTInvokeObject], &refPtr3];
 	*p3 = [System_Object bestObjectWithMonoObject:refPtr3];
+	return DB_UNBOX_BOOLEAN(monoObject);
+}
+
++ (BOOL)tryParseExact_withInputSReadOnlySpanA1char:(System_ReadOnlySpanA1 *)p1 formatSReadOnlySpanA1char:(System_ReadOnlySpanA1 *)p2 resultSGuidRef:(System_Guid **)p3
+{
+	void *refPtr3 = [*p3 monoRTInvokeArg];
+	MonoObject *monoObject = [self invokeMonoClassMethod:"TryParseExact(System.ReadOnlySpan`1<char>,System.ReadOnlySpan`1<char>,System.Guid&)" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], &refPtr3];
+	*p3 = [System_Object bestObjectWithMonoObject:refPtr3];
+	return DB_UNBOX_BOOLEAN(monoObject);
+}
+
+- (BOOL)tryWriteBytes_withDestination:(System_SpanA1 *)p1
+{
+	MonoObject *monoObject = [self invokeMonoMethod:"TryWriteBytes(System.Span`1<byte>)" withNumArgs:1, [p1 monoRTInvokeArg]];
 	return DB_UNBOX_BOOLEAN(monoObject);
 }
 

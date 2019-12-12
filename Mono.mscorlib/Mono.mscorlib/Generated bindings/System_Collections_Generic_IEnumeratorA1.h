@@ -37,7 +37,7 @@
 #import "System_IDisposable_Protocol.h"
 #import "System_Object.h"
 
-@interface System_Collections_Generic_IEnumeratorA1 : System_Object <System_Collections_Generic_IEnumeratorA1_, System_IDisposable_, System_Collections_IEnumerator_>
+@interface System_Collections_Generic_IEnumeratorA1 : System_Object <System_Collections_Generic_IEnumeratorA1_, System_Collections_IEnumerator_, System_IDisposable_>
 
 #pragma mark -
 #pragma mark Setup

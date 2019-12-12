@@ -33,18 +33,6 @@
 #pragma mark -
 #pragma mark Constructors
 
-+ (System_Globalization_CultureInfo *)new_withName:(NSString *)p1
-{
-	System_Globalization_CultureInfo * object = [[self alloc] initWithSignature:"string" withNumArgs:1, [p1 monoRTInvokeObject]];
-	return object;
-}
-
-+ (System_Globalization_CultureInfo *)new_withName:(NSString *)p1 useUserOverride:(BOOL)p2
-{
-	System_Globalization_CultureInfo * object = [[self alloc] initWithSignature:"string,bool" withNumArgs:2, [p1 monoRTInvokeObject], &p2];
-	return object;
-}
-
 + (System_Globalization_CultureInfo *)new_withCulture:(int32_t)p1
 {
 	System_Globalization_CultureInfo * object = [[self alloc] initWithSignature:"int" withNumArgs:1, &p1];
@@ -54,6 +42,18 @@
 + (System_Globalization_CultureInfo *)new_withCulture:(int32_t)p1 useUserOverride:(BOOL)p2
 {
 	System_Globalization_CultureInfo * object = [[self alloc] initWithSignature:"int,bool" withNumArgs:2, &p1, &p2];
+	return object;
+}
+
++ (System_Globalization_CultureInfo *)new_withName:(NSString *)p1
+{
+	System_Globalization_CultureInfo * object = [[self alloc] initWithSignature:"string" withNumArgs:1, [p1 monoRTInvokeObject]];
+	return object;
+}
+
++ (System_Globalization_CultureInfo *)new_withName:(NSString *)p1 useUserOverride:(BOOL)p2
+{
+	System_Globalization_CultureInfo * object = [[self alloc] initWithSignature:"string,bool" withNumArgs:2, [p1 monoRTInvokeObject], &p2];
 	return object;
 }
 

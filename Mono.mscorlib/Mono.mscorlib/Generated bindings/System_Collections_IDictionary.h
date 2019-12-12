@@ -41,7 +41,7 @@
 #import "System_Collections_IEnumerable_Protocol.h"
 #import "System_Object.h"
 
-@interface System_Collections_IDictionary : System_Object <System_Collections_IDictionary_, System_Collections_ICollection_, System_Collections_IEnumerable_>
+@interface System_Collections_IDictionary : System_Object <System_Collections_IDictionary_, System_Collections_IEnumerable_, System_Collections_ICollection_>
 
 #pragma mark -
 #pragma mark Setup

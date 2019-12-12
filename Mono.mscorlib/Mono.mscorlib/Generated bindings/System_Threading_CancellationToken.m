@@ -143,6 +143,8 @@ static System_Threading_CancellationToken * m_none;
 
 /* Skipped method : System.Threading.CancellationTokenRegistration Register(System.Action`1<System.Object> callback, System.Object state, System.Boolean useSynchronizationContext) */
 
+/* Skipped method : System.Threading.CancellationTokenRegistration Register(System.Action`1<System.Object> callback, System.Object state, System.Boolean useSynchronizationContext, System.Boolean useExecutionContext) */
+
 - (void)throwIfCancellationRequested
 {
 	[self invokeMonoMethod:"ThrowIfCancellationRequested()" withNumArgs:0];

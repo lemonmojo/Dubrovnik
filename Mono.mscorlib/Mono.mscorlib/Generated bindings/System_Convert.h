@@ -29,8 +29,10 @@
 @class System_Int32;
 @class System_Int64;
 @class System_Object;
+@class System_ReadOnlySpanA1;
 @class System_SByte;
 @class System_Single;
+@class System_SpanA1;
 @class System_String;
 @class System_Type;
 @class System_UInt16;
@@ -200,6 +202,8 @@
 + (NSString *)toBase64String_withInArray:(NSData *)p1 offset:(int32_t)p2 length:(int32_t)p3;
 
 /* Skipped method : System.String ToBase64String(System.Byte[] inArray, System.Int32 offset, System.Int32 length, System.Base64FormattingOptions options) */
+
+/* Skipped method : System.String ToBase64String(System.ReadOnlySpan`1<System.Byte> bytes, System.Base64FormattingOptions options) */
 
 /**
  Managed method.
@@ -2989,6 +2993,23 @@
    ToString
 
  Params
+   System.Boolean
+
+ Return
+   System.String
+ @/textblock
+*/
++ (NSString *)toString_withValueBool:(BOOL)p1;
+
+/* Skipped method : System.String ToString(System.Boolean value, System.IFormatProvider provider) */
+
+/**
+ Managed method.
+ @textblock
+ Name
+   ToString
+
+ Params
    System.Char
 
  Return
@@ -3283,23 +3304,6 @@
  @/textblock
 */
 + (NSString *)toString_withValueLong:(int64_t)p1 toBaseInt:(int32_t)p2;
-
-/**
- Managed method.
- @textblock
- Name
-   ToString
-
- Params
-   System.Boolean
-
- Return
-   System.String
- @/textblock
-*/
-+ (NSString *)toString_withValueBool:(BOOL)p1;
-
-/* Skipped method : System.String ToString(System.Boolean value, System.IFormatProvider provider) */
 
 /**
  Managed method.
@@ -4080,5 +4084,41 @@
  @/textblock
 */
 + (uint64_t)toUInt64_withValue:(NSString *)p1 fromBase:(int32_t)p2;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   TryFromBase64Chars
+
+ Params
+   System.ReadOnlySpan`1<System.Char>
+   System.Span`1<System.Byte>
+   ref System.Int32&
+
+ Return
+   System.Boolean
+ @/textblock
+*/
++ (BOOL)tryFromBase64Chars_withChars:(System_ReadOnlySpanA1 *)p1 bytes:(System_SpanA1 *)p2 bytesWrittenRef:(int32_t*)p3;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   TryFromBase64String
+
+ Params
+   System.String
+   System.Span`1<System.Byte>
+   ref System.Int32&
+
+ Return
+   System.Boolean
+ @/textblock
+*/
++ (BOOL)tryFromBase64String_withS:(NSString *)p1 bytes:(System_SpanA1 *)p2 bytesWrittenRef:(int32_t*)p3;
+
+/* Skipped method : System.Boolean TryToBase64Chars(System.ReadOnlySpan`1<System.Byte> bytes, System.Span`1<System.Char> chars, System.Int32& charsWritten, System.Base64FormattingOptions options) */
 @end
 //--Dubrovnik.CodeGenerator
