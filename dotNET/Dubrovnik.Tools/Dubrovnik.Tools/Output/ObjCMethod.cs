@@ -65,7 +65,7 @@ namespace Dubrovnik.Tools.Output
                 ObjCMethodType = "+";
                 if (facet.Parameters.Count == 0) {
                     // decorate class method names known to be unsafe
-                    if (n2c.UnsafeObjCClassMethodNames().Contains(ObjCMethodName)) {
+                    if (n2c.UnsafeObjCClassMethodNames.Contains(ObjCMethodName)) {
                         ObjCMethodName += "_";
                     }
                 }
@@ -73,10 +73,13 @@ namespace Dubrovnik.Tools.Output
             else {
                 ObjCMethodType = "-";
 
-                // decorate instance method names known to be unsafe
-                if (facet.Type != "System.Void" && n2c.UnsafeObjCMethodNames().Any(p => ObjCMethodName.StartsWith(p, false, null))) {
-                    ObjCMethodName = "db_" + ObjCMethodName;
-                }
+				// decorate instance method names known to be unsafe
+				if (facet.Type != "System.Void" && ObjCMethodName.StartsWith("init", false, null)) {
+					// methods beginning with init are expected to return a type related to the receiver
+					ObjCMethodName = "db_" + ObjCMethodName;
+				} else if (n2c.UnsafeObjCMethodNames.Contains(ObjCMethodName)) {
+					ObjCMethodName = "db_" + ObjCMethodName;
+				}
             }
 
             // Get ObjC declaration for method return type.

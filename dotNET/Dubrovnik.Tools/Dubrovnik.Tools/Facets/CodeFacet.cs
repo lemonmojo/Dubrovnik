@@ -396,6 +396,10 @@ namespace Dubrovnik.Tools.Facets
                 identifier.Replace("[]", ""); // an array of types - detect with IsArray
                 identifier.Replace("*", "");
                     // type is a pointer such as System.Void*, System.Char* - detect with IsPointer
+				identifier.Replace("[T]", string.Empty);
+					// generic type - see https://github.com/ThesaurusSoftware/Dubrovnik/issues/34
+				identifier.Replace("[TKey_TValue]", string.Empty);
+					// generic type - see https://github.com/ThesaurusSoftware/Dubrovnik/issues/34
 
                 // If the identifier is not now valid then we have a problem.
                 Regex validObjcCNameRegex = new Regex("^[A-Za-z_][A-Za-z_0-9]*$");
